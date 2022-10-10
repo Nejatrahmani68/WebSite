@@ -1,0 +1,12 @@
+D:\Active Project\WebsitePresentationApp\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+D:\Active Project\WebsitePresentationApp\DataAccess\bin\Debug\net6.0\DataAccess.dll
+D:\Active Project\WebsitePresentationApp\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.dll
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
