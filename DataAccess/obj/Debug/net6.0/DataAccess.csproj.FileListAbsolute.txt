@@ -10,3 +10,6 @@ D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.
 D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+D:\Active Project\WebsitePresentationApp\DataAccess\bin\Debug\net6.0\Model.dll
+D:\Active Project\WebsitePresentationApp\DataAccess\bin\Debug\net6.0\Model.pdb
+D:\Active Project\WebsitePresentationApp\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete

@@ -819,6 +819,16 @@
             "rid": "win"
           }
         }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
       }
     }
   },
@@ -2075,12 +2085,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.9",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.9"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.9",
+      "Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2114,7 +2130,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Active Project\\WebsitePresentationApp\\Model\\Model.csproj": {
+              "projectPath": "D:\\Active Project\\WebsitePresentationApp\\Model\\Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
