@@ -6,11 +6,10 @@ namespace DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
         }
-        public  DbSet<WebsiteActiveTimeControl> WebsiteActiveTimeControls { get; set; }
+        public  DbSet<WebsiteActiveTimeControl> WebsiteActiveTimeControls  { get; set; }
         public  DbSet<WebsiteThemControl> WebsiteThemControls { get; set; }
         public  DbSet<SectionFirstStep> SectionFirstSteps { get; set; }
         public  DbSet<SectionSecondStep> SectionSecondSteps { get; set; }
