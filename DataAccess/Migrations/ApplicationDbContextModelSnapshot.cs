@@ -22,6 +22,204 @@ namespace WebsitePresentation.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("Model.SectionFirstStep", b =>
                 {
                     b.Property<int>("Id")
@@ -39,10 +237,10 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -51,15 +249,15 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.ToTable("SectionFirstSteps", (string)null);
+                    b.ToTable("SectionFirstSteps");
                 });
 
             modelBuilder.Entity("Model.SectionPostAnswerStep", b =>
@@ -79,10 +277,10 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id_SectionPostCommentStep")
@@ -91,8 +289,8 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -101,7 +299,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasIndex("Id_SectionPostCommentStep");
 
-                    b.ToTable("SectionPostAnswerSteps", (string)null);
+                    b.ToTable("SectionPostAnswerSteps");
                 });
 
             modelBuilder.Entity("Model.SectionPostCommentStep", b =>
@@ -121,10 +319,10 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id_SectionPostStep")
@@ -133,8 +331,8 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -143,7 +341,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasIndex("Id_SectionPostStep");
 
-                    b.ToTable("SectionPostCommentSteps", (string)null);
+                    b.ToTable("SectionPostCommentSteps");
                 });
 
             modelBuilder.Entity("Model.SectionPostImage", b =>
@@ -160,11 +358,14 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Id_SectionPostStep")
+                        .HasColumnType("int");
 
                     b.Property<string>("PictureAddress")
                         .HasColumnType("nvarchar(max)");
@@ -172,8 +373,8 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -183,7 +384,9 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SectionPostImages", (string)null);
+                    b.HasIndex("Id_SectionPostStep");
+
+                    b.ToTable("SectionPostImages");
                 });
 
             modelBuilder.Entity("Model.SectionPostSocialVideo", b =>
@@ -200,17 +403,17 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -220,7 +423,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SectionPostSocialVideos", (string)null);
+                    b.ToTable("SectionPostSocialVideos");
                 });
 
             modelBuilder.Entity("Model.SectionPostStep", b =>
@@ -237,20 +440,14 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FullDescription")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Id_SectionPostImage")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id_SectionPostSocialVideo")
-                        .HasColumnType("int");
 
                     b.Property<int>("Id_SectionPostType")
                         .HasColumnType("int");
@@ -264,8 +461,8 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -273,20 +470,13 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("VideoAddress")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("Id_SectionPostImage");
-
-                    b.HasIndex("Id_SectionPostSocialVideo");
 
                     b.HasIndex("Id_SectionPostType");
 
                     b.HasIndex("Id_SectionThirdStep");
 
-                    b.ToTable("SectionPostSteps", (string)null);
+                    b.ToTable("SectionPostSteps");
                 });
 
             modelBuilder.Entity("Model.SectionPostType", b =>
@@ -303,17 +493,17 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -323,7 +513,57 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SectionPostTypes", (string)null);
+                    b.ToTable("SectionPostTypes");
+                });
+
+            modelBuilder.Entity("Model.SectionPostVideo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Id_SectionPostSocialVideo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id_SectionPostStep")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Timable")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VideoAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_SectionPostSocialVideo");
+
+                    b.HasIndex("Id_SectionPostStep");
+
+                    b.ToTable("SectionPostVideo");
                 });
 
             modelBuilder.Entity("Model.SectionSecondStep", b =>
@@ -343,10 +583,10 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id_SectionFirstStep")
@@ -358,8 +598,8 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -368,7 +608,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasIndex("Id_SectionFirstStep");
 
-                    b.ToTable("SectionSecondSteps", (string)null);
+                    b.ToTable("SectionSecondSteps");
                 });
 
             modelBuilder.Entity("Model.SectionThirdStep", b =>
@@ -388,10 +628,10 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id_SectionSecondStep")
@@ -403,8 +643,8 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -413,7 +653,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasIndex("Id_SectionSecondStep");
 
-                    b.ToTable("SectionThirdSteps", (string)null);
+                    b.ToTable("SectionThirdSteps");
                 });
 
             modelBuilder.Entity("Model.WebsiteActiveTimeControl", b =>
@@ -430,17 +670,17 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
@@ -450,7 +690,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WebsiteActiveTimeControls", (string)null);
+                    b.ToTable("WebsiteActiveTimeControls");
                 });
 
             modelBuilder.Entity("Model.WebsiteThemControl", b =>
@@ -467,10 +707,10 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SectionName")
@@ -479,15 +719,66 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TagsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Timable")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.ToTable("WebsiteThemControls", (string)null);
+                    b.ToTable("WebsiteThemControls");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Model.SectionPostAnswerStep", b =>
@@ -512,20 +803,19 @@ namespace WebsitePresentation.Data.Migrations
                     b.Navigation("SectionPostStep");
                 });
 
+            modelBuilder.Entity("Model.SectionPostImage", b =>
+                {
+                    b.HasOne("Model.SectionPostStep", "SectionPostStep")
+                        .WithMany("SectionPostImages")
+                        .HasForeignKey("Id_SectionPostStep")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SectionPostStep");
+                });
+
             modelBuilder.Entity("Model.SectionPostStep", b =>
                 {
-                    b.HasOne("Model.SectionPostImage", "SectionPostImage")
-                        .WithMany("SectionPostSteps")
-                        .HasForeignKey("Id_SectionPostImage")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Model.SectionPostSocialVideo", "SectionPostSocialVideo")
-                        .WithMany("SectionPostSteps")
-                        .HasForeignKey("Id_SectionPostSocialVideo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Model.SectionPostType", "SectionPostType")
                         .WithMany("SectionPostSteps")
                         .HasForeignKey("Id_SectionPostType")
@@ -538,13 +828,28 @@ namespace WebsitePresentation.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("SectionPostImage");
-
-                    b.Navigation("SectionPostSocialVideo");
-
                     b.Navigation("SectionPostType");
 
                     b.Navigation("SectionThirdStep");
+                });
+
+            modelBuilder.Entity("Model.SectionPostVideo", b =>
+                {
+                    b.HasOne("Model.SectionPostSocialVideo", "SectionPostSocialVideo")
+                        .WithMany("SectionPostVideos")
+                        .HasForeignKey("Id_SectionPostSocialVideo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Model.SectionPostStep", "SectionPostStep")
+                        .WithMany("SectionPostVideos")
+                        .HasForeignKey("Id_SectionPostStep")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SectionPostSocialVideo");
+
+                    b.Navigation("SectionPostStep");
                 });
 
             modelBuilder.Entity("Model.SectionSecondStep", b =>
@@ -579,19 +884,18 @@ namespace WebsitePresentation.Data.Migrations
                     b.Navigation("SectionPostAnswerSteps");
                 });
 
-            modelBuilder.Entity("Model.SectionPostImage", b =>
-                {
-                    b.Navigation("SectionPostSteps");
-                });
-
             modelBuilder.Entity("Model.SectionPostSocialVideo", b =>
                 {
-                    b.Navigation("SectionPostSteps");
+                    b.Navigation("SectionPostVideos");
                 });
 
             modelBuilder.Entity("Model.SectionPostStep", b =>
                 {
                     b.Navigation("SectionPostCommentSteps");
+
+                    b.Navigation("SectionPostImages");
+
+                    b.Navigation("SectionPostVideos");
                 });
 
             modelBuilder.Entity("Model.SectionPostType", b =>

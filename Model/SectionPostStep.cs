@@ -20,23 +20,15 @@ namespace Model
         public string? ShortDescription { get; set; }
         [DisplayName("لەبارەی")]
         public string? FullDescription { get; set; }
-        [DisplayName("وێنە")]
-        [ForeignKey("SectionPostImage")]
-        public int Id_SectionPostImage { get; set; }
-        public SectionPostImage? SectionPostImage { get; set; }
-        [DisplayName("سۆشیاڵ")]
-        [ForeignKey("SectionPostSocialVideo")]
-        public int Id_SectionPostSocialVideo { get; set; }
-        public SectionPostSocialVideo? SectionPostSocialVideo { get; set; }
-        [DisplayName("ویدیۆ ئادرەس")]
-        public string? VideoAddress { get; set; }
+        public ICollection<SectionPostImage>? SectionPostImages { get; set; }
+        public ICollection<SectionPostVideo>? SectionPostVideos { get; set; }
         public ICollection<SectionPostCommentStep>? SectionPostCommentSteps { get; set; }
         //Constructors
         public SectionPostStep()
         {
 
         }
-        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime startTime, DateTime endTime, DateTime createDate, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription, int id_SectionPostImage, SectionPostImage? sectionPostImage, int id_SectionPostSocialVideo, SectionPostSocialVideo? sectionPostSocialVideo, string? videoAddress, ICollection<SectionPostCommentStep>? sectionPostCommentSteps) : base(id, active, timable, startDate, endDate, startTime, endTime, createDate)
+        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription, ICollection<SectionPostCommentStep>? sectionPostCommentSteps, ICollection<SectionPostImage>? sectionPostImages, ICollection<SectionPostVideo>? sectionPostVideos) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
             SectionPostType = sectionPostType;
@@ -45,12 +37,9 @@ namespace Model
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;
-            Id_SectionPostImage = id_SectionPostImage;
-            SectionPostImage = sectionPostImage;
-            Id_SectionPostSocialVideo = id_SectionPostSocialVideo;
-            SectionPostSocialVideo = sectionPostSocialVideo;
-            VideoAddress = videoAddress;
             SectionPostCommentSteps = sectionPostCommentSteps;
+            SectionPostImages = sectionPostImages;
+            SectionPostVideos = sectionPostVideos;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -58,7 +47,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostStep(bool ActivatedNotTimabled, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription, int id_SectionPostImage, SectionPostImage? sectionPostImage, int id_SectionPostSocialVideo, SectionPostSocialVideo? sectionPostSocialVideo, string? videoAddress, ICollection<SectionPostCommentStep>? sectionPostCommentSteps) : base(ActivatedNotTimabled)
+        public SectionPostStep(bool ActivatedNotTimabled, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription, ICollection<SectionPostCommentStep>? sectionPostCommentSteps, ICollection<SectionPostImage>? sectionPostImages, ICollection<SectionPostVideo>? sectionPostVideos) : base(ActivatedNotTimabled,email,tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
             SectionPostType = sectionPostType;
@@ -67,12 +56,9 @@ namespace Model
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;
-            Id_SectionPostImage = id_SectionPostImage;
-            SectionPostImage = sectionPostImage;
-            Id_SectionPostSocialVideo = id_SectionPostSocialVideo;
-            SectionPostSocialVideo = sectionPostSocialVideo;
-            VideoAddress = videoAddress;
             SectionPostCommentSteps = sectionPostCommentSteps;
+            SectionPostImages = sectionPostImages;
+            SectionPostVideos = sectionPostVideos;
         }
     }
 }

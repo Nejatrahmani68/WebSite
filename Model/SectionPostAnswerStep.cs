@@ -20,7 +20,7 @@ namespace Model
         {
 
         }
-        public SectionPostAnswerStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime startTime, DateTime endTime, DateTime createDate, string? answer, int id_SectionPostCommentStep, SectionPostCommentStep? sectionPostCommentStep) : base(id, active, timable, startDate, endDate, startTime, endTime, createDate)
+        public SectionPostAnswerStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? answer, int id_SectionPostCommentStep, SectionPostCommentStep? sectionPostCommentStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Answer = answer;
             Id_SectionPostCommentStep = id_SectionPostCommentStep;
@@ -32,14 +32,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostAnswerStep(bool ActivatedNotTimabled, string? answer, int id_SectionPostCommentStep, SectionPostCommentStep? sectionPostCommentStep) : base(ActivatedNotTimabled)
-        {
-            Answer = answer;
-            Id_SectionPostCommentStep = id_SectionPostCommentStep;
-            SectionPostCommentStep = sectionPostCommentStep;
-        }
-
-        public SectionPostAnswerStep(string? answer, int id_SectionPostCommentStep, SectionPostCommentStep? sectionPostCommentStep)
+        public SectionPostAnswerStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? answer, int id_SectionPostCommentStep, SectionPostCommentStep? sectionPostCommentStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Answer = answer;
             Id_SectionPostCommentStep = id_SectionPostCommentStep;

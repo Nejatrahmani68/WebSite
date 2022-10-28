@@ -12,7 +12,7 @@ namespace Model
         {
 
         }
-        public WebsiteActiveTimeControl(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime startTime, DateTime endTime, DateTime createDate, string websiteTitle) : base(id, active, timable, startDate, endDate, startTime, endTime, createDate)
+        public WebsiteActiveTimeControl(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string websiteTitle) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             WebsiteTitle = websiteTitle;
         }
@@ -22,7 +22,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public WebsiteActiveTimeControl(bool ActivatedNotTimabled, string websiteTitle) : base(ActivatedNotTimabled)
+        public WebsiteActiveTimeControl(bool ActivatedNotTimabled, string? email,string? tagsName, string websiteTitle) : base(ActivatedNotTimabled,email,tagsName)
         {
             WebsiteTitle = websiteTitle;
         }

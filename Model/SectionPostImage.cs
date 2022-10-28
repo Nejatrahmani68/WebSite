@@ -10,18 +10,21 @@ namespace Model
         public string? Title { get; set; }
         [DisplayName("وێنە")]
         public string? PictureAddress { get; set; }
-        public ICollection<SectionPostStep>? SectionPostSteps { get; set; }
-
+        [DisplayName("پۆست")]
+        [ForeignKey("SectionPostStep")]
+        public int Id_SectionPostStep { get; set; }
+        public SectionPostStep? SectionPostStep { get; set; }
         //Constructors
         public SectionPostImage()
         {
                 
         }
-        public SectionPostImage(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime startTime, DateTime endTime, DateTime createDate, string? title, string? pictureAddress, ICollection<SectionPostStep>? sectionPostSteps) : base(id, active, timable, startDate, endDate, startTime, endTime, createDate)
+        public SectionPostImage(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? title, string? pictureAddress, int id_SectionPostStep, SectionPostStep? sectionPostStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Title = title;
             PictureAddress = pictureAddress;
-            SectionPostSteps = sectionPostSteps;
+            Id_SectionPostStep = id_SectionPostStep;
+            SectionPostStep = sectionPostStep;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -29,11 +32,12 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostImage(bool ActivatedNotTimabled, string? title, string? pictureAddress, ICollection<SectionPostStep>? sectionPostSteps) : base(ActivatedNotTimabled)
+        public SectionPostImage(bool ActivatedNotTimabled, string? email,string? tagsName, string? title, string? pictureAddress, int id_SectionPostStep, SectionPostStep? sectionPostStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Title = title;
             PictureAddress = pictureAddress;
-            SectionPostSteps = sectionPostSteps;
+            Id_SectionPostStep = id_SectionPostStep;
+            SectionPostStep = sectionPostStep;
         }
     }
 }

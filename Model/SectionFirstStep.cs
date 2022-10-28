@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace Model
 {
-    public class SectionFirstStep:ControlPublishFields
+    public class SectionFirstStep : ControlPublishFields
     {
         [DisplayName("ناو")]
         public string? Name { get; set; }
@@ -18,7 +18,7 @@ namespace Model
         {
 
         }
-        public SectionFirstStep(int id, bool active, bool timable, DateTime? startDate, DateTime? endDate, DateTime? startTime, DateTime? endTime, DateTime createDate, string? name, string? description, ICollection<SectionSecondStep>? sectionSecondSteps) : base(id, active, timable, startDate, endDate, startTime, endTime, createDate)
+        public SectionFirstStep(int id, bool active, bool timable, DateTime? startDate, DateTime? endDate, DateTime createDate, string? email, string? tagsName, string? name, string? description, ICollection<SectionSecondStep>? sectionSecondSteps) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Name = name;
             Description = description;
@@ -30,7 +30,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionFirstStep(bool ActivatedNotTimabled, string? name, string? description, ICollection<SectionSecondStep>? sectionSecondSteps) : base(ActivatedNotTimabled)
+        public SectionFirstStep(bool ActivatedNotTimabled, string? email, string? tagsName, string? name, string? description, ICollection<SectionSecondStep>? sectionSecondSteps) : base(ActivatedNotTimabled, email, tagsName)
         {
             Name = name;
             Description = description;

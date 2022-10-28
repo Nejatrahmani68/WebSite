@@ -29,8 +29,6 @@
     <Folder Include="wwwroot\Files\Text\" />
     <Folder Include="wwwroot\Files\Video\" />
     <Folder Include="wwwroot\Images\ImageSmall\" />
-    <Folder Include="wwwroot\Images\ImageLarge\" />
-    <Folder Include="wwwroot\Images\ImageThem\" />
   </ItemGroup>
 
 </Project>

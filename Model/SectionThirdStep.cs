@@ -21,7 +21,7 @@ namespace Model
         {
 
         }
-        public SectionThirdStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime startTime, DateTime endTime, DateTime createDate, string? name, string? description, int id_SectionSecondStep, SectionSecondStep? sectionSecondStep, ICollection<SectionPostStep>? sectionPostSteps) : base(id, active, timable, startDate, endDate, startTime, endTime, createDate)
+        public SectionThirdStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? name, string? description, int id_SectionSecondStep, SectionSecondStep? sectionSecondStep, ICollection<SectionPostStep>? sectionPostSteps) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Name = name;
             Description = description;
@@ -35,7 +35,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>  
-        public SectionThirdStep(bool ActivatedNotTimabled, string? name, string? description, int id_SectionSecondStep, SectionSecondStep? sectionSecondStep, ICollection<SectionPostStep>? sectionPostSteps) : base(ActivatedNotTimabled)
+        public SectionThirdStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? name, string? description, int id_SectionSecondStep, SectionSecondStep? sectionSecondStep, ICollection<SectionPostStep>? sectionPostSteps) : base(ActivatedNotTimabled,email,tagsName)
         {
             Name = name;
             Description = description;

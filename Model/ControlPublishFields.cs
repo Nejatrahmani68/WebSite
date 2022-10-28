@@ -21,30 +21,31 @@ namespace Model
         public DateTime? StartDate { get; set; }
         [DisplayName("بەرواری کۆتایی")]
         public DateTime? EndDate { get; set; }
-        [DisplayName("کاتی دەستپێکردن")]
-        public DateTime? StartTime { get; set; }
-        [DisplayName("کاتی کۆتایی")]
-        public DateTime? EndTime { get; set; }
         [DisplayName("کاتی دروستبون")]
         public DateTime CreateDate { get; set; } = System.DateTime.Now;
+        [DisplayName("ئیمەێل")]
+        [EmailAddress]
+        public string? Email { get; set; }
+        [DisplayName("تەگ")]
+        public string? TagsName { get; set; }
 
         //Constructors
         public ControlPublishFields()
         {
 
         }
-        public ControlPublishFields(int id, bool active, bool timable, DateTime? startDate, DateTime? endDate, DateTime? startTime, DateTime? endTime, DateTime createDate)
+        public ControlPublishFields(int id, bool active, bool timable, DateTime? startDate, DateTime? endDate, DateTime createDate, string? email, string? tagsName)
         {
             Id = id;
             Active = active;
             Timable = timable;
             StartDate = startDate;
             EndDate = endDate;
-            StartTime = startTime;
-            EndTime = endTime;
             CreateDate = createDate;
+            Email = email;  
+            TagsName = tagsName;
         }
-        public ControlPublishFields(bool ActivatedNotTimabled)
+        public ControlPublishFields(bool ActivatedNotTimabled,string? email, string? tagsName)
         {
             if (ActivatedNotTimabled)
             {
@@ -52,9 +53,7 @@ namespace Model
                 Timable = false;
                 StartDate = null;
                 EndDate = null;
-                StartTime = null;
-                EndTime = null;
-                CreateDate = System.DateTime.Now;
+                
             }
             else
             {
@@ -62,10 +61,10 @@ namespace Model
                 Timable = false;
                 StartDate = null;
                 EndDate = null;
-                StartTime = null;
-                EndTime = null;
-                CreateDate = System.DateTime.Now;
             }
+            CreateDate = System.DateTime.Now;
+            Email = email;
+            TagsName = tagsName;    
         }
     }
 }
