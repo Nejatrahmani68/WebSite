@@ -2,6 +2,7 @@
 @model ViewModelHomePage
 @{
     ViewData["Title"] = "Home Page";
+    var imgaddress = "";
 }
 @if (Model.checkThemDictionary != null)
 {
@@ -11,24 +12,20 @@
             <div class="containerindex">
                 <div class="viewcontainerindextitleright">
 
-                    <div class="btn btn-info"> نوێترین هەواڵەکان  ▼ </div>
+                    <div class="btn btn-info"> نوێترین پۆستەکان  ▼ </div>
                 </div>
             </div>
-            @for (int i = 0; i <= 9; i++)
-            {
-                <div id="viewlearnhomeright">
-                    @foreach (var item in Model.sectionPostTop10Steps!)
-                    {
-                        <div class="viewlearnhomerightiner">
-                            <div class="viewlearn-lefthome">
-                                <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "ViewTopic", new { id = item.Id })   </div>
-                                <div class="divline"><img src="~/Images/ImageThem/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                            </div>
+            <div id="viewlearnhomeright">
+                @foreach (var item in Model.sectionPostTop10Steps!)
+                {
+                    <div class="viewlearnhomerightiner">
+                        <div class="viewlearn-lefthome">
+                            <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
                         </div>
-                    }
-                </div>
-            }
-
+                    </div>
+                }
+            </div>
         </div>
 
     }
@@ -44,38 +41,27 @@
                     <div class="btn btn-info"> نوێترین ویدیۆکان  ▼ </div>
                 </div>
             </div>
-          
-                <div id="viewlearnhomeright">
-               
-                    @foreach (var item in Model.sectionPostTop10Steps!)
-                    {
-                    <div class=" imagesection">
-                        <img class="imagesection" src="~/Images/ImageLarge/1.jpg">
-                    </div>
+            @foreach (var item in Model.sectionPostTop5VideoSteps!)
+            {
+                <div class="mySlides">
+                    <div id="viewlearnhomeright">
+                        <div class=" imagesection">
+                            @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
+                            {
+                                imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
+                                <img class="imagesection" src=@imgaddress alt ="@imageitem.Title"/>
+                            }
+                        </div>
                         <div class="viewlearnhomerightiner">
                             <div class="viewlearn-lefthome">
-                                <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "ViewTopic", new { id = item.Id })   </div>
-                                <div class="divline"><img src="~/Images/ImageThem/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                                <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
                             </div>
                         </div>
-                    }
+
+                    </div>
                 </div>
-            <div id="viewlearnhomeright">
-
-                @foreach (var item in Model.sectionPostTop10Steps!)
-                {
-                    <div class=" imagesection">
-                        <img class="imagesection" src="~/Images/ImageLarge/1.jpg">
-                    </div>
-                    <div class="viewlearnhomerightiner">
-                        <div class="viewlearn-lefthome">
-                            <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "ViewTopic", new { id = item.Id })   </div>
-                            <div class="divline"><img src="~/Images/ImageThem/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                        </div>
-                    </div>
-                }
-            </div>
-
+            }
         </div>
 
     }
@@ -92,23 +78,28 @@
                     <div class="btn btn-info"> نوێترین نوسراوەکان  ▼ </div>
                 </div>
             </div>
+            @foreach (var item in Model.sectionPostTop5ArticleSteps!)
+            {
+                <div class="mySlidesArticle" >
+                    <div id="viewlearnhomeright">
 
-            <div id="viewlearnhomeright">
 
-                @foreach (var item in Model.sectionPostTop10Steps!)
-                {
-                    <div class=" imagesection">
-                        <img class="imagesection" src="~/Images/ImageLarge/1.jpg">
-                    </div>
-                    <div class="viewlearnhomerightiner">
-                        <div class="viewlearn-lefthome">
-                            <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "ViewTopic", new { id = item.Id })   </div>
-                            <div class="divline"><img src="~/Images/ImageThem/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                        <div class=" imagesection">
+                            @foreach(var imageitem in Model.sectionPostImages!.Where(m=>m.Id_SectionPostStep==item.Id)){
+                                imgaddress =@"/Images/ImageLarge/"+imageitem.PictureAddress;
+                                <img class="imagesection" src=@imgaddress alt="@imageitem.Title"/>
+                            }
                         </div>
-                    </div>
-                }
-            </div>
+                        <div class="viewlearnhomerightiner">
+                            <div class="viewlearn-lefthome">
+                                <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            }
 
         </div>
 

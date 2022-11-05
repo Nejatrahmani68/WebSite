@@ -19,12 +19,11 @@ namespace Model
         {
                 
         }
-        public SectionPostImage(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? title, string? pictureAddress, int id_SectionPostStep, SectionPostStep? sectionPostStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionPostImage(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? title, string? pictureAddress, int id_SectionPostStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Title = title;
             PictureAddress = pictureAddress;
             Id_SectionPostStep = id_SectionPostStep;
-            SectionPostStep = sectionPostStep;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -32,12 +31,11 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostImage(bool ActivatedNotTimabled, string? email,string? tagsName, string? title, string? pictureAddress, int id_SectionPostStep, SectionPostStep? sectionPostStep) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionPostImage(bool ActivatedNotTimabled, string? email,string? tagsName, string? title, string? pictureAddress, int id_SectionPostStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Title = title;
             PictureAddress = pictureAddress;
             Id_SectionPostStep = id_SectionPostStep;
-            SectionPostStep = sectionPostStep;
         }
     }
 }

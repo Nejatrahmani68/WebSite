@@ -19,7 +19,7 @@ namespace DataAccess.Data
         public  DbSet<SectionPostSocialVideo> SectionPostSocialVideos { get; set; }
         public  DbSet<SectionPostType> SectionPostTypes { get; set; }
         public  DbSet<SectionPostCommentStep> SectionPostCommentSteps { get; set; }
-        public  DbSet<SectionPostAnswerStep> SectionPostAnswerSteps { get; set; }
-
+        public  DbSet<SectionPostAnswerStep> SectionPostAnswerSteps { get; set; }  
+        public  DbSet<SectionPostVideo> SectionPostVideos { get; set; }
     }
 }

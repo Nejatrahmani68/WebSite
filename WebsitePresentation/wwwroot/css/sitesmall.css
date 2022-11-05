@@ -1,8 +1,5 @@
 @media (max-width: 767px) {
     body {
-        background-color: silver;
-        padding-top: 50px;
-        padding-bottom: 20px;
     }
 
     .container {
@@ -14,12 +11,14 @@
         max-width: 100%;
         padding: 0px;
     }
+
     .sectionscontainer {
-        float: right;
+        float: left;
         width: 100%;
         margin-right: 5px;
         margin-top: 10px;
     }
+
     .newscontainer {
         float: right;
         width: 100%;
@@ -56,7 +55,7 @@
     .partheadercenter {
         width: 80%;
         height: 100%;
-        margin-top: 10px;
+        margin-top: 50px;
         color: yellow;
         font-family: Rudaw;
         font-size: x-large;
@@ -158,56 +157,17 @@
         width: 100%;
         height: 30px;
         margin: 0 auto;
-        background-color: #CCFFCC;
+        background-color: #0dcaf0;
         font-size: large;
-        background-color: navy;
-        color: yellow;
-        /*  border-right-color: darkblue;
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-left-color: darkblue;
-        border-left-style: solid;
-        border-left-width: 1px;*/
+        color: black;
         padding: 0px;
     }
 
         .marquee a {
             font-family: Rudaw;
-            color: yellow;
+            color: black;
             text-align: left;
         }
-
-
-    /*.right-vasat ul {
-    list-style-type: none;
-   
-}
-
-    .right-vasat ul li {
-        display: block;
-        float: right;
-    }
-
-        .right-vasat ul li a {
-            padding: 5px;
-            font-size: 14px;    
-            text-decoration: none;
-            color: white;
-            border-radius: 6px;
-            
-        }
-
-            .right-vasat ul li a:hover {
-                padding: 5px;
-                font-size: 16px;
-                color: yellow;
-                text-decoration: none;
-                background-color: blue;
-                border-radius: 6px;
-            }*/
-
-
-
 
     #container {
         width: 100%;
@@ -326,7 +286,7 @@
     }
 
     .left-bala-subcats {
-        margin: 30px auto 0;
+        margin: 10px auto 0;
         background-color: navy;
         width: 100%;
         height: 30px;
@@ -366,6 +326,8 @@
         border-left-color: darkblue;
         border-left-style: solid;
         border-left-width: 1px;
+        height: 100px;
+        overflow: auto;
     }
 
         .left-vasat-subcats p {
@@ -421,12 +383,11 @@
     .viewlearn {
         float: right;
         width: 100%;
-        border-bottom-color: darkblue;
+        border-bottom-color: #31d2f2;
         border-bottom-style: solid;
         border-bottom-width: 2px;
         color: black;
         padding: 10px;
-        margin-top: 20px;
     }
 
     .viewsubcat {
@@ -434,7 +395,7 @@
         width: 100%;
         color: black;
         border-radius: 10px;
-        margin: 10px auto 0;
+        margin: 0 auto;
     }
 
     #viewlearnhomerightnew {
@@ -526,6 +487,7 @@
         float: right;
         width: 100%;
         color: black;
+        border: solid 1px #0dcaf0;
     }
 
     .viewcontainerindextitleright {
@@ -581,9 +543,28 @@
     .viewlearn-left {
         text-align: center;
         float: right;
-        width: 70%;
+        width: 100%;
         padding: 5px 0px 5px 5px;
         border-radius: 20px;
+    }
+
+    .ViewPostMain {
+        margin-top: 10px;
+        width: 100%;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        padding: 5px;
+        float: right;
+    }
+
+    .ViewPostMainCategory {
+        margin-top: 10px;
+        width: 100%;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        padding: 5px;
+        float: right;
+        height: 250px;
     }
 
     .viewlearn-lefthome {
@@ -618,8 +599,8 @@
 
     .learnleft {
         float: left;
-        width: 102px;
-        height: 102px;
+        width: 100%;
+        height: 100%;
         margin-top: 5px;
         margin-left: 5px;
         box-shadow: 1px 1px 4px 4px navy;
@@ -674,8 +655,8 @@
     }
 
     .imglearn {
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: 100%;
         border-radius: 10px;
     }
 
@@ -761,12 +742,13 @@
     }
 
         .downloadbutton-subcats:hover {
-            background-color: green;
+            background-color: #0dcaf0;
             color: black;
         }
 
         .downloadbutton-subcats a {
             color: white;
+            text-decoration: none;
         }
 
             .downloadbutton-subcats a:hover {
@@ -794,7 +776,7 @@
 
     .videodisplay {
         width: 100%;
-        height: 200px;
+        height: 100%;
     }
 
     .submitbutton {
@@ -854,13 +836,15 @@
 
     .divtitlecomment {
         margin-top: 20px;
-        width: 80%;
+        width: 100%;
         text-align: right;
         float: right;
         background-color: navy;
         color: yellow;
-        border-radius: 5px;
-        margin-right: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        overflow-wrap: anywhere;
+        padding: 5px;
     }
 
     .divtitleanswer {
@@ -870,27 +854,35 @@
         background-color: darkcyan;
         color: yellow;
         border-radius: 30px;
+        overflow-wrap: anywhere;
     }
 
     .divtextcomment {
         float: left;
-        width: 320px;
+        width: 100%;
         text-align: right;
-        background-color: green;
-        color: yellow;
-        border-radius: 5px;
+        background-color: darkcyan;
+        color: white;
         margin-left: 0px;
+        overflow-wrap: anywhere;
+        padding: 5px;
     }
 
     .divanswercomment {
         float: left;
-        width: 320px;
+        width: 100%;
         text-align: right;
         background-color: darkcyan;
-        color: yellow;
-        border-radius: 5px;
+        color: white;
+        padding: 5px;
         margin-left: 0px;
+        overflow-wrap: anywhere;
     }
+
+        .divanswercomment span {
+            float: right;
+            color: black;
+        }
 
     .viewchangepassword {
         color: black;
@@ -903,11 +895,12 @@
         padding-right: 20px;
         float: right;
         width: 100%;
-        border-top-color: darkblue;
+        border-top-color: #31d2f2;
         border-top-style: solid;
         border-top-width: 2px;
         color: black;
         margin-top: 20px;
+        border-radius: 5px;
     }
 
     .insertcomment {
@@ -1038,6 +1031,10 @@
         text-align: right;
         width: 100%;
         float: right;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        margin-top: 10px;
+        padding: 5px;
     }
 
     .viewanswerstyle {

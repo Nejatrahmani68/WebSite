@@ -15,10 +15,9 @@ namespace Model
         {
 
         }
-        public SectionPostType(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? title, ICollection<SectionPostStep>? sectionPostSteps) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionPostType(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? title) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Title = title;
-            SectionPostSteps = sectionPostSteps;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -26,10 +25,9 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostType(bool ActivatedNotTimabled, string? email,string? tagsName, string? title, ICollection<SectionPostStep>? sectionPostSteps) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionPostType(bool ActivatedNotTimabled, string? email,string? tagsName, string? title) : base(ActivatedNotTimabled,email,tagsName)
         {
             Title = title;
-            SectionPostSteps = sectionPostSteps;
         }
     }
 }

@@ -286,6 +286,9 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<int>("Id_SectionPostCommentStep")
                         .HasColumnType("int");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
@@ -327,6 +330,9 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.Property<int>("Id_SectionPostStep")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
@@ -400,6 +406,9 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
@@ -469,6 +478,9 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ViewsNumber")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -563,7 +575,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasIndex("Id_SectionPostStep");
 
-                    b.ToTable("SectionPostVideo");
+                    b.ToTable("SectionPostVideos");
                 });
 
             modelBuilder.Entity("Model.SectionSecondStep", b =>

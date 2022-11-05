@@ -21,13 +21,11 @@ namespace Model
         {
 
         }
-        public SectionThirdStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? name, string? description, int id_SectionSecondStep, SectionSecondStep? sectionSecondStep, ICollection<SectionPostStep>? sectionPostSteps) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionThirdStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? name, string? description, int id_SectionSecondStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Name = name;
             Description = description;
             Id_SectionSecondStep = id_SectionSecondStep;
-            SectionSecondStep = sectionSecondStep;
-            SectionPostSteps = sectionPostSteps;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -35,13 +33,11 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>  
-        public SectionThirdStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? name, string? description, int id_SectionSecondStep, SectionSecondStep? sectionSecondStep, ICollection<SectionPostStep>? sectionPostSteps) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionThirdStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? name, string? description, int id_SectionSecondStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Name = name;
             Description = description;
             Id_SectionSecondStep = id_SectionSecondStep;
-            SectionSecondStep = sectionSecondStep;
-            SectionPostSteps = sectionPostSteps;
         }
     }
 }

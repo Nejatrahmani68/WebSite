@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/css/sitemedium.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/sitesmall.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/siteforall.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebsitePresentation.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -51,21 +52,20 @@
                 {
                     if (Model.checkThemDictionary["RightSection"] == true)
                     {
-                        if (Model.sectionFirstSteps!.ToList().Count() >= 1)
+                        if (Model.sectionFirstSteps!.ToList().Count() > 0)
                         {
-
-                            for (var firstStepItem = 0; firstStepItem < Model.sectionFirstSteps!.Count(); firstStepItem++)
+                            foreach (var firstStepItem in Model.sectionFirstSteps!)
                             {
                                 <div class="blockinformationoverly">
-                                    <div class="right-balaoverly">@Model.sectionFirstSteps!.ToArray()[firstStepItem].Name</div>
+                                    <div class="right-balaoverly">@firstStepItem.Name</div>
                                     <div class="right-vasatoverly">
                                         <ul>
-                                            @for (var secondStepItem = 0; secondStepItem < Model.sectionSecondSteps!.Count(); secondStepItem++)
+                                            @foreach (var secondStepItem in Model.sectionSecondSteps!)
                                             {
-                                                if (@Model.sectionSecondSteps!.ToArray()[secondStepItem].Id_SectionFirstStep == @Model.sectionFirstSteps!.ToArray()[firstStepItem].Id)
+                                                if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
                                                 {
                                                     <li>
-                                                        @Html.ActionLink(@Model.sectionSecondSteps!.ToArray()[secondStepItem].Name, "Viewsubcategories", new { id = @Model.sectionSecondSteps!.ToArray()[secondStepItem].Id })
+                                                        @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id })
 
                                                     </li>
                                                 }
@@ -129,14 +129,14 @@
         {
             @if (Model.checkThemDictionary["Marquee"] == true)
             {
-                @* <div class="marquee">
-        <marquee direction="right" onmouseover="this.stop()" onmouseout="this.start()">
-        @foreach (var item in Model.hewalekan)
-        {
-        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;●@Html.ActionLink(@item.learnname, "viewlearnsone", new { id = item.learnid })●</strong>
-        }
-        </marquee>
-        </div>*@
+                <div class="marquee">
+                    <marquee direction="right" onmouseover="this.stop()" onmouseout="this.start()">
+                        @foreach (var item in Model.sectionPostTop10Steps!)
+                        {
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;◄◄@Html.ActionLink(@item.Title, "viewlearnsone", new { idPost = item.Id })●</strong>
+                        }
+                    </marquee>
+                </div>
             }
 
         }
@@ -153,26 +153,24 @@
                         {
                             if (Model.sectionFirstSteps!.ToList().Count() >= 1)
                             {
-
-                                for (var firstStepItem = 0; firstStepItem < Model.sectionFirstSteps!.Count(); firstStepItem++)
+                                foreach (var firstStepItem in Model.sectionFirstSteps!)
                                 {
-                                    <div class="blockinformation">
-                                        <div class="right-bala">@Model.sectionFirstSteps!.ToArray()[firstStepItem].Name</div>
-                                        <div class="right-vasat">
+                                    <div class="blockinformationoverly">
+                                        <div class="right-balaoverly">@firstStepItem.Name</div>
+                                        <div class="right-vasatoverly">
                                             <ul>
-                                                @for (var secondStepItem = 0; secondStepItem < Model.sectionSecondSteps!.Count(); secondStepItem++)
+                                                @foreach (var secondStepItem in Model.sectionSecondSteps!)
                                                 {
-                                                    if (@Model.sectionSecondSteps!.ToArray()[secondStepItem].Id_SectionFirstStep == @Model.sectionFirstSteps!.ToArray()[firstStepItem].Id)
+                                                    if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
                                                     {
                                                         <li>
-                                                          &nbsp;    &nbsp;  ◄ @Html.ActionLink(@Model.sectionSecondSteps!.ToArray()[secondStepItem].Name, "Viewsubcategories", new { id = @Model.sectionSecondSteps!.ToArray()[secondStepItem].Id })
-
+                                                            @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id })
                                                         </li>
                                                     }
                                                 }
                                             </ul>
                                         </div>
-                                        <div class="right-payin">
+                                        <div class="right-payinoverly">
                                         </div>
                                     </div>
                                 }
@@ -204,10 +202,25 @@
                     <div>
                         Copyright 2023
                         <ul>
-                            <li><a href="https://www.facebook.com/BIRIXWENDKAR-108353811321514"><i class="fa fa-facebook"></i> </a></li>
-                            <li><a href="https://twitter.com/BIRIXWENDKAR"><i class="fa fa-twitter"></i> </a></li>
-                            <li><a href="https://www.instagram.com/BIRIXWENDKAR/"><i class="fa fa-instagram"></i> </a></li>
-                            <li><a href="https://www.youtube.com/channel/UCfcpthCIJmAJVWdcTvzMtkQ"><i class="fa">&#xf167;</i> </a></li>
+                            @foreach (var socialaddress in Model.sectionPostSocialVideos!)
+                            {
+                                if (socialaddress.Title == "FaceBook")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa fa-facebook"></i> </a></li>
+                                }
+                                if (socialaddress.Title == "Twiter")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa fa-twitter"></i> </a></li>
+                                }
+                                if (socialaddress.Title == "Instagram")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa fa-instagram"></i> </a></li>
+                                }
+                                if (socialaddress.Title == "YouTube")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa">&#xf167;</i> </a></li>
+                                }
+                            }
 
                         </ul>
                     </div>

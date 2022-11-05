@@ -7,7 +7,8 @@ namespace Model
 {
     public class SectionPostAnswerStep : ControlPublishFields
     {
-
+        [DisplayName("ناو")]
+        public string? Name { get; set; }
         [DisplayName("وڵام")]
         public string? Answer { get; set; }
         [DisplayName("ناوی کۆمێنت")]
@@ -20,11 +21,11 @@ namespace Model
         {
 
         }
-        public SectionPostAnswerStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? answer, int id_SectionPostCommentStep, SectionPostCommentStep? sectionPostCommentStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionPostAnswerStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName,string? name, string? answer, int id_SectionPostCommentStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Answer = answer;
             Id_SectionPostCommentStep = id_SectionPostCommentStep;
-            SectionPostCommentStep = sectionPostCommentStep;
+            Name=name;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -32,11 +33,11 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostAnswerStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? answer, int id_SectionPostCommentStep, SectionPostCommentStep? sectionPostCommentStep) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionPostAnswerStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? name, string? answer, int id_SectionPostCommentStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Answer = answer;
             Id_SectionPostCommentStep = id_SectionPostCommentStep;
-            SectionPostCommentStep = sectionPostCommentStep;
+            Name = name;
         }
     }
 }

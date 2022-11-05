@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Numerics;
 
 namespace Model
 {
@@ -20,6 +21,8 @@ namespace Model
         public string? ShortDescription { get; set; }
         [DisplayName("لەبارەی")]
         public string? FullDescription { get; set; }
+        [DisplayName("دیتراو")]
+        public int ViewsNumber { get; set; }
         public ICollection<SectionPostImage>? SectionPostImages { get; set; }
         public ICollection<SectionPostVideo>? SectionPostVideos { get; set; }
         public ICollection<SectionPostCommentStep>? SectionPostCommentSteps { get; set; }
@@ -28,7 +31,7 @@ namespace Model
         {
 
         }
-        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription, ICollection<SectionPostCommentStep>? sectionPostCommentSteps, ICollection<SectionPostImage>? sectionPostImages, ICollection<SectionPostVideo>? sectionPostVideos) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
             SectionPostType = sectionPostType;
@@ -37,9 +40,6 @@ namespace Model
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;
-            SectionPostCommentSteps = sectionPostCommentSteps;
-            SectionPostImages = sectionPostImages;
-            SectionPostVideos = sectionPostVideos;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -47,7 +47,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostStep(bool ActivatedNotTimabled, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription, ICollection<SectionPostCommentStep>? sectionPostCommentSteps, ICollection<SectionPostImage>? sectionPostImages, ICollection<SectionPostVideo>? sectionPostVideos) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionPostStep(bool ActivatedNotTimabled, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(ActivatedNotTimabled,email,tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
             SectionPostType = sectionPostType;
@@ -56,9 +56,6 @@ namespace Model
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;
-            SectionPostCommentSteps = sectionPostCommentSteps;
-            SectionPostImages = sectionPostImages;
-            SectionPostVideos = sectionPostVideos;
         }
     }
 }

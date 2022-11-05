@@ -22,13 +22,12 @@ namespace Model
         {
 
         }
-        public SectionSecondStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? name, string? description, int id_SectionFirstStep, SectionFirstStep? sectionFirstStep, ICollection<SectionThirdStep>? sectionThirdSteps) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionSecondStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? name, string? description, int id_SectionFirstStep, SectionFirstStep? sectionFirstStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Name = name;
             Description = description;
             Id_SectionFirstStep = id_SectionFirstStep;
             SectionFirstStep = sectionFirstStep;
-            SectionThirdSteps = sectionThirdSteps;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -36,13 +35,12 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionSecondStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? name, string? description, int id_SectionFirstStep, SectionFirstStep? sectionFirstStep, ICollection<SectionThirdStep>? sectionThirdSteps) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionSecondStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? name, string? description, int id_SectionFirstStep, SectionFirstStep? sectionFirstStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Name = name;
             Description = description;
             Id_SectionFirstStep = id_SectionFirstStep;
             SectionFirstStep = sectionFirstStep;
-            SectionThirdSteps = sectionThirdSteps;
         }
     }
 }

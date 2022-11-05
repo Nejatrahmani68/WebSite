@@ -9,7 +9,9 @@
         font-family: Rudaw;
         direction: rtl;
     }
-
+    .h1,h1{
+        text-align:center;
+    }
     a.article-link {
         text-decoration: none;
     }
@@ -33,25 +35,25 @@
         width: 100%;
         height: 30px;
         margin: 0 auto;
-        background-color: #CCFFCC;
+        background-color: #0dcaf0;
         font-size: large;
-        background-color: navy;
-        color: yellow;
-        /*  border-right-color: darkblue;
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-left-color: darkblue;
-        border-left-style: solid;
-        border-left-width: 1px;*/
+        color: black;
     }
 
         .marquee a {
             font-family: Rudaw;
-            color: yellow;
+            color: black;
             text-align: left;
+            text-decoration: none;
         }
 
-
+            .marquee a:hover {
+                color: navy;
+            }
+    .pagination {
+        justify-content:center;
+        direction:ltr;
+    }
     /* hislide */
     .bodyslidetitle {
         color: yellow;
@@ -105,7 +107,7 @@
     .partheadercenter {
         width: 80%;
         height: 100%;
-        margin-top: 65px;
+        margin-top: 50px;
         color: yellow;
         font-family: Rudaw;
         font-size: x-large;
@@ -320,9 +322,14 @@
                 color: white;
             }
 
-            .right-vasatoverly ul li a:hover {
+            .right-vasatoverly ul li:hover a{
                 color: white;
             }
+            .right-vasatoverly ul li img:hover {
+                background-color: yellow;
+                border-radius: 5px;
+            }
+   
     .right-payinoverly {
         margin-right: 5px;
         width: 150px;
@@ -472,7 +479,7 @@
     #right {
         width: 19%;
         float: right;
-        margin-top:5px;
+        margin-top: 5px;
     }
 
     .blockinformation {
@@ -495,7 +502,7 @@
         color: black;
         font-size: medium;
         border-radius: 10px;
-        border-bottom-left-radius: 0px; 
+        border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
         background-color: #0dcaf0;
     }
@@ -604,10 +611,11 @@
         width: 65%;
         margin-right: 5px;
         margin-top: 10px;
+        min-height:500px;
     }
 
     .sectionscontainer {
-        float: right;
+        float: left;
         width: 33%;
         margin-right: 5px;
         margin-top: 10px;
@@ -641,7 +649,7 @@
     }
 
     .left-bala-subcats {
-        margin: 30px auto 0;
+        margin: 10px auto 0;
         background-color: navy;
         width: 100%;
         height: 30px;
@@ -675,6 +683,9 @@
         margin: 0 auto;
         text-align: center;
         width: 100%;
+        height:100px;
+        overflow:auto;
+        
         border-right-color: darkblue;
         border-right-style: solid;
         border-right-width: 1px;
@@ -736,12 +747,11 @@
     .viewlearn {
         float: right;
         width: 100%;
-        border-bottom-color: darkblue;
+        border-bottom-color: #31d2f2;
         border-bottom-style: solid;
         border-bottom-width: 2px;
         color: black;
         padding: 10px;
-        margin-top: 20px;
     }
 
     .viewelection {
@@ -752,10 +762,10 @@
 
     .viewsubcat {
         float: right;
-        width: 100%;
+        width: 24%;
         color: black;
         border-radius: 10px;
-        margin: 20px auto 0;
+        margin-right: 5px;
     }
 
     #viewlearnhomeright {
@@ -769,12 +779,8 @@
         float: right;
         width: 100%;
         color: black;
+        border: solid 1px #0dcaf0;
     }
-
-
-
-
-
     * {
         box-sizing: border-box
     }
@@ -787,9 +793,7 @@
     }
 
     /* Hide the images by default */
-    .mySlides {
-        display: none;
-    }
+
 
     /* Next & previous buttons */
     .prev, .next {
@@ -954,6 +958,8 @@
     .viewcontainerindextitleright {
         float: right;
         width: 100%;
+        background-color:navy;
+        border-radius:5px;
     }
 
         .viewcontainerindextitleright a {
@@ -1003,9 +1009,9 @@
     .viewlearn-left {
         text-align: center;
         float: right;
-        width: 70%;
+        width: 100%;
         padding: 5px 0px 5px 5px;
-        border-radius: 20px;
+        border-radius: 5px;
     }
 
     .viewlearn-lefthome {
@@ -1062,20 +1068,18 @@
 
     .learnleft {
         float: left;
-        width: 152px;
-        height: 152px;
+        width: 100%;
+        height: 100%;
         margin-top: 5px;
         margin-left: 5px;
-        box-shadow: 1px 1px 4px 4px navy;
-        /*border-color: navy;
-    border-style: solid;
-    border-width: 1px;*/
         border-radius: 10px;
     }
 
-        .learnleft:hover {
-            box-shadow: 1px 1px 6px 6px navy;
-        }
+    .learnlefttext {
+        width: 40%;
+        height: 100%;
+    }
+
 
     .learnlefthome {
         float: left;
@@ -1120,12 +1124,96 @@
     }
 
     .imglearn {
-        width: 150px;
-        height: 150px;
-        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
     }
 
-    .imglearnhome {
+        .imglearn:hover {
+            box-shadow: 1px 1px 6px 6px #0dcaf0;
+        }
+
+    .ViewPostMain {
+        margin-top: 10px;
+        width: 65%;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        padding: 5px;
+        float: right;
+    }
+    .ViewPostMainCategory {
+        margin-top: 10px;
+        width: 33%;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        padding: 5px;
+        float: right;
+        height:200px;
+    }
+    .viewlearnpic {
+        position: relative;
+        text-align: center;
+        color: black;
+        height: 100%;
+        width: 100%;
+        min-height: 250px;
+    }
+
+
+    /* Bottom left text */
+    .bottom-left {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+    }
+
+    /* Top left text */
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+    }
+
+    /* Top right text */
+    .top-right {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: yellow;
+        border-radius: 5px;
+    }
+
+    /* Bottom right text */
+    .bottom-right {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: yellow;
+        border-radius: 5px;
+    }
+
+    /* Centered text */
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: yellow;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+        .centered:hover {
+            background-color: rgb(132, 71, 10, 0.50);
+        }
+        .centered a {
+        text-decoration:none;
+        color:yellow;
+    }
+        .imglearnhome {
         width: 70px;
         height: 70px;
         border-radius: 5px;
@@ -1135,7 +1223,7 @@
 
     .videodisplay {
         width: 100%;
-        height: 500px;
+        height: 100%;
     }
 
     .downloadbuttonreport {
@@ -1234,12 +1322,13 @@
     }
 
         .downloadbutton-subcats:hover {
-            background-color: green;
+            background-color: #0dcaf0;
             color: black;
         }
 
         .downloadbutton-subcats a {
             color: white;
+            text-decoration:none;
         }
 
             .downloadbutton-subcats a:hover {
@@ -1292,7 +1381,16 @@
         font-size: 15px;
         overflow: hidden;
     }
-
+    .divlinesubcat {
+        text-align: right;
+        font-size: 15px;
+        overflow: hidden;
+        border-right: solid 1px navy;
+        border-left: solid 1px navy;
+        width: 100%;
+        padding: 5px;
+        background-color: #0dcaf0;
+    }
     .imagesection {
         width: 100%;
         height: 200px;
@@ -1326,9 +1424,13 @@
         width: 100%;
         text-align: right;
         float: right;
-        background-color: navy;
-        color: yellow;
-        border-radius: 5px;
+        background-color: #0dcaf0;
+        color: black;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        overflow-wrap: anywhere;
+        padding: 5px;
+        font-weight: bold;
     }
 
     .divtitleanswer {
@@ -1338,27 +1440,33 @@
         background-color: darkcyan;
         color: yellow;
         border-radius: 30px;
+        overflow-wrap: anywhere;
     }
 
     .divtextcomment {
         float: left;
-        width: 720px;
+        width: 100%;
         text-align: right;
-        background-color: green;
-        color: yellow;
-        border-radius: 5px;
+        background-color: darkcyan;
+        color: white;
+        overflow-wrap: anywhere;
+        padding: 5px;
     }
 
     .divanswercomment {
         float: left;
-        width: 720px;
+        width: 100%;
         text-align: right;
         background-color: darkcyan;
-        color: yellow;
-        border-radius: 5px;
+        color: white;
+        padding: 5px;
+        overflow-wrap: anywhere;
     }
-
-    .viewchangepassword {
+        .divanswercomment span {
+            float: right;
+            color: black;
+        }
+        .viewchangepassword {
         color: black;
         border-radius: 10px;
         margin-top: 20px;
@@ -1368,12 +1476,13 @@
         padding-top: 20px;
         padding-right: 20px;
         float: right;
-        width: 800px;
-        border-top-color: darkblue;
-        border-top-style: solid;
-        border-top-width: 2px;
+        width: 65%;
+        border-color: #31d2f2;
+        border-style: solid;
+        border-width: 1px;
         color: black;
         margin-top: 20px;
+        border-radius: 5px;
     }
 
     .insertcomment {
@@ -1508,8 +1617,12 @@
 
     #viewanswer {
         text-align: right;
-        width: 100%;
+        width: 65%;
         float: right;
+        border: solid 1px #0dcaf0;
+        border-radius:5px;
+        margin-top:10px;
+        padding:5px;
     }
 
     .viewanswerstyle {

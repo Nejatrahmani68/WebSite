@@ -7,7 +7,8 @@ namespace Model
 {
     public class SectionPostCommentStep : ControlPublishFields
     {
-
+        [DisplayName("ناو")]
+        public string? Name { get; set; }
         [DisplayName("کۆمێنت")]
         public string? Comment { get; set; }
         [DisplayName("ناوی پۆست")]
@@ -20,11 +21,11 @@ namespace Model
         {
 
         }
-        public SectionPostCommentStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? comment, int id_SectionPostStep, SectionPostStep? sectionPostStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionPostCommentStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? name, string? comment, int id_SectionPostStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Comment = comment;
             Id_SectionPostStep = id_SectionPostStep;
-            SectionPostStep = sectionPostStep;
+            Name = name;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -32,11 +33,11 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostCommentStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? comment, int id_SectionPostStep, SectionPostStep? sectionPostStep) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionPostCommentStep(bool ActivatedNotTimabled, string? email,string? tagsName, string? name, string? comment, int id_SectionPostStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Comment = comment;
             Id_SectionPostStep = id_SectionPostStep;
-            SectionPostStep = sectionPostStep;
+            Name = name;
         }
     }
 }
