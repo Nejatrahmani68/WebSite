@@ -1,0 +1,24 @@
+﻿@using Model.ViewModels
+@model ViewModelHomePage
+@{
+    ViewData["Title"] = "Categories";
+}
+
+@if (Model.checkThemDictionary != null)
+{
+    @if (Model.checkThemDictionary["RightSection"] == true)
+    {
+        foreach (var item in Model.sectionThirdSteps!)
+        {
+            <div class="viewsubcat">
+
+                <div class="left-bala-subcats">  @item.Name</div>
+                <div class="left-vasat-subcats">@Html.Raw(@item.Description)</div>
+                <div class="divlinesubcat"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                <div class="downloadbutton-subcats  ">   @Html.ActionLink("کردنەوە", "PostsCategoryView", new { idThirdStep = item.Id })        </div>
+                <div class="left-payin-subcats"></div>
+            </div>
+
+        }
+    }
+}

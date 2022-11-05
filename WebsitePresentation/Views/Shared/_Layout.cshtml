@@ -1,18 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using Model.ViewModels
+@model ViewModelHomePage
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebsitePresentation</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sitelarge.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sitemedium.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sitesmall.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/siteforall.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebsitePresentation.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebsitePresentation</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ناوەندی سیاسەت وانانی کورد</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,28 +26,209 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">ماڵپەری سەرەکی</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">لەبارەی ئێمە</a>
                         </li>
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
+    <!--overlay navigation -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            @{
+                if (Model.checkThemDictionary != null)
+                {
+                    if (Model.checkThemDictionary["RightSection"] == true)
+                    {
+                        if (Model.sectionFirstSteps!.ToList().Count() > 0)
+                        {
+                            foreach (var firstStepItem in Model.sectionFirstSteps!)
+                            {
+                                <div class="blockinformationoverly">
+                                    <div class="right-balaoverly">@firstStepItem.Name</div>
+                                    <div class="right-vasatoverly">
+                                        <ul>
+                                            @foreach (var secondStepItem in Model.sectionSecondSteps!)
+                                            {
+                                                if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
+                                                {
+                                                    <li>
+                                                        @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id })
+
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div class="right-payinoverly">
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            }
+        </div>
+
+    </div>
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+        @if (Model.checkThemDictionary != null)
+        {
+            @if (Model.checkThemDictionary["Header"] == true)
+            {
+                <div class="mainheader">
+                    <div class="partheaderleft">
+                    </div>
+                    <div class="partheadercenter">
+                        یەکیەتیی خوێندکاران
+
+                    </div>
+                    <div class="partheaderright">
+                    </div>
+                </div>
+            }
+        }
+
+
+        @if (Model.checkThemDictionary != null)
+        {
+            @if (Model.checkThemDictionary["Search"] == true)
+            {
+                using (Html.BeginForm("searchIndex", "Home"))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div id="menu">
+                        <div id="menuleft">
+                            @Html.TextBox("searchtxt")
+                            <input type="submit" value="گەران" class="submitbutton" />
+
+                        </div>
+
+                        <div id="menuright">
+                        </div>
+
+                    </div>
+                }
+            }
+        }
+        @if (Model.checkThemDictionary != null)
+        {
+            @if (Model.checkThemDictionary["Marquee"] == true)
+            {
+                <div class="marquee">
+                    <marquee direction="right" onmouseover="this.stop()" onmouseout="this.start()">
+                        @foreach (var item in Model.sectionPostTop10Steps!)
+                        {
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;◄◄@Html.ActionLink(@item.Title, "viewlearnsone", new { idPost = item.Id })●</strong>
+                        }
+                    </marquee>
+                </div>
+            }
+
+        }
+        <div id="container">
+            <div class="downloadbutton-allsubjects" onclick="openNav()">
+                <!-- Use any element to open/show the overlay navigation menu -->
+                <span onclick="openNav()">بابەتەکان</span>
+            </div>
+            <div id="right">
+                @{
+                    if (Model.checkThemDictionary != null)
+                    {
+                        if (Model.checkThemDictionary["RightSection"] == true)
+                        {
+                            if (Model.sectionFirstSteps!.ToList().Count() >= 1)
+                            {
+                                foreach (var firstStepItem in Model.sectionFirstSteps!)
+                                {
+                                    <div class="blockinformationoverly">
+                                        <div class="right-balaoverly">@firstStepItem.Name</div>
+                                        <div class="right-vasatoverly">
+                                            <ul>
+                                                @foreach (var secondStepItem in Model.sectionSecondSteps!)
+                                                {
+                                                    if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
+                                                    {
+                                                        <li>
+                                                            @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id })
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div class="right-payinoverly">
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                    }
+                }
+                <br />
+            </div>
+
+            <div id="left">
+                @if (Model.checkThemDictionary != null)
+                {
+                    @if (Model.checkThemDictionary["LeftSection"] == true)
+                    {
+                        <main role="main">
+                            @RenderBody()
+                        </main>
+
+                    }
+                }
+            </div>
+        </div>
+        <div id="footer">
+            @if (Model.checkThemDictionary != null)
+            {
+                @if (Model.checkThemDictionary["Footer"] == true)
+                {
+                    <div>
+                        Copyright 2023
+                        <ul>
+                            @foreach (var socialaddress in Model.sectionPostSocialVideos!)
+                            {
+                                if (socialaddress.Title == "FaceBook")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa fa-facebook"></i> </a></li>
+                                }
+                                if (socialaddress.Title == "Twiter")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa fa-twitter"></i> </a></li>
+                                }
+                                if (socialaddress.Title == "Instagram")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa fa-instagram"></i> </a></li>
+                                }
+                                if (socialaddress.Title == "YouTube")
+                                {
+                                    <li><a href="@socialaddress.Address"><i class="fa">&#xf167;</i> </a></li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                }
+            }
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - WebsitePresentation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

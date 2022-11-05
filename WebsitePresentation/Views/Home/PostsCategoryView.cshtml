@@ -1,0 +1,44 @@
+﻿@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+@using Model.ViewModels;
+@model ViewModelHomePage;
+@{
+    ViewData["Title"] = "Post Categoty View";
+    var imgaddress = "";
+}
+@Html.PagedListPager((IPagedList)Model.sectionPostSteps!, page => Url.Action("PostsCategoryView", new {idThirdStep=Model.sectionPostSteps!.FirstOrDefault()!.Id_SectionThirdStep, page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptions
+    {
+    DisplayItemSliceAndTotal = true,
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    })
+@if (Model.checkThemDictionary!["ViewSubCategoryPosts"] == true)
+{
+    foreach (var item in Model.sectionPostSteps!)
+    {
+        <div class="ViewPostMainCategory">
+            <div class="viewlearnpic">
+                @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
+                {
+                    imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
+                    <img class="imglearn" src=@imgaddress alt="@imageitem.Title" />
+                }
+                <div class="top-right">  @item.Title  </div>
+                <div class="centered">@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                <div class="bottom-right"> <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png">  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div></div>
+            </div>
+        </div>
+    }
+}
+@section Scripts{
+    <script>
+        // Workaround to fix style of text for showing items .. through ..
+        // Problem related to Boostrap 4 according to issue in link below
+        // https://github.com/dncuug/X.PagedList/issues/127
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        });
+    </script>
+}
