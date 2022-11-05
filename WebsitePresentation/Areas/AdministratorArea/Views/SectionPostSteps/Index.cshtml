@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Model.SectionPostStep>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+    int idTemp = @ViewBag.idTemp;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" asp-route-idTemp="@idTemp">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SectionPostType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SectionThirdStep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewsNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TagsName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SectionPostType.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SectionThirdStep.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViewsNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TagsName)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Edit.png"></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Detail.png"></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Delete.png"></a>
+                    <a asp-action="Index" asp-controller="SectionPostImages" asp-route-idTemp="@item.Id"><img src="~/Images/ImageThem/Icon/AddImage.png"></a>
+                    <a asp-action="Index" asp-controller="SectionPostVideos" asp-route-idTemp="@item.Id"><img src="~/Images/ImageThem/Icon/AddVideo.png"></a>
+                    <a asp-action="Index" asp-controller="SectionPostCommentSteps" asp-route-idTemp="@item.Id"><img src="~/Images/ImageThem/Icon/Comments.png"></a>
+
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
