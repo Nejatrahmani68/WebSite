@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Data;
 using Model;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 {
@@ -14,10 +15,14 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
     public class SectionPostImagesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        [Obsolete]
+        private readonly IHostingEnvironment _env;
 
-        public SectionPostImagesController(ApplicationDbContext context)
+        [Obsolete]
+        public SectionPostImagesController(ApplicationDbContext context, IHostingEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         // GET: AdministratorArea/SectionPostImages
@@ -68,12 +73,41 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,PictureAddress,Id_SectionPostStep,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName"),] SectionPostImage sectionPostImage, int idTemp)
+        [Obsolete]
+        public async Task<IActionResult> Create(List<IFormFile> files, [Bind("Title,Id_SectionPostStep,Id,Active,Timable,StartDate,EndDate,TagsName"),] SectionPostImage sectionPostImage, int idTemp)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(sectionPostImage);
-                await _context.SaveChangesAsync();
+                sectionPostImage.Email = User.Identity!.Name;
+                long size = files.Sum(f => f.Length);
+                var filePaths = new List<string>();
+                foreach (var formFile in files)
+                {
+                    if (formFile.Length > 0)
+                    {
+                        // full path to file in temp location
+                        string newFilename = sectionPostImage.Id_SectionPostStep + "-" + Guid.NewGuid().ToString() + Path.GetExtension(formFile.FileName);
+                        string filePath = Path.Combine(_env.WebRootPath, "Images", "ImageLarge", newFilename);
+                        filePaths.Add(filePath);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await formFile.CopyToAsync(stream);
+                        }
+                        SectionPostImage sectionPostImageForAll = new SectionPostImage();
+                        sectionPostImageForAll.Id_SectionPostStep = sectionPostImage.Id_SectionPostStep;
+                        sectionPostImageForAll.Active = sectionPostImage.Active;
+                        sectionPostImageForAll.Timable = sectionPostImage.Timable;
+                        sectionPostImageForAll.Title = sectionPostImage.Title;
+                        sectionPostImageForAll.Email = sectionPostImage.Email;
+                        sectionPostImageForAll.StartDate = sectionPostImage.StartDate;
+                        sectionPostImageForAll.EndDate = sectionPostImage.EndDate;
+                        sectionPostImageForAll.TagsName = sectionPostImage.TagsName;
+                        sectionPostImageForAll.Email = sectionPostImage.Email;
+                        sectionPostImageForAll.PictureAddress = newFilename;
+                        _context.Add(sectionPostImageForAll);
+                        await _context.SaveChangesAsync();
+                    }
+                }
                 idTemp = _context.SectionPostSteps.Find(idTemp)!.Id_SectionThirdStep;
                 return RedirectToAction(nameof(Index), "SectionPostSteps", new { @idTemp = idTemp });
             }
@@ -157,6 +191,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // POST: AdministratorArea/SectionPostImages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Obsolete]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.SectionPostImages == null)
@@ -167,10 +202,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             if (sectionPostImage != null)
             {
                 _context.SectionPostImages.Remove(sectionPostImage);
+                if (sectionPostImage.PictureAddress != null)
+                {
+                    string pictureAddress = Path.Combine(_env.WebRootPath, "Images", "ImageLarge", sectionPostImage.PictureAddress);
+                    if (System.IO.File.Exists(pictureAddress))
+                    {
+                        System.IO.File.Delete(pictureAddress);
+                    }
+                }
             }
-
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction(nameof(Index), new { @idTemp = sectionPostImage!.Id_SectionPostStep });
         }
 
         private bool SectionPostImageExists(int id)

@@ -70,10 +70,11 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Id_SectionPostSocialVideo,VideoAddress,Id_SectionPostStep,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionPostVideo sectionPostVideo)
+        public async Task<IActionResult> Create([Bind("Title,Id_SectionPostSocialVideo,VideoAddress,Id_SectionPostStep,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionPostVideo sectionPostVideo)
         {
             if (ModelState.IsValid)
             {
+                sectionPostVideo.Email = User.Identity!.Name;
                 _context.Add(sectionPostVideo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create), "SectionPostImages", new { @idTemp = sectionPostVideo.Id_SectionPostStep });
@@ -175,7 +176,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { @idTemp = sectionPostVideo.Id_SectionPostStep });
         }
 
         private bool SectionPostVideoExists(int id)

@@ -8,7 +8,7 @@ namespace Model
     {
         [DisplayName("ناو")]
         public string? Title { get; set; }
-        [DisplayName("وێنە")]
+        [DisplayName("ناوی وێنە")]
         public string? PictureAddress { get; set; }
         [DisplayName("پۆست")]
         [ForeignKey("SectionPostStep")]

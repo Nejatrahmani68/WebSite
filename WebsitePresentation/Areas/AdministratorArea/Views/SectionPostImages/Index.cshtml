@@ -4,24 +4,25 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
     int idTemp = @ViewBag.idTemp;
+    var imgaddress = "";
 }
 
-<h1>Index</h1>
+<h5>وێنەکان<a asp-action="Create" asp-route-idTemp="@idTemp"><img class="imgicon" src="~/Images/ImageThem/Icon/AddTitle.png"></a></h5>
 
-<p>
-    <a asp-action="Create" asp-route-idTemp="@idTemp">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PictureAddress)
+                @Html.Label("وێنە")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SectionPostStep)
+                @Html.Label("ناوی سەردەستە")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Active)
@@ -30,62 +31,43 @@
                 @Html.DisplayNameFor(model => model.Timable)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TagsName)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PictureAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SectionPostStep.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TagsName)
-            </td>
-            <td>
+        @foreach (var item in Model)
+        {
+            imgaddress = @"/Images/ImageLarge/" + item.PictureAddress;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <img src="@imgaddress" style="width:30px;height:30px;border-radius:5px;">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionPostStep.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
                     <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Edit.png"></a> |
                     <a asp-action="Details" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Detail.png"></a> |
                     <a asp-action="Delete" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Delete.png"></a>
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

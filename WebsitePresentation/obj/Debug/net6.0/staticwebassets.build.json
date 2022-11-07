@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/aCS5nTc3EZPZTizvixTDwoIhwfjQMN82p4oO7ZF57Y=",
+  "Hash": "8c3854B2xCXBdaqnB2lG1WKZpyxz9TW2/fm40O7XsDI=",
   "Source": "WebsitePresentation",
   "BasePath": "_content/WebsitePresentation",
   "Mode": "Default",
@@ -1207,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\1.jpg"
     },
     {
+      "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\17-130272b4-ac39-4a03-b4f3-33ef98c27bf0-Untitled.jpg",
+      "SourceId": "WebsitePresentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\",
+      "BasePath": "_content/WebsitePresentation",
+      "RelativePath": "Images/ImageLarge/17-130272b4-ac39-4a03-b4f3-33ef98c27bf0-Untitled.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\17-130272b4-ac39-4a03-b4f3-33ef98c27bf0-Untitled.jpg"
+    },
+    {
       "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageThem\\Icon\\Add.png",
       "SourceId": "WebsitePresentation",
       "SourceType": "Discovered",
@@ -1239,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\ImageThem\\Icon\\AddImage.png"
+    },
+    {
+      "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageThem\\Icon\\AddTitle.png",
+      "SourceId": "WebsitePresentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\",
+      "BasePath": "_content/WebsitePresentation",
+      "RelativePath": "Images/ImageThem/Icon/AddTitle.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ImageThem\\Icon\\AddTitle.png"
     },
     {
       "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageThem\\Icon\\AddVideo.png",

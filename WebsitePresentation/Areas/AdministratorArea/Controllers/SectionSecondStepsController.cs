@@ -72,10 +72,11 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Description,Id_SectionFirstStep,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionSecondStep sectionSecondStep)
+        public async Task<IActionResult> Create([Bind("Name,Description,Id_SectionFirstStep,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionSecondStep sectionSecondStep)
         {
             if (ModelState.IsValid)
             {
+                sectionSecondStep.Email = User.Identity!.Name;
                 _context.Add(sectionSecondStep);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index), new { @idTemp = sectionSecondStep.Id_SectionFirstStep });
@@ -173,7 +174,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { @idTemp = sectionSecondStep.Id_SectionFirstStep });
         }
 
         private bool SectionSecondStepExists(int id)

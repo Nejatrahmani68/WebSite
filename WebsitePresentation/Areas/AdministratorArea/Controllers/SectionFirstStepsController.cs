@@ -55,10 +55,11 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Description,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionFirstStep sectionFirstStep)
+        public async Task<IActionResult> Create([Bind("Name,Description,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionFirstStep sectionFirstStep)
         {
             if (ModelState.IsValid)
             {
+                sectionFirstStep.Email = User.Identity!.Name;
                 _context.Add(sectionFirstStep);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Data;
 using Model;
+using DataAccess.Services.Interfaces;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 {
@@ -68,10 +69,11 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Answer,Id_SectionPostCommentStep,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionPostAnswerStep sectionPostAnswerStep, int idTemp)
+        public async Task<IActionResult> Create([Bind("Name,Answer,Id_SectionPostCommentStep,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionPostAnswerStep sectionPostAnswerStep, int idTemp)
         {
             if (ModelState.IsValid)
             {
+                sectionPostAnswerStep.Email = User.Identity!.Name;
                 _context.Add(sectionPostAnswerStep);
                 await _context.SaveChangesAsync();
                 idTemp = _context.SectionPostCommentSteps.Find(idTemp)!.Id_SectionPostStep;
@@ -169,7 +171,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { @idTemp = sectionPostAnswerStep.Id_SectionPostCommentStep });
         }
 
         private bool SectionPostAnswerStepExists(int id)

@@ -6,22 +6,19 @@
     int idTemp = @ViewBag.idTemp;
 }
 
-<h1>Index</h1>
+<h5>بابەتەکان بەشی سێ<a asp-action="Create" asp-route-idTemp="@idTemp"><img class="imgicon" class="imgicon" src="~/Images/ImageThem/Icon/AddTitle.png"></a></h5>
 
-<p>
-    <a asp-action="Create" asp-route-idTemp="@idTemp">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SectionSecondStep)
+                @Html.Label("ناوی سەردەستە")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Active)
@@ -30,32 +27,20 @@
                 @Html.DisplayNameFor(model => model.Timable)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TagsName)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
+            </td> 
             <td>
                 @Html.DisplayFor(modelItem => item.SectionSecondStep.Name)
             </td>
@@ -66,19 +51,7 @@
                 @Html.DisplayFor(modelItem => item.Timable)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TagsName)
             </td>
             <td>
                     <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Edit.png"></a> |
