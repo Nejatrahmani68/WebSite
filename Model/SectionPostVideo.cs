@@ -6,12 +6,14 @@ namespace Model
 {
     public class SectionPostVideo : ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Title { get; set; }
         [DisplayName("سۆشیاڵ")]
         [ForeignKey("SectionPostSocialVideo")]
         public int Id_SectionPostSocialVideo { get; set; }
         public SectionPostSocialVideo? SectionPostSocialVideo { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ویدیۆ")]
         public string? VideoAddress { get; set; }
         [DisplayName("پۆست")]

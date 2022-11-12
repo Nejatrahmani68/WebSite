@@ -605,7 +605,7 @@
 
     .imglearn {
         width: 100%;
-        height: 100%;
+        height: 350px;
         border-radius: 10px;
     }
 
@@ -842,8 +842,7 @@
     }
 
     .viewcomment {
-        padding-top: 20px;
-        padding-right: 20px;
+        padding: 10px;
         float: right;
         width: 100%;
         border-top-color: #31d2f2;

@@ -7,10 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Data;
 using Model;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using DataAccess.Services;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 {
     [Area("AdministratorArea")]
+    [Authorize(Roles = "Admin,Administrator")]
     public class SectionPostVideosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,6 +27,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionPostVideos
         public async Task<IActionResult> Index(int? idTemp)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
@@ -35,6 +46,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionPostVideos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id == null || _context.SectionPostVideos == null)
             {
                 return NotFound();
@@ -53,8 +71,16 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         }
 
         // GET: AdministratorArea/SectionPostVideos/Create
+        [Authorize(Roles = "Add,Administrator,FullWriter")]
         public IActionResult Create(int? idTemp)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
@@ -68,10 +94,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // POST: AdministratorArea/SectionPostVideos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Add,Administrator,FullWriter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Title,Id_SectionPostSocialVideo,VideoAddress,Id_SectionPostStep,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionPostVideo sectionPostVideo)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (ModelState.IsValid)
             {
                 sectionPostVideo.Email = User.Identity!.Name;
@@ -88,6 +122,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionPostVideos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id == null || _context.SectionPostVideos == null)
             {
                 return NotFound();
@@ -106,10 +147,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // POST: AdministratorArea/SectionPostVideos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Edit,Administrator,FullWriter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Title,Id_SectionPostSocialVideo,VideoAddress,Id_SectionPostStep,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionPostVideo sectionPostVideo)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id != sectionPostVideo.Id)
             {
                 return NotFound();
@@ -143,6 +192,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionPostVideos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id == null || _context.SectionPostVideos == null)
             {
                 return NotFound();
@@ -161,10 +217,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         }
 
         // POST: AdministratorArea/SectionPostVideos/Delete/5
+        [Authorize(Roles = "Delete,Administrator,FullWriter")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (_context.SectionPostVideos == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.SectionPostVideos'  is null.");
@@ -176,7 +240,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), new { @idTemp = sectionPostVideo.Id_SectionPostStep });
+            return RedirectToAction(nameof(Index), new { @idTemp = sectionPostVideo!.Id_SectionPostStep });
         }
 
         private bool SectionPostVideoExists(int id)

@@ -9,10 +9,13 @@ using DataAccess.Data;
 using Model;
 using DataAccess.Services;
 using Model.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 {
     [Area("AdministratorArea")]
+    [Authorize(Roles = "Admin,Administrator")]
     public class SectionSecondStepsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,6 +30,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionSecondSteps
         public async Task<IActionResult> Index(int? idTemp)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
@@ -39,6 +49,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionSecondSteps/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id == null || _context.SectionSecondSteps == null)
             {
                 return NotFound();
@@ -58,6 +75,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionSecondSteps/Create
         public IActionResult Create(int? idTemp)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
@@ -70,10 +94,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // POST: AdministratorArea/SectionSecondSteps/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Add,Administrator,FullWriter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Description,Id_SectionFirstStep,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionSecondStep sectionSecondStep)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (ModelState.IsValid)
             {
                 sectionSecondStep.Email = User.Identity!.Name;
@@ -89,6 +121,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionSecondSteps/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id == null || _context.SectionSecondSteps == null)
             {
                 return NotFound();
@@ -106,10 +145,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // POST: AdministratorArea/SectionSecondSteps/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Edit,Administrator,FullWriter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Id_SectionFirstStep,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionSecondStep sectionSecondStep)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id != sectionSecondStep.Id)
             {
                 return NotFound();
@@ -142,6 +189,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // GET: AdministratorArea/SectionSecondSteps/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (id == null || _context.SectionSecondSteps == null)
             {
                 return NotFound();
@@ -159,10 +213,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         }
 
         // POST: AdministratorArea/SectionSecondSteps/Delete/5
+        [Authorize(Roles = "Delete,Administrator,FullWriter")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //Check Admin WorkTime
+            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
+            {
+                ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
+                return View("ErrorReportView");
+            }
             if (_context.SectionSecondSteps == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.SectionSecondSteps'  is null.");
@@ -174,7 +236,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), new { @idTemp = sectionSecondStep.Id_SectionFirstStep });
+            return RedirectToAction(nameof(Index), new { @idTemp = sectionSecondStep!.Id_SectionFirstStep });
         }
 
         private bool SectionSecondStepExists(int id)

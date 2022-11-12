@@ -7,10 +7,13 @@ namespace Model
 {
     public class SectionPostSocialVideo:ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Title { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ئادرەس")]
         public string? Address { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("كارابوون")]
         public ICollection<SectionPostVideo>? SectionPostVideos { get; set; }
 

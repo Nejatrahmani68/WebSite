@@ -23,11 +23,11 @@
                 @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
                 {
                     imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                    <img class="imglearn" src=@imgaddress alt="@imageitem.Title" />
+                    <img class="imglearncategory" src=@imgaddress alt="@imageitem.Title" />
                 }
-                <div class="top-right">  @item.Title  </div>
-                <div class="centered">@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
-                <div class="bottom-right"> <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png">  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div></div>
+                <div class="top-rightcategory">  @item.Title  </div>
+                <div class="bottom-rightcategory">@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                <div class="top-left"> <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png">  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div></div>
             </div>
         </div>
     }

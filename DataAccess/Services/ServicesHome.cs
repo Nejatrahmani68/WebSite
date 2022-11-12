@@ -24,9 +24,10 @@ namespace DataAccess.Services
             _viewModelHomePage.sectionFirstSteps = builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = builderFillData.FillSecondStepSectionData();
             _viewModelHomePage.sectionPostTop10Steps = builderFillData.FillPostStepSectionTop10Data();
-            _viewModelHomePage.sectionPostImages = builderFillData.FillSectionPostImageData();
             _viewModelHomePage.sectionPostTop5ArticleSteps = builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = builderFillData.FillPostStepSectionTop5VideoData();
+            _viewModelHomePage.sectionPostImagesForVideo = builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!);
+            _viewModelHomePage.sectionPostImagesForArticl = builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5ArticleSteps!);
             _viewModelHomePage.sectionPostSocialVideos = builderFillData.FillSectionPostSocialVideoData();
             return _viewModelHomePage;
         }

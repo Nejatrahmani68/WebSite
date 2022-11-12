@@ -6,8 +6,10 @@ namespace Model
 {
     public class WebsiteAdminsControl : ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو و ناسناو")]
         public string? Title { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("کورتەباس")]
         public string? ShortDescription { get; set; }
         [DisplayName("لەبارەی")]

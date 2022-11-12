@@ -6,6 +6,8 @@ namespace Model
     //For Active or Deactive And Schedule Website Work Time
     public class WebsiteActiveTimeControl : ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
+        [DisplayName("سەردێڕ")]
         public string? WebsiteTitle { get; set; }
         //Constructors
         public WebsiteActiveTimeControl()

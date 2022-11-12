@@ -1,6 +1,7 @@
 ﻿@*@using Model.ViewModels
 @model ViewModelHomePage
-*@<!DOCTYPE html>
+*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -31,7 +32,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="SectionPostTypes" asp-action="Index" asp-area="AdministratorArea">جۆری پۆستەکان</a>
                         </li>
-
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="RoleManager" asp-action="Index" asp-area="AdministratorArea">جۆری دەسەڵاتەکان</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="UserRoles" asp-action="Index" asp-area="AdministratorArea">بەرێوبەری دەسەڵاتەکان</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="WebsiteThemControls" asp-action="Index" asp-area="AdministratorArea">بەرێوبەری شێوەی سایت</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="WebsiteAdminsControls" asp-action="Index" asp-area="AdministratorArea">بەرێوبەری کاتی کارابوونی ئەدمینەکان</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="WebsiteActiveTimeControls" asp-action="Index" asp-area="AdministratorArea">بەرێوبەری کاتی کارابوونی سایت</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

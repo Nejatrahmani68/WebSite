@@ -7,8 +7,10 @@ namespace Model
 {
     public class SectionPostCommentStep : ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Name { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("کۆمێنت")]
         public string? Comment { get; set; }
         [DisplayName("ناوی پۆست")]

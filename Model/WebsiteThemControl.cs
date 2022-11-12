@@ -5,7 +5,7 @@ namespace Model
 {
     public class WebsiteThemControl : ControlPublishFields
     {
-
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناوی بەش")]
         public string? SectionName { get; set; }
 

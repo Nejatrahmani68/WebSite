@@ -23,7 +23,7 @@ namespace DataAccess.Services.Builders
         }
         public IEnumerable<SectionFirstStep>? FillFirstStepSectionData()
         {
-            IEnumerable<SectionFirstStep> fillData = _db.SectionFirstSteps.Where(m=>m.Active==true && (m.Timable==false ||(m.StartDate<=System.DateTime.Now && System.DateTime.Now<=m.EndDate)));
+            IEnumerable<SectionFirstStep> fillData = _db.SectionFirstSteps.Where(m => m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
             return fillData;
         }
         public IEnumerable<SectionSecondStep>? FillSecondStepSectionData()
@@ -41,14 +41,20 @@ namespace DataAccess.Services.Builders
             IEnumerable<SectionPostImage> fillData = _db.SectionPostImages.Where(m => m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
             return fillData;
         }
+        public IEnumerable<SectionPostImage>? FillSectionPostImageDataByModel(IEnumerable<SectionPostStep> postData)
+        {
+            IEnumerable<SectionPostImage> fillData = _db.SectionPostImages.Where(image => postData.Any(post => post.Id == image.Id_SectionPostStep && image.Active == true && (image.Timable == false || (image.StartDate <= System.DateTime.Now && System.DateTime.Now <= image.EndDate))));
+            return fillData;
+
+        }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop10Data()
         {
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m => m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m=>m.CreateDate).Take(10);
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m => m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate).Take(10);
             return fillData;
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop5VideoData()
         {
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m => m.Active == true && m.SectionPostType!.Title=="Video" && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate).Take(5);
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m => m.Active == true && m.SectionPostType!.Title == "Video" && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate).Take(5);
             return fillData;
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop5ArticleData()
@@ -58,12 +64,12 @@ namespace DataAccess.Services.Builders
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionDataById(int idPost)
         {
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m =>m.Id==idPost && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m => m.Id == idPost && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
             return fillData;
         }
         public IEnumerable<SectionPostImage>? FillSectionPostImageDataById(int idPost)
         {
-            IEnumerable<SectionPostImage> fillData = _db.SectionPostImages.Where(m =>m.Id_SectionPostStep==idPost&& m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
+            IEnumerable<SectionPostImage> fillData = _db.SectionPostImages.Where(m => m.Id_SectionPostStep == idPost && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
             return fillData;
         }
         public IEnumerable<SectionPostVideo>? FillSectionPostVideoDataById(int idPost)
@@ -73,7 +79,7 @@ namespace DataAccess.Services.Builders
         }
         public IEnumerable<SectionPostCommentStep>? FillSectionPostCommentDataById(int idPost)
         {
-            IEnumerable<SectionPostCommentStep> fillData = _db.SectionPostCommentSteps.Include(m=>m.SectionPostAnswerSteps).Where(m => m.Id_SectionPostStep == idPost && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
+            IEnumerable<SectionPostCommentStep> fillData = _db.SectionPostCommentSteps.Include(m => m.SectionPostAnswerSteps).Where(m => m.Id_SectionPostStep == idPost && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
             return fillData;
         }
         public IEnumerable<SectionPostAnswerStep>? FillSectionPostAnswerDataById(int idPost)
@@ -88,14 +94,14 @@ namespace DataAccess.Services.Builders
         }
         public IEnumerable<SectionThirdStep>? FillSectionPostThirdStepData(int idSecondStep)
         {
-            IEnumerable<SectionThirdStep> fillData = _db.SectionThirdSteps.Where(m =>m.Id_SectionSecondStep==idSecondStep && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
+            IEnumerable<SectionThirdStep> fillData = _db.SectionThirdSteps.Where(m => m.Id_SectionSecondStep == idSecondStep && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
             return fillData;
         }
-        public IEnumerable<SectionPostStep>? FillPostStepSectionDataByCategotyId(int idThirdStep,int? page)
+        public IEnumerable<SectionPostStep>? FillPostStepSectionDataByCategotyId(int idThirdStep, int? page)
         {
             var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
-            int PageSize = 2;
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m => m.Id_SectionThirdStep == idThirdStep && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m=>m.CreateDate);
+            int PageSize = 3;
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps.Where(m => m.Id_SectionThirdStep == idThirdStep && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
             return fillData.ToPagedList(pageNumber, PageSize);
         }
         public IEnumerable<SectionPostImage>? FillSectionPostImageDataByCategoryId(int idThirdStep)

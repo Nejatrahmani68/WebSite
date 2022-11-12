@@ -1,0 +1,31 @@
+﻿@page
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = "Reset authenticator key";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-12">
+        ریسێت کردنەوەی بەرنامەی ناسێنەر
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-warning" role="alert">
+                    <p>
+                        <span class="glyphicon glyphicon-warning-sign"></span>
+                        <strong>بە ریسێت کردنەوەی ئەم ناسێنەرە ناتوانن بچنەوە ناو بەکارهێنەرەکەتان تا دوبارە ناساندنەوەی بە بەرنامە ناسێنەرەکە</strong>
+                    </p>
+                    <div>
+                        <form id="reset-authenticator-form" method="post">
+                            <button id="reset-authenticator-button" class="btn btn-danger" type="submit">ریسێت کردنەوە</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+

@@ -15,10 +15,13 @@ namespace Model
         [ForeignKey("SectionThirdStep")]
         public int Id_SectionThirdStep { get; set; }
         public SectionThirdStep? SectionThirdStep { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Title { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("کورتەباس")]
         public string? ShortDescription { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("لەبارەی")]
         public string? FullDescription { get; set; }
         [DisplayName("دیتراو")]

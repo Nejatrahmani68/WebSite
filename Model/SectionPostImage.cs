@@ -6,9 +6,10 @@ namespace Model
 {
     public class SectionPostImage:ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Title { get; set; }
-        [DisplayName("ناوی وێنە")]
+        [DisplayName("وێنە")]
         public string? PictureAddress { get; set; }
         [DisplayName("پۆست")]
         [ForeignKey("SectionPostStep")]

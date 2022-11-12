@@ -5,7 +5,7 @@
     int idPostForComment = 0;
     var imgaddress = "";
 }
-@if (ViewBag.Error!=null)
+@if (ViewBag.Error != null)
 {
     <script>alert(@ViewBag.Error)</script>
 }
@@ -18,14 +18,40 @@
             <div class="viewlearnpic">
                 @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
                 {
-                    imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                    <img class="imglearn" src=@imgaddress alt="@imageitem.Title" />
+                    <div class="mySlides">
+                        @{
+                            imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
+                            <img class="imglearn" src=@imgaddress alt="@imageitem.TagsName" />
+                        }
+                    </div>
                 }
                 <div class="top-right">  @item.Title  </div>
-                <div class="centered">  @item.ShortDescription  </div>
-                <div class="bottom-right"> <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png">  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div></div>
+                <div class="bottom-right">  @item.ShortDescription  </div>
+                <div class="top-left"> <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png">  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div></div>
             </div>
-            <div class="divline"> @Html.Raw(@item.FullDescription) </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divline"> @Html.Raw(@item.FullDescription) </div>
+
+                </div>
+            </div>
+            <div class="viewcontainerindextitleright">
+                <div class="btn btn-info">تەگەکان  ▼ </div>
+            </div>
+            <div class="row">
+
+                @{
+                    string[] tags = item.TagsName!.Split("#");
+                }
+               
+                @foreach (string s in tags)
+                {
+                    <div class="col-md-3">
+                        <div class="divtags"> @s.ToString() </div>
+                    </div>
+                }
+
+            </div>
         </div>
         @if (Model.sectionPostVideos!.Count() > 0)
         {
@@ -96,28 +122,33 @@
                     <div id="message"> </div>
                     <div class="form-group">
                         @Html.Label("ناۆ")
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             @Html.TextBox("userName", "", new { @class = "form-control", required = "required", oninvalid = "this.setCustomValidity('تکایە فۆرمەکە پر کەوە')", oninput = "setCustomValidity('')" })
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.Label("ئیمەێل")
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             @Html.TextBox("mailAddress", "", new { @class = "form-control", type = "email", required = "required", oninvalid = "this.setCustomValidity('تکایە ئیمەێلەکە بە دروستی پر کەوە')", oninput = "setCustomValidity('')" })
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.Label("پەیام")
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             @Html.TextArea("commentText", "", new { @class = "form-control", required = "required", oninvalid = "this.setCustomValidity('تکایە فۆرمەکە پر کەوە')", oninput = "setCustomValidity('')" })
                         </div>
                     </div>
+                    @Html.Hidden("idPost", idPostForComment)
+                    <div class=" insertcomment">
+                        <input type="submit" value="دانان" class="downloadbuttonhome" />
+                    </div>
                 </div>
-                @Html.Hidden("idPost", idPostForComment)
-                <div class=" insertcomment">
-                    <input type="submit" value="دانان" class="downloadbuttonhome" />
-                </div>
+
             }
         }
     }
 }
+@section Scripts {
+    <script type="text/javascript" src="~/js/PostView.js"></script>
+}
+

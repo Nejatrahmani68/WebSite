@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Model.WebsiteActiveTimeControl>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+}
+
+<h5>کۆنتڕۆڵی کاتی کارابوونی سایت<a asp-action="Create"><img class="imgicon" class="imgicon" src="~/Images/ImageThem/Icon/AddTitle.png"></a></h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebsiteTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.WebsiteTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Edit.png"></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Detail.png"></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Delete.png"></a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

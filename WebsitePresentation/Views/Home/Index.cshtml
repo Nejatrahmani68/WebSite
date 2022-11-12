@@ -46,10 +46,10 @@
                 <div class="mySlides">
                     <div id="viewlearnhomeright">
                         <div class=" imagesection">
-                            @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
+                            @foreach (var imageitem in Model.sectionPostImagesForVideo!.Where(m => m.Id_SectionPostStep == item.Id))
                             {
                                 imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                                <img class="imagesection" src=@imgaddress alt ="@imageitem.Title"/>
+                                <img class="imagesection" src=@imgaddress alt ="@imageitem.TagsName"/>
                             }
                         </div>
                         <div class="viewlearnhomerightiner">
@@ -66,7 +66,6 @@
 
     }
 }
-
 @if (Model.checkThemDictionary != null)
 {
     @if (Model.checkThemDictionary["SectionArticle"] == true)
@@ -83,9 +82,9 @@
                 <div class="mySlidesArticle" >
                     <div id="viewlearnhomeright">
                         <div class=" imagesection">
-                            @foreach(var imageitem in Model.sectionPostImages!.Where(m=>m.Id_SectionPostStep==item.Id)){
+                            @foreach(var imageitem in Model.sectionPostImagesForArticl!.Where(m=>m.Id_SectionPostStep==item.Id)){
                                 imgaddress =@"/Images/ImageLarge/"+imageitem.PictureAddress;
-                                <img class="imagesection" src=@imgaddress alt="@imageitem.Title"/>
+                                <img class="imagesection" src=@imgaddress alt="@imageitem.TagsName"/>
                             }
                         </div>
                         <div class="viewlearnhomerightiner">
@@ -98,8 +97,9 @@
                     </div>
                 </div>
             }
-
         </div>
-
     }
+}
+@section Scripts {
+    <script type="text/javascript" src="~/js/HomePageIndex.js"> </script>
 }

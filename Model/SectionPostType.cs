@@ -6,6 +6,7 @@ namespace Model
 {
     public class SectionPostType : ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Title { get; set; }
         public ICollection<SectionPostStep>? SectionPostSteps { get; set; }

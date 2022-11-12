@@ -1,0 +1,31 @@
+﻿@using DataAccess.ViewModels
+@model List<DataAccess.ViewModels.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+}
+
+<h5> بەرێوبەری بەکارهێنەرەکان</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ئایدی</th>
+            <th>ئیمەیل</th>
+            <th>ڕۆڵ</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.Email</td>
+                <td>@string.Join(" , ", user.Roles!.ToList())</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId">بەرێوبەری ڕۆڵ</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -6,6 +6,7 @@ namespace Model
 {
     public class SectionThirdStep : ControlPublishFields
     {
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Name { get; set; }
         [DisplayName("لەبارەی")]

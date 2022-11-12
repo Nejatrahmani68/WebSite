@@ -3,6 +3,7 @@ using DataAccess.Services;
 using DataAccess.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using Model.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,11 +16,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 //builder.Services.AddScoped<ISectionFirstStep, ServiceSectionFirstStep>();
 builder.Services.AddScoped<ViewModelHomePage, ViewModelHomePage>();
+builder.Services.AddScoped<ServiceAdminControl, ServiceAdminControl>();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultUI()
+            .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -9,6 +9,8 @@
         public IEnumerable<SectionThirdStep>? sectionThirdSteps { get; set; }
         public IEnumerable<SectionPostStep>? sectionPostSteps { get; set; }
         public IEnumerable<SectionPostImage>? sectionPostImages { get; set; }
+        public IEnumerable<SectionPostImage>? sectionPostImagesForVideo { get; set; }
+        public IEnumerable<SectionPostImage>? sectionPostImagesForArticl { get; set; }
         public IEnumerable<SectionPostVideo>? sectionPostVideos { get; set; }
         public IEnumerable<SectionPostCommentStep>? sectionPostComments { get; set; }
         public IEnumerable<SectionPostAnswerStep>? sectionPostAnswers { get; set; }

@@ -1,9 +1,12 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "ErrorReportView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>ErrorReportView</h1>
+<h4>کێشەی کۆنتڕڕۆل</h4>
+<div class="row">
+    <div class="col-md-12">
+        @ViewData["ErrorReportMessage"]
+    </div>
+</div>
 
-@ViewData["ErrorReportMessage"]

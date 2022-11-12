@@ -26,6 +26,7 @@ namespace Model
         [DisplayName("ئیمەێل")]
         [EmailAddress]
         public string? Email { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("تەگ")]
         public string? TagsName { get; set; }
 

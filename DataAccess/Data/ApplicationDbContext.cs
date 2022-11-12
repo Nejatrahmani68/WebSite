@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
 namespace DataAccess.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
+           
         }
         public  DbSet<WebsiteActiveTimeControl> WebsiteActiveTimeControls  { get; set; }
         public  DbSet<WebsiteThemControl> WebsiteThemControls { get; set; }
@@ -21,5 +23,6 @@ namespace DataAccess.Data
         public  DbSet<SectionPostCommentStep> SectionPostCommentSteps { get; set; }
         public  DbSet<SectionPostAnswerStep> SectionPostAnswerSteps { get; set; }  
         public  DbSet<SectionPostVideo> SectionPostVideos { get; set; }
+        public  DbSet<WebsiteAdminsControl> WebsiteAdminsControls { get; set; }
     }
 }
