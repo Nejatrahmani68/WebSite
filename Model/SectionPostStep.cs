@@ -25,7 +25,7 @@ namespace Model
         [DisplayName("لەبارەی")]
         public string? FullDescription { get; set; }
         [DisplayName("دیتراو")]
-        public int ViewsNumber { get; set; }
+        public int ViewsNumber { get; set; } = 1;
         public ICollection<SectionPostImage>? SectionPostImages { get; set; }
         public ICollection<SectionPostVideo>? SectionPostVideos { get; set; }
         public ICollection<SectionPostCommentStep>? SectionPostCommentSteps { get; set; }

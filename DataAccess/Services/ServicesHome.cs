@@ -23,7 +23,9 @@ namespace DataAccess.Services
             _viewModelHomePage.checkThemDictionary = builderThemMangaer.CheckThemSections();
             _viewModelHomePage.sectionFirstSteps = builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = builderFillData.FillSecondStepSectionData();
+            _viewModelHomePage.sectionThirdStepCategories = builderFillData.FillThirdStepCategoriesData();
             _viewModelHomePage.sectionPostTop10Steps = builderFillData.FillPostStepSectionTop10Data();
+            _viewModelHomePage.sectionPostTop10MostViewedSteps = builderFillData.FillPostStepSectionTop10MostViewedData();
             _viewModelHomePage.sectionPostTop5ArticleSteps = builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = builderFillData.FillPostStepSectionTop5VideoData();
             _viewModelHomePage.sectionPostImagesForVideo = builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!);
@@ -42,6 +44,7 @@ namespace DataAccess.Services
             _viewModelHomePage.sectionSecondSteps = builderFillData.FillSecondStepSectionData();
             _viewModelHomePage.sectionPostTop10Steps = builderFillData.FillPostStepSectionTop10Data();
             _viewModelHomePage.sectionPostSteps = builderFillData.FillPostStepSectionDataById(idPost);
+            _viewModelHomePage.sectionPostTopMostRelatedSteps = builderFillData.FillPostStepSectionDataMostRelatedStepsById(idPost);
             _viewModelHomePage.sectionPostImages = builderFillData.FillSectionPostImageDataById(idPost);
             _viewModelHomePage.sectionPostVideos = builderFillData.FillSectionPostVideoDataById(idPost);
             _viewModelHomePage.sectionPostComments = builderFillData.FillSectionPostCommentDataById(idPost);

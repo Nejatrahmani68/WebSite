@@ -21,7 +21,7 @@
                     <div class="mySlides">
                         @{
                             imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                            <img class="imglearn" src=@imgaddress alt="@imageitem.TagsName" />
+                                    <img class="imglearn" src=@imgaddress alt="@imageitem.TagsName" />
                         }
                     </div>
                 }
@@ -43,7 +43,7 @@
                 @{
                     string[] tags = item.TagsName!.Split("#");
                 }
-               
+
                 @foreach (string s in tags)
                 {
                     <div class="col-md-3">
@@ -52,7 +52,9 @@
                 }
 
             </div>
+          
         </div>
+       
         @if (Model.sectionPostVideos!.Count() > 0)
         {
             @foreach (var video in Model.sectionPostVideos!)
@@ -63,26 +65,33 @@
                             <div class="btn btn-info">ویدیۆکان  ▼ </div>
                         </div>
                     </div>
-                    <div id="viewlearnhomeright">
+                    <div id="viewlearnhomeright"style="height:auto;">
 
                         @if (video.SectionPostSocialVideo!.Title == "YouTube")
                         {
                             <div class=" imagesection">
                                 <div class="videodisplay">
-                                    <iframe class="videodisplay" src="https://www.youtube.com/embed/1fB7DzKhnIU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="videodisplay" src="@video.VideoAddress" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         }
 
                         @if (video.SectionPostSocialVideo!.Title == "FaceBook")
                         {
-                            <div class=" imagesection">
+                            <div class=" imagesection"style="height:auto;">
                                 <div class="videodisplay">
-                                    <iframe class="videodisplay" src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FRTDRR2720%2Fvideos%2F326356185662589%2F&show_text=false&width=476&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                                    <iframe class="videodisplay" src="@video.VideoAddress" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                                 </div>
                             </div>
                         }
-
+                        @if (video.SectionPostSocialVideo!.Title == "Telegram")
+                        {
+                            <div class=" imagesection"style="height:auto;">
+                                <div class="videodisplay">
+                                    <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-post="@video.VideoAddress" data-width="100%" data-height="100%"></script>
+                                </div>
+                            </div>
+                        }
                         <div class="viewlearnhomerightiner">
                             <div class="viewlearn-lefthome">
                                 <div class="divlinetitle">◄◄@video.Title   </div>
@@ -94,6 +103,32 @@
                 </div>
             }
 
+        }
+        @if (Model.checkThemDictionary != null)
+        {
+            @if (Model.checkThemDictionary["RelatedPost"] == true)
+            {
+                <div class="newscontainer" style="margin-right:0px;">
+                    <div class="containerindex">
+                        <div class="viewcontainerindextitleright">
+
+                            <div class="btn btn-info"> پۆستە پەیوەندی دارەکان  ▼ </div>
+                        </div>
+                    </div>
+                    <div id="viewlearnhomeright">
+                        @foreach (var relatedpost in Model.sectionPostTopMostRelatedSteps!)
+                        {
+                            <div class="viewlearnhomerightiner">
+                                <div class="viewlearn-lefthome">
+                                    <div class="divlinetitle">◄◄@Html.ActionLink(@relatedpost.ShortDescription, "PostView", new { idPost = relatedpost.Id })   </div>
+                                    <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @relatedpost.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            }
         }
         @if (Model.checkThemDictionary!["ViewComment"] == true)
         {
@@ -146,6 +181,7 @@
 
             }
         }
+        
     }
 }
 @section Scripts {

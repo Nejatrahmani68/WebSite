@@ -26,6 +26,7 @@
         border-style: inset;
         border-width: 3px;
         border-color: #2a3542;
+        margin:0px;
     }
 
     thead {
@@ -67,6 +68,13 @@
 
         padding: 0;
         margin: 0
+    }
+
+    .pagination{
+        margin:0px;
+    }
+    .pagination PagedList-pageCountAndLocation disabled page-item{
+        display:none;
     }
     /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -849,7 +857,7 @@
         float: right;
         width: 100%;
         color: black;
-        border: 2px solid #0dcaf0;
+        border: 5px solid #0dcaf0;
     }
 
     .viewlearnhomerightiner {
@@ -1100,9 +1108,17 @@
         padding: 5px;
     }
 
-        .viewlearn-lefthome:hover {
+        .viewlearn-lefthome:hover  {
             background-color: darkblue;
             color: yellow;
+        }
+        .viewlearn-lefthome:hover a {
+            color: yellow;
+        }
+        .viewlearn-lefthome:hover img {
+            background-color: white;
+            border-radius:8px;
+ 
         }
 
     .viewlearnwrite-left {

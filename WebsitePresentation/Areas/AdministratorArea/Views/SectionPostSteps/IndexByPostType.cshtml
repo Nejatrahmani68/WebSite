@@ -1,13 +1,28 @@
-﻿@model IEnumerable<Model.SectionPostStep>
-
+﻿@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+@model IEnumerable<Model.SectionPostStep>
 @{
     ViewData["Title"] = "IndexByPostType";
     Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
     int idTemp = @ViewBag.idTemp;
 }
 
-<h5>پۆستەکان<a asp-action="Create" asp-route-idTemp="@idTemp"><img class="imgicon" src="~/Images/ImageThem/Icon/AddTitle.png"></a></h5>
-
+<h5>پۆستەکان<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a></h5>
+@if (Model.Count() > 0)
+{
+    <h5>
+        @Html.PagedListPager((IPagedList)Model,page => Url.Action("IndexByPostType", new {idTemp=idTemp, page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptions
+    {
+    DisplayItemSliceAndTotal = false,
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayLinkToFirstPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always,
+    DisplayLinkToLastPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always
+    })
+    </h5>
+}
 
 <table class="table">
     <thead>
@@ -46,10 +61,10 @@
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SectionPostType.Title)
+                @Html.DisplayFor(modelItem => item.SectionPostType!.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SectionThirdStep.Name)
+                @Html.DisplayFor(modelItem => item.SectionThirdStep!.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -67,9 +82,9 @@
                 @Html.DisplayFor(modelItem => item.CreateDate)
             </td>
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Edit.png"></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Detail.png"></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Delete.png"></a> 
+                    <a asp-action="Edit" asp-route-id="@item.Id"class="fa fa-edit"> </a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-book"> </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a> 
 
                    
             </td>
@@ -77,3 +92,18 @@
 }
     </tbody>
 </table>
+@if (Model.Count() > 0)
+{
+    <h5>
+        @Html.PagedListPager((IPagedList)Model,page => Url.Action("IndexByPostType", new {idTemp=idTemp, page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptions
+    {
+    DisplayItemSliceAndTotal = false,
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayLinkToFirstPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always,
+    DisplayLinkToLastPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always
+    })
+    </h5>
+}

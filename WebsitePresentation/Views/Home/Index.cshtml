@@ -30,6 +30,7 @@
 
     }
 }
+
 @if (Model.checkThemDictionary != null)
 {
     @if (Model.checkThemDictionary["SectionVideo"] == true)
@@ -98,6 +99,59 @@
                 </div>
             }
         </div>
+    }
+}
+@if (Model.checkThemDictionary != null)
+{
+    @if (Model.checkThemDictionary["MostViewd"] == true)
+    {
+        <div class="sectionscontainer">
+            <div class="containerindex">
+                <div class="viewcontainerindextitleright">
+
+                    <div class="btn btn-info"> زیاترین بینراوەکان  ▼ </div>
+                </div>
+            </div>
+            <div id="viewlearnhomeright">
+                @foreach (var item in Model.sectionPostTop10MostViewedSteps!)
+                {
+                    <div class="viewlearnhomerightiner">
+                        <div class="viewlearn-lefthome">
+                            <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    }
+}
+@if (Model.checkThemDictionary != null)
+{
+    @if (Model.checkThemDictionary["ThirdStepCategories"] == true)
+    {
+        <div class="newscontainer">
+            <div class="containerindex">
+                <div class="viewcontainerindextitleright">
+
+                    <div class="btn btn-info"> نوێترین دەستەکان  ▼ </div>
+                </div>
+            </div>
+            <div id="viewlearnhomeright">
+                @foreach (var item in Model.sectionThirdStepCategories!)
+                {
+                    <div class="viewlearnhomerightiner">
+                        <div class="viewlearn-lefthome">
+                            <div class="divlinetitle"><img src="~/Images/ImageThem/Icon/Folder.png"> @Html.ActionLink(@item.Name, "PostsCategoryView", new { idThirdStep = item.Id })   </div>
+                            <div class="divlinetitle"><img src="~/Images/ImageThem/Icon/Detail.png">@item.Description  </div>
+                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
     }
 }
 @section Scripts {

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Model.SectionPostStep>
+﻿@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+@model IEnumerable<Model.SectionPostStep>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,8 +8,24 @@
     int idTemp = @ViewBag.idTemp;
 }
 
-<h5>پۆستەکان<a asp-action="Create" asp-route-idTemp="@idTemp"><img class="imgicon" src="~/Images/ImageThem/Icon/AddTitle.png"></a></h5>
-
+<h5>
+    پۆستەکان<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a>
+</h5>
+@if (Model.Count() > 0)
+{
+    <h5>
+        @Html.PagedListPager((IPagedList)Model,page => Url.Action("Index", new {idTemp=idTemp, page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptions
+    {
+    DisplayItemSliceAndTotal = false,
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayLinkToFirstPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always,
+    DisplayLinkToLastPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always
+    })
+    </h5>
+}
 <table class="table">
     <thead>
         <tr>
@@ -22,7 +40,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
-            </th> 
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.ViewsNumber)
             </th>
@@ -34,49 +52,62 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
-            </th> 
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SectionPostType.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SectionThirdStep.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ViewsNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Edit.png"></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Detail.png"></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><img src="~/Images/ImageThem/Icon/Delete.png"></a>
-                    <a asp-action="Index" asp-controller="SectionPostImages" asp-route-idTemp="@item.Id"><img src="~/Images/ImageThem/Icon/AddImage.png"></a>
-                    <a asp-action="Index" asp-controller="SectionPostVideos" asp-route-idTemp="@item.Id"><img src="~/Images/ImageThem/Icon/AddVideo.png"></a>
-                    <a asp-action="Index" asp-controller="SectionPostCommentSteps" asp-route-idTemp="@item.Id"><img src="~/Images/ImageThem/Icon/Comments.png"></a>
-
-
-
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionPostType!.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionThirdStep!.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViewsNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="fa fa-edit"> </a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-book"> </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a>
+                    <a asp-action="Index" asp-controller="SectionPostImages" asp-route-idTemp="@item.Id" class="fa fa-image"></a>
+                    <a asp-action="Index" asp-controller="SectionPostVideos" asp-route-idTemp="@item.Id" class="fa fa-file-video-o"></a>
+                    <a asp-action="Index" asp-controller="SectionPostCommentSteps" asp-route-idTemp="@item.Id" class="fa fa-comments"></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@if (Model.Count() > 0)
+{
+    <h5>
+        @Html.PagedListPager((IPagedList)Model,page => Url.Action("Index", new {idTemp=idTemp, page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptions
+    {
+    DisplayItemSliceAndTotal = false,
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayLinkToFirstPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always,
+    DisplayLinkToLastPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always
+    })
+    </h5>
+}

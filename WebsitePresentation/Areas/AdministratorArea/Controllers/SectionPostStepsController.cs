@@ -10,6 +10,7 @@ using Model;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
 using DataAccess.Services;
+using X.PagedList;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 {
@@ -25,7 +26,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         }
 
         // GET: AdministratorArea/SectionPostSteps
-        public async Task<IActionResult> Index(int? idTemp)
+        public async Task<IActionResult> Index(int? idTemp, int? page)
         {
             //Check Admin WorkTime
             ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
@@ -34,17 +35,19 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
+            var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
+            int PageSize = 50;
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
                 var applicationDbContext = _context.SectionPostSteps.Where(m => m.Id_SectionThirdStep == idTemp).Include(s => s.SectionPostType).Include(s => s.SectionThirdStep);
-                return View(await applicationDbContext.ToListAsync());
+                return View(await applicationDbContext.ToPagedListAsync(pageNumber, PageSize));
             }
             return RedirectToAction("Index", "SectionFirstSteps");
         }
 
         // GET: AdministratorArea/SectionPostSteps
-        public async Task<IActionResult> IndexByPostType(int? idTemp)
+        public async Task<IActionResult> IndexByPostType(int? idTemp, int? page)
         {
             //Check Admin WorkTime
             ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
@@ -53,11 +56,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
+            var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
+            int PageSize = 50;
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
                 var applicationDbContext = _context.SectionPostSteps.Where(m => m.Id_SectionPostType == idTemp).Include(s => s.SectionPostType).Include(s => s.SectionThirdStep);
-                return View(await applicationDbContext.ToListAsync());
+                return View(await applicationDbContext.ToPagedListAsync(pageNumber, PageSize));
             }
             return RedirectToAction("Index", "SectionFirstSteps");
         }
