@@ -85,7 +85,10 @@
                     <a asp-action="Edit" asp-route-id="@item.Id"class="fa fa-edit"> </a> |
                     <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-book"> </a> |
                     <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a> 
-
+                     <a asp-action="Index" asp-controller="SectionPostImages" asp-route-idTemp="@item.Id" class="fa fa-image"></a>
+                    <a asp-action="Index" asp-controller="SectionPostVideos" asp-route-idTemp="@item.Id" class="fa fa-file-video-o"></a>
+                    <a asp-action="Index" asp-controller="SectionPostFiles" asp-route-idTemp="@item.Id" class="fa fa-file-archive-o"></a>
+                    <a asp-action="Index" asp-controller="SectionPostCommentSteps" asp-route-idTemp="@item.Id" class="fa fa-comments"></a>
                    
             </td>
         </tr>

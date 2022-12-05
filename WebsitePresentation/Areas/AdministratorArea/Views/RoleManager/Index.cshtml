@@ -4,9 +4,6 @@
     Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
 }
 <h5>بەرێوبەری ڕۆڵ</h5>
-
-    
-
 <table class="table">
     <thead>
         <tr>
@@ -33,7 +30,7 @@
         <form method="post" asp-action="AddRole" asp-controller="RoleManager">
             <div class="input-group">
                 <label class="control-label">ناو </label>
-                <input name="roleName" class="form-control w-25">
+                <input name="roleName" class="form-control w-25" required = "required" oninvalid = "this.setCustomValidity('تکایە فۆرمەکە پر کەوە')" oninput = "setCustomValidity('')" }>
                 <span class="input-group-btn">
                     <button class="btn btn-info">زیادکردنی ڕۆڵی نوێ</button>
                 </span>

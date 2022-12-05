@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Data;
 using Model;
@@ -17,30 +12,32 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
     public class WebsiteActiveTimeControlsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ServiceAdminControl _serviceAdminControl;
 
-        public WebsiteActiveTimeControlsController(ApplicationDbContext context)
+        public WebsiteActiveTimeControlsController(ApplicationDbContext context, ServiceAdminControl serviceAdminControl)
         {
             _context = context;
+            _serviceAdminControl = serviceAdminControl;
         }
 
         // GET: AdministratorArea/WebsiteActiveTimeControls
         public async Task<IActionResult> Index()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            return View(await _context.WebsiteActiveTimeControls.ToListAsync());
+            return View(await _context.WebsiteActiveTimeControls!.ToListAsync());
         }
 
         // GET: AdministratorArea/WebsiteActiveTimeControls/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -65,7 +62,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public IActionResult Create()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -82,7 +79,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Create([Bind("WebsiteTitle,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] WebsiteActiveTimeControl websiteActiveTimeControl)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -101,7 +98,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -128,7 +125,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("WebsiteTitle,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] WebsiteActiveTimeControl websiteActiveTimeControl)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -166,7 +163,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -193,7 +190,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -215,7 +212,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 
         private bool WebsiteActiveTimeControlExists(int id)
         {
-          return _context.WebsiteActiveTimeControls.Any(e => e.Id == id);
+          return _context.WebsiteActiveTimeControls!.Any(e => e.Id == id);
         }
     }
 }

@@ -13,15 +13,16 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ApplicationDbContext _context;
-        public RoleManagerController(RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
+        private readonly ServiceAdminControl _serviceAdminControl;
+        public RoleManagerController(RoleManager<IdentityRole> roleManager, ApplicationDbContext context, ServiceAdminControl serviceAdminControl)
         {
             _roleManager = roleManager;
             _context = context;
+            _serviceAdminControl = serviceAdminControl;
         }
         public async Task<IActionResult> Index()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -34,7 +35,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> AddRole(string roleName)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -49,7 +49,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Delete(string Name)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -66,7 +65,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> DeleteConfirmed(string Name)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";

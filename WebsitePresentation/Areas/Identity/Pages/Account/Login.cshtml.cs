@@ -2,18 +2,12 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
 namespace WebsitePresentation.Areas.Identity.Pages.Account
 {
@@ -66,6 +60,7 @@ namespace WebsitePresentation.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
+            [DisplayName("ئیمەیل")]
             public string Email { get; set; }
 
             /// <summary>
@@ -74,13 +69,14 @@ namespace WebsitePresentation.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
+            [DisplayName("پەسوۆرد")]
             public string Password { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "Remember me?")]
+            [Display(Name = "منت لە بیربیت؟")]
             public bool RememberMe { get; set; }
         }
 
@@ -123,12 +119,12 @@ namespace WebsitePresentation.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("ئەم بەکارهێنەرە ڕاگیراوە");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "ئیمەیل یا پەسوۆرد هەڵەیە");
                     return Page();
                 }
             }

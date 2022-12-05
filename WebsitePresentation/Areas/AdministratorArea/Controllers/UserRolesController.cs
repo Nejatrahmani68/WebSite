@@ -16,16 +16,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ApplicationDbContext _context;
-        public UserRolesController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
+        private readonly ServiceAdminControl _serviceAdminControl;
+        public UserRolesController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context, ServiceAdminControl serviceAdminControl)
         {
             _roleManager = roleManager;
             _userManager = userManager;
             _context = context;
+            _serviceAdminControl = serviceAdminControl;
         }
         public async Task<IActionResult> Index()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -50,7 +52,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Manage(string userId)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -88,7 +90,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Manage(List<ManageUserRolesViewModel> model, string userId)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";

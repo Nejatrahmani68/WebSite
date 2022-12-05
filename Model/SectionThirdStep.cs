@@ -13,7 +13,7 @@ namespace Model
         public string? Description { get; set; }
         [DisplayName("ناوی سەردەستە")]
         [ForeignKey("SectionSecondStep")]
-        public int Id_SectionSecondStep { get; set; }
+        public int? Id_SectionSecondStep { get; set; }
         public SectionSecondStep? SectionSecondStep { get; set; }
         public ICollection<SectionPostStep>? SectionPostSteps { get; set; }
 

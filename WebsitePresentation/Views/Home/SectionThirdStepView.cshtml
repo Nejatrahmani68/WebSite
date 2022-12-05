@@ -1,5 +1,7 @@
-﻿@using Model.ViewModels
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using Model.ViewModels
 @model ViewModelHomePage
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Categories";
 }
@@ -10,12 +12,13 @@
     {
         foreach (var item in Model.sectionThirdSteps!)
         {
-            <div class="viewsubcat">
+            <div class="viewsubcat" title="@item.TagsName">
 
                 <div class="left-bala-subcats">  @item.Name</div>
                 <div class="left-vasat-subcats">@Html.Raw(@item.Description)</div>
                 <div class="divlinesubcat"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                <div class="downloadbutton-subcats  ">   @Html.ActionLink("کردنەوە", "PostsCategoryView", new { idThirdStep = item.Id })        </div>
+                <div class="downloadbutton-subcats  ">
+                    <a asp-action="PostsCategoryView" asp-route-idThirdStep=@item.Id>@Localizer["open"]</a>  </div>
                 <div class="left-payin-subcats"></div>
             </div>
 

@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace Model
 {
@@ -12,10 +11,10 @@ namespace Model
         public string? Name { get; set; }
         [DisplayName("وڵام")]
         [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
-        public string? Answer { get; set; }
+        public string? Answer { get; set; }                                                                                                                                                                                     
         [DisplayName("ناوی کۆمێنت")]
         [ForeignKey("SectionPostCommentStep")]
-        public int Id_SectionPostCommentStep { get; set; }
+        public int? Id_SectionPostCommentStep { get; set; }
         public SectionPostCommentStep? SectionPostCommentStep { get; set; }
 
         //Constructors

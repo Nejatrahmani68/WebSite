@@ -13,7 +13,7 @@ namespace Model
         public string? PictureAddress { get; set; }
         [DisplayName("پۆست")]
         [ForeignKey("SectionPostStep")]
-        public int Id_SectionPostStep { get; set; }
+        public int? Id_SectionPostStep { get; set; }
         public SectionPostStep? SectionPostStep { get; set; }
         //Constructors
         public SectionPostImage()

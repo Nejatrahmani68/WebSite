@@ -1,51 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DataAccess.Data;
-using Model;
-using Microsoft.AspNetCore.Authorization;
+﻿using DataAccess.Data;
 using DataAccess.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Model;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 {
+    //IN Case Limited Admin Add Admin Detail,Empty is Equal to Admin Not Limited
     [Area("AdministratorArea")]
     [Authorize(Roles = "Administrator")]
     public class WebsiteAdminsControlsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        [Obsolete]
+        private readonly ServiceAdminControl _serviceAdminControl;
+        [ObsoleteAttribute("ناردنی فایل")]
         private readonly IHostingEnvironment _env;
 
-        [Obsolete]
-        public WebsiteAdminsControlsController(ApplicationDbContext context, IHostingEnvironment env)
+        [ObsoleteAttribute("ناردنی فایل")]
+        public WebsiteAdminsControlsController(ApplicationDbContext context, IHostingEnvironment env, ServiceAdminControl serviceAdminControl)
         {
             _context = context;
             _env = env;
+            _serviceAdminControl = serviceAdminControl;
         }
 
         // GET: AdministratorArea/WebsiteAdminsControls
         public async Task<IActionResult> Index()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            return View(await _context.WebsiteAdminsControls.ToListAsync());
+            return View(await _context.WebsiteAdminsControls!.ToListAsync());
         }
 
         // GET: AdministratorArea/WebsiteAdminsControls/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -70,7 +68,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public IActionResult Create()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -84,11 +82,11 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Obsolete]
+        [ObsoleteAttribute("ناردنی فایل")]
         public async Task<IActionResult> Create(IFormFile files, [Bind("Title,ShortDescription,FullDescription,TellphoneNmber,PictureAddress,Id,Active,Timable,StartDate,EndDate,Email,TagsName")] WebsiteAdminsControl websiteAdminsControl)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -122,7 +120,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -181,7 +179,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -208,7 +206,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -230,7 +228,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 
         private bool WebsiteAdminsControlExists(int id)
         {
-            return _context.WebsiteAdminsControls.Any(e => e.Id == id);
+            return _context.WebsiteAdminsControls!.Any(e => e.Id == id);
         }
     }
 }

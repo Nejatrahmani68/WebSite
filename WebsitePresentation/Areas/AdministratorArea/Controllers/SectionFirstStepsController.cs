@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Data;
 using Model;
 using Microsoft.AspNetCore.Authorization;
 using DataAccess.Services;
+using System.Globalization;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 {
@@ -17,30 +13,30 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
     public class SectionFirstStepsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ServiceAdminControl _serviceAdminControl;
 
-        public SectionFirstStepsController(ApplicationDbContext context)
+        public SectionFirstStepsController(ApplicationDbContext context, ServiceAdminControl serviceAdminControl)
         {
             _context = context;
+            _serviceAdminControl = serviceAdminControl;
         }
 
         // GET: AdministratorArea/SectionFirstSteps
         public async Task<IActionResult> Index()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            return View(await _context.SectionFirstSteps.ToListAsync());
+            return View(await _context.SectionFirstSteps!.Where(m=>m.SectionLanguage!.Name==CultureInfo.CurrentCulture.Name).ToListAsync());
         }
 
         // GET: AdministratorArea/SectionFirstSteps/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -65,7 +61,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public IActionResult Create()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -83,7 +78,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Create([Bind("Name,Description,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionFirstStep sectionFirstStep)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -91,6 +85,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             }
             if (ModelState.IsValid)
             {
+                sectionFirstStep.Id_LanguageStep = _context.SectionLanguages!.First(l => l.Name == CultureInfo.CurrentCulture.Name).Id;
                 sectionFirstStep.Email = User.Identity!.Name;
                 _context.Add(sectionFirstStep);
                 await _context.SaveChangesAsync();
@@ -103,7 +98,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -128,10 +122,9 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         [Authorize(Roles = "Edit,Administrator,FullWriter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionFirstStep sectionFirstStep)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName,Id_LanguageStep")] SectionFirstStep sectionFirstStep)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -169,7 +162,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -197,7 +189,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -219,7 +210,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 
         private bool SectionFirstStepExists(int id)
         {
-          return _context.SectionFirstSteps.Any(e => e.Id == id);
+          return _context.SectionFirstSteps!.Any(e => e.Id == id);
         }
     }
 }

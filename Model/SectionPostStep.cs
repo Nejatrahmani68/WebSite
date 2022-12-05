@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Numerics;
 
 namespace Model
 {
@@ -9,11 +8,11 @@ namespace Model
     {
         [DisplayName("جۆری پۆست")]
         [ForeignKey("SectionPostType")]
-        public int Id_SectionPostType { get; set; }
+        public int? Id_SectionPostType { get; set; }
         public SectionPostType? SectionPostType { get; set; }
         [DisplayName("ناوی سەردەستە")]
         [ForeignKey("SectionThirdStep")]
-        public int Id_SectionThirdStep { get; set; }
+        public int? Id_SectionThirdStep { get; set; }
         public SectionThirdStep? SectionThirdStep { get; set; }
         [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
@@ -28,18 +27,17 @@ namespace Model
         public int ViewsNumber { get; set; } = 1;
         public ICollection<SectionPostImage>? SectionPostImages { get; set; }
         public ICollection<SectionPostVideo>? SectionPostVideos { get; set; }
+        public ICollection<SectionPostFile>? SectionPostFiles { get; set; }
         public ICollection<SectionPostCommentStep>? SectionPostCommentSteps { get; set; }
         //Constructors
         public SectionPostStep()
         {
 
         }
-        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, int id_SectionPostType, int id_SectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
-            SectionPostType = sectionPostType;
             Id_SectionThirdStep = id_SectionThirdStep;
-            SectionThirdStep = sectionThirdStep;
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;
@@ -50,12 +48,10 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostStep(bool ActivatedNotTimabled, string? email,string? tagsName, int id_SectionPostType, SectionPostType? sectionPostType, int id_SectionThirdStep, SectionThirdStep? sectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionPostStep(bool ActivatedNotTimabled, string? email,string? tagsName, int id_SectionPostType, int id_SectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(ActivatedNotTimabled,email,tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
-            SectionPostType = sectionPostType;
             Id_SectionThirdStep = id_SectionThirdStep;
-            SectionThirdStep = sectionThirdStep;
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;

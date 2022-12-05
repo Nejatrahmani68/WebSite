@@ -1,11 +1,7 @@
-﻿using DataAccess.Data;
-using DataAccess.Services;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using DataAccess.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Model.ViewModels;
-using System.Data;
+using System.Globalization;
 using WebsitePresentation.Controllers;
 
 namespace WebsitePresentation.Areas.AdministratorArea.Controllers
@@ -15,22 +11,23 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
     public class HomeAdminController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _db;
+        private readonly ServiceAdminControl _serviceAdminControl;
 
-        public HomeAdminController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeAdminController(ILogger<HomeController> logger, ServiceAdminControl serviceAdminControl)
         {
             _logger = logger;
-            _db = context;
+            _serviceAdminControl = serviceAdminControl; 
         }
         public IActionResult Index()
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_db);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
+            ViewBag.WebsiteTitle = _serviceAdminControl.WebsiteTitle();
+            _logger.LogInformation(CultureInfo.CurrentCulture.Name);
             return RedirectToAction("Index", "SectionFirstSteps");
         }
     }

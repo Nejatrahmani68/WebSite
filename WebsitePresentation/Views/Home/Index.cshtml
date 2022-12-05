@@ -1,159 +1,96 @@
-﻿@using Model.ViewModels
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using Model.ViewModels
 @model ViewModelHomePage
+@inject IViewLocalizer Localizer
 @{
     ViewData["Title"] = "Home Page";
-    var imgaddress = "";
+   
 }
-@if (Model.checkThemDictionary != null)
-{
-    @if (Model.checkThemDictionary["News"] == true)
+<div class="leftmiddle">
+    @if (Model.checkThemDictionary != null)
     {
-        <div class="newscontainer">
-            <div class="containerindex">
-                <div class="viewcontainerindextitleright">
+        @if (Model.checkThemDictionary["News"] == true)
+        {
+            <div class="newscontainer">
+                <div class="containerindex">
+                    <div class="viewcontainerindextitleright">
 
-                    <div class="btn btn-info"> نوێترین پۆستەکان  ▼ </div>
-                </div>
-            </div>
-            <div id="viewlearnhomeright">
-                @foreach (var item in Model.sectionPostTop10Steps!)
-                {
-                    <div class="viewlearnhomerightiner">
-                        <div class="viewlearn-lefthome">
-                            <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
-                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                        </div>
+                        <div class="btn btn-info"><a asp-action="ViewAllPostInfinitScroll" asp-controller="Home">@Localizer["newestpost"]</a> ▼ </div>
+                    
+
                     </div>
-                }
-            </div>
-        </div>
-
-    }
-}
-
-@if (Model.checkThemDictionary != null)
-{
-    @if (Model.checkThemDictionary["SectionVideo"] == true)
-    {
-        <div class="sectionscontainer">
-            <div class="containerindex">
-                <div class="viewcontainerindextitleright">
-
-                    <div class="btn btn-info"> نوێترین ویدیۆکان  ▼ </div>
                 </div>
-            </div>
-            @foreach (var item in Model.sectionPostTop5VideoSteps!)
-            {
-                <div class="mySlides">
-                    <div id="viewlearnhomeright">
-                        <div class=" imagesection">
-                            @foreach (var imageitem in Model.sectionPostImagesForVideo!.Where(m => m.Id_SectionPostStep == item.Id))
-                            {
-                                imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                                <img class="imagesection" src=@imgaddress alt ="@imageitem.TagsName"/>
-                            }
-                        </div>
-                        <div class="viewlearnhomerightiner">
+                <div id="viewlearnhomeright">
+                    @foreach (var item in Model.sectionPostTop10Steps!)
+                    {
+                        <div class="viewlearnhomerightiner" title="@item.TagsName">
                             <div class="viewlearn-lefthome">
-                                <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                <div class="divlinetitle" ><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
                                 <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
                             </div>
                         </div>
-
-                    </div>
-                </div>
-            }
-        </div>
-
-    }
-}
-@if (Model.checkThemDictionary != null)
-{
-    @if (Model.checkThemDictionary["SectionArticle"] == true)
-    {
-        <div class="sectionscontainer">
-            <div class="containerindex">
-                <div class="viewcontainerindextitleright">
-
-                    <div class="btn btn-info"> نوێترین نوسراوەکان  ▼ </div>
+                    }
                 </div>
             </div>
-            @foreach (var item in Model.sectionPostTop5ArticleSteps!)
-            {
-                <div class="mySlidesArticle" >
-                    <div id="viewlearnhomeright">
-                        <div class=" imagesection">
-                            @foreach(var imageitem in Model.sectionPostImagesForArticl!.Where(m=>m.Id_SectionPostStep==item.Id)){
-                                imgaddress =@"/Images/ImageLarge/"+imageitem.PictureAddress;
-                                <img class="imagesection" src=@imgaddress alt="@imageitem.TagsName"/>
-                            }
-                        </div>
-                        <div class="viewlearnhomerightiner">
+
+        }
+    }
+    @if (Model.checkThemDictionary != null)
+    {
+        @if (Model.checkThemDictionary["ThirdStepCategories"] == true)
+        {
+            <div class="newscontainer">
+                <div class="containerindex">
+                    <div class="viewcontainerindextitleright">
+
+                        <div class="btn btn-info">  @Localizer["newestcategory"]  ▼ </div>
+                    </div>
+                </div>
+                <div id="viewlearnhomeright">
+                    @foreach (var item in Model.sectionThirdStepCategories!)
+                    {
+                        <div class="viewlearnhomerightiner" title="@item.TagsName">
                             <div class="viewlearn-lefthome">
-                                <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                <div class="divlinetitle"><i class="fa fa-list"></i> @Html.ActionLink(@item.Name, "PostsCategoryView", new { idThirdStep = item.Id })   </div>
+                                <div class="divlinetitle"><i class="fa fa-book"></i>@item.Description  </div>
                                 <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
                             </div>
                         </div>
-
-                    </div>
+                    }
                 </div>
-            }
-        </div>
+            </div>
+            
+        }
     }
-}
-@if (Model.checkThemDictionary != null)
-{
-    @if (Model.checkThemDictionary["MostViewd"] == true)
+</div>
+<div class="leftleft">
+   
+    @if (Model.checkThemDictionary != null)
     {
-        <div class="sectionscontainer">
-            <div class="containerindex">
-                <div class="viewcontainerindextitleright">
+        @if (Model.checkThemDictionary["MostViewd"] == true)
+        {
+            <div class="sectionscontainer">
+                <div class="containerindex">
+                    <div class="viewcontainerindextitleright">
 
-                    <div class="btn btn-info"> زیاترین بینراوەکان  ▼ </div>
+                        <div class="btn btn-info">  @Localizer["mostviewed"] ▼ </div>
+                    </div>
+                </div>
+                <div id="viewlearnhomeright">
+                    @foreach (var item in Model.sectionPostTop10MostViewedSteps!)
+                    {
+                        <div class="viewlearnhomerightiner" title="@item.TagsName">
+                            <div class="viewlearn-lefthome">
+                                <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-            <div id="viewlearnhomeright">
-                @foreach (var item in Model.sectionPostTop10MostViewedSteps!)
-                {
-                    <div class="viewlearnhomerightiner">
-                        <div class="viewlearn-lefthome">
-                            <div class="divlinetitle">◄◄@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
-                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
 
+        }
     }
-}
-@if (Model.checkThemDictionary != null)
-{
-    @if (Model.checkThemDictionary["ThirdStepCategories"] == true)
-    {
-        <div class="newscontainer">
-            <div class="containerindex">
-                <div class="viewcontainerindextitleright">
+</div>
 
-                    <div class="btn btn-info"> نوێترین دەستەکان  ▼ </div>
-                </div>
-            </div>
-            <div id="viewlearnhomeright">
-                @foreach (var item in Model.sectionThirdStepCategories!)
-                {
-                    <div class="viewlearnhomerightiner">
-                        <div class="viewlearn-lefthome">
-                            <div class="divlinetitle"><img src="~/Images/ImageThem/Icon/Folder.png"> @Html.ActionLink(@item.Name, "PostsCategoryView", new { idThirdStep = item.Id })   </div>
-                            <div class="divlinetitle"><img src="~/Images/ImageThem/Icon/Detail.png">@item.Description  </div>
-                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
 
-    }
-}
-@section Scripts {
-    <script type="text/javascript" src="~/js/HomePageIndex.js"> </script>
-}

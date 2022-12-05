@@ -6,7 +6,7 @@
     ViewData["Title"] = "Post Categoty View";
     var imgaddress = "";
 }
-@if (Model.sectionPostSteps.Count()>0)
+@if (Model.sectionPostSteps!.Count()>0)
 {
     @Html.PagedListPager((IPagedList)Model.sectionPostSteps!, page => Url.Action("PostsCategoryView", new {idThirdStep=Model.sectionPostSteps!.FirstOrDefault()!.Id_SectionThirdStep, page = page }),
     new X.PagedList.Mvc.Common.PagedListRenderOptions
@@ -23,12 +23,12 @@
 {
     foreach (var item in Model.sectionPostSteps!)
     {
-        <div class="ViewPostMainCategory">
+        <div class="ViewPostMainCategory" title="@item.TagsName">
             <div class="viewlearnpic">
                 @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
                 {
                     imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                    <img class="imglearncategory" src=@imgaddress alt="@imageitem.Title" />
+                    <img class="imglearncategory" src=@imgaddress alt="@imageitem.Title" title="@imageitem.TagsName" />
                 }
                 <div class="top-rightcategory">  @item.Title  </div>
                 <div class="bottom-rightcategory">@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>

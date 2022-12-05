@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsitePresentation", "WebsitePresentation\WebsitePresentation.csproj", "{1FDD1763-1C16-49B7-A9BA-4B3C0602C0A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsitePresentation", "WebsitePresentation\WebsitePresentation.csproj", "{1FDD1763-1C16-49B7-A9BA-4B3C0602C0A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{FCA64515-B19E-4665-8ECD-3EDDAFCC3CFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{FCA64515-B19E-4665-8ECD-3EDDAFCC3CFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{BEAC61CB-93C7-4DFD-932E-C2E6BC0DC58D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{BEAC61CB-93C7-4DFD-932E-C2E6BC0DC58D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{CA0BE1A8-7025-435D-8B71-227155335B79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility", "Utility\Utility.csproj", "{CA0BE1A8-7025-435D-8B71-227155335B79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

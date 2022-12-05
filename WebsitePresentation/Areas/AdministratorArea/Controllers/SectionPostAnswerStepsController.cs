@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Data;
 using Model;
-using DataAccess.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
 using DataAccess.Services;
@@ -19,17 +14,18 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
     public class SectionPostAnswerStepsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ServiceAdminControl _serviceAdminControl;
 
-        public SectionPostAnswerStepsController(ApplicationDbContext context)
+        public SectionPostAnswerStepsController(ApplicationDbContext context, ServiceAdminControl serviceAdminControl)
         {
             _context = context;
+            _serviceAdminControl = serviceAdminControl;
         }
 
         // GET: AdministratorArea/SectionPostAnswerSteps
         public async Task<IActionResult> Index(int? idTemp)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -38,7 +34,9 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
-                var applicationDbContext = _context.SectionPostAnswerSteps.Where(m => m.Id_SectionPostCommentStep == idTemp).Include(s => s.SectionPostCommentStep);
+                var applicationDbContext = _context.SectionPostAnswerSteps!.Where(m => m.Id_SectionPostCommentStep == idTemp).Include(s => s.SectionPostCommentStep).OrderByDescending(m => m.CreateDate);
+                var ParentDetail = _context.SectionPostCommentSteps!.Find(idTemp);
+                ViewBag.ParentDetail = ParentDetail!.Id + "-" + ParentDetail!.Comment; 
                 return View(await applicationDbContext.ToListAsync());
             }
             return RedirectToAction("Index", "SectionFirstSteps");
@@ -48,7 +46,6 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -74,7 +71,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public IActionResult Create(int? idTemp)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -83,7 +80,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
-                ViewData["Id_SectionPostCommentStep"] = new SelectList(_context.SectionPostCommentSteps.Where(m => m.Id == idTemp), "Id", "Name");
+                ViewData["Id_SectionPostCommentStep"] = new SelectList(_context.SectionPostCommentSteps!.Where(m => m.Id == idTemp), "Id", "Name");
                 return View();
             }
             return RedirectToAction("Index", "SectionFirstSteps");
@@ -98,7 +95,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Create([Bind("Name,Answer,Id_SectionPostCommentStep,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionPostAnswerStep sectionPostAnswerStep, int idTemp)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -109,10 +106,9 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 sectionPostAnswerStep.Email = User.Identity!.Name;
                 _context.Add(sectionPostAnswerStep);
                 await _context.SaveChangesAsync();
-                idTemp = _context.SectionPostCommentSteps.Find(idTemp)!.Id_SectionPostStep;
-                return RedirectToAction(nameof(Index), "SectionPostCommentSteps", new { @idTemp = idTemp });
+                return RedirectToAction("Index", new { @idTemp = sectionPostAnswerStep.Id_SectionPostCommentStep });
             }
-            ViewData["Id_SectionPostCommentStep"] = new SelectList(_context.SectionPostCommentSteps.Where(m => m.Id == sectionPostAnswerStep.Id_SectionPostCommentStep), "Id", "Name", sectionPostAnswerStep.Id_SectionPostCommentStep);
+            ViewData["Id_SectionPostCommentStep"] = new SelectList(_context.SectionPostCommentSteps!.Where(m => m.Id == sectionPostAnswerStep.Id_SectionPostCommentStep), "Id", "Name", sectionPostAnswerStep.Id_SectionPostCommentStep);
             return View(sectionPostAnswerStep);
         }
 
@@ -120,7 +116,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -136,7 +132,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             {
                 return NotFound();
             }
-            ViewData["Id_SectionPostCommentStep"] = new SelectList(_context.SectionPostCommentSteps.Where(m => m.Id == sectionPostAnswerStep.Id_SectionPostCommentStep), "Id", "Name", sectionPostAnswerStep.Id_SectionPostCommentStep);
+            ViewData["Id_SectionPostCommentStep"] = new SelectList(_context.SectionPostCommentSteps!.Where(m => m.Id == sectionPostAnswerStep.Id_SectionPostCommentStep), "Id", "Name", sectionPostAnswerStep.Id_SectionPostCommentStep);
             return View(sectionPostAnswerStep);
         }
 
@@ -149,7 +145,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("Name,Answer,Id_SectionPostCommentStep,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionPostAnswerStep sectionPostAnswerStep)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -178,7 +174,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { @idTemp = sectionPostAnswerStep.Id_SectionPostCommentStep });
             }
             ViewData["Id_SectionPostCommentStep"] = new SelectList(_context.SectionPostCommentSteps, "Id", "Name", sectionPostAnswerStep.Id_SectionPostCommentStep);
             return View(sectionPostAnswerStep);
@@ -188,7 +184,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -217,7 +213,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             //Check Admin WorkTime
-            ServiceAdminControl _serviceAdminControl = new ServiceAdminControl(_context);
+            
             if (!_serviceAdminControl.CheckAdmin(User.Identity!.Name!))
             {
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
@@ -239,7 +235,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
 
         private bool SectionPostAnswerStepExists(int id)
         {
-            return _context.SectionPostAnswerSteps.Any(e => e.Id == id);
+            return _context.SectionPostAnswerSteps!.Any(e => e.Id == id);
         }
     }
 }

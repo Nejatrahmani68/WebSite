@@ -1,6 +1,6 @@
-﻿@{
-    ViewData["Title"] = "لەبارەی ئێمە";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer
 
-<p>لەبارەی ئەم سایتە.</p>
+<h4>@Localizer["title"]</h4>
+
+<p>@Localizer["message"]</p>

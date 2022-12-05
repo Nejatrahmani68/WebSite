@@ -1,0 +1,4 @@
+1.run cmd as administrator
+2.cd C:\Windows\Microsoft.NET\Framework\v4.0.30319 
+3.(FOR ENCRYPT)ASPNET_REGIIS -PEF "connectionStrings" "C:\Active Project\KurdTeach\yaswebsite\yaswebsite"
+4.(FOR DECRYPT)ASPNET_REGIIS -PDF "connectionStrings" "C:\Active Project\KurdTeach\yaswebsite\yaswebsite"  

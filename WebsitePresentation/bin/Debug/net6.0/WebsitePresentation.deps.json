@@ -21,6 +21,14 @@
         },
         "runtime": {
           "WebsitePresentation.dll": {}
+        },
+        "resources": {
+          "en-US/WebsitePresentation.resources.dll": {
+            "locale": "en-US"
+          },
+          "fa-IR/WebsitePresentation.resources.dll": {
+            "locale": "fa-IR"
+          }
         }
       },
       "EntityFramework/6.1.0": {
@@ -2693,6 +2701,9 @@
         }
       },
       "Utility/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "6.0.10"
+        },
         "runtime": {
           "Utility.dll": {}
         }

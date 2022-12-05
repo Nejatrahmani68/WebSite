@@ -1,0 +1,39 @@
+﻿@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+@using Model.ViewModels;
+@model ViewModelHomePage;
+@{
+    ViewData["Title"] = "Post Categoty View";
+    var imgaddress = "";
+}
+@if (Model.sectionPostSteps!.Count() > 0)
+{
+    @Html.PagedListPager((IPagedList)Model.sectionPostSteps!, page => Url.Action("ViewAllPostInfinitScroll", new {page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptions
+    {
+    DisplayItemSliceAndTotal = false,
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayLinkToFirstPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always,
+    DisplayLinkToLastPage = X.PagedList.Mvc.Common.PagedListDisplayMode.Always
+    })
+}
+@if (Model.checkThemDictionary!["ViewSubCategoryPosts"] == true)
+{
+    foreach (var item in Model.sectionPostSteps!)
+    {
+        <div class="ViewPostMainCategory" title="@item.TagsName">
+            <div class="viewlearnpic">
+                @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
+                {
+                    imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
+                    <img class="imglearncategory" src=@imgaddress alt="@imageitem.Title" title="@imageitem.TagsName" />
+                }
+                <div class="top-rightcategory">  @item.Title  </div>
+                <div class="bottom-rightcategory">@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                <div class="top-left"> <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png">  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div></div>
+            </div>
+        </div>
+    }
+}

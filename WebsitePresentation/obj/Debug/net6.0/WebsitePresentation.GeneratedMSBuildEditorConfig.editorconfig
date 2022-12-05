@@ -5,6 +5,7 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebsitePresentation
 build_property.RootNamespace = WebsitePresentation
@@ -85,6 +86,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostCommentSteps/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RDb21tZW50U3RlcHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostImages/Create.cshtml]
@@ -469,6 +490,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Views/Home/SectionThirdStepView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWN0aW9uVGhpcmRTdGVwVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Views/Home/ViewAllPostInfinitScroll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3QWxsUG9zdEluZmluaXRTY3JvbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Views/Shared/Error.cshtml]

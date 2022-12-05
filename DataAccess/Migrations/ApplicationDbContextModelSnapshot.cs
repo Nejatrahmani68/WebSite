@@ -47,6 +47,50 @@ namespace WebsitePresentation.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            ConcurrencyStamp = "9c2343fe-12e7-4648-95e6-a6445f2bb9d9",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            ConcurrencyStamp = "c328cdb9-4f12-4d9f-bc55-d8a91c28add4",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            ConcurrencyStamp = "8f03ecd7-5e8e-4dcf-9e6b-d32325c24e16",
+                            Name = "Add",
+                            NormalizedName = "ADD"
+                        },
+                        new
+                        {
+                            Id = "4",
+                            ConcurrencyStamp = "7dfb7746-cc7f-4e29-8e01-be24ef81209c",
+                            Name = "Edit",
+                            NormalizedName = "EDIT"
+                        },
+                        new
+                        {
+                            Id = "5",
+                            ConcurrencyStamp = "1afb63e5-117d-43e5-9e58-59527ba74930",
+                            Name = "Delete",
+                            NormalizedName = "DELETE"
+                        },
+                        new
+                        {
+                            Id = "6",
+                            ConcurrencyStamp = "fb7b8b8c-1fd2-42ce-90b3-9925965d85dd",
+                            Name = "FullWriter",
+                            NormalizedName = "FULLWRITER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -243,6 +287,9 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("Id_LanguageStep")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -259,7 +306,92 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Id_LanguageStep");
+
                     b.ToTable("SectionFirstSteps");
+                });
+
+            modelBuilder.Entity("Model.SectionLanguage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TagsName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Timable")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SectionLanguages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5476),
+                            Description = "",
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5482),
+                            Name = "fa-IR",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5479),
+                            TagsName = "Farsi",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5491),
+                            Description = "",
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5496),
+                            Name = "en-US",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5493),
+                            TagsName = "English",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5502),
+                            Description = "",
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5507),
+                            Name = "ku-Arab",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5504),
+                            TagsName = "Kurdish",
+                            Timable = false
+                        });
                 });
 
             modelBuilder.Entity("Model.SectionPostAnswerStep", b =>
@@ -286,7 +418,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_SectionPostCommentStep")
+                    b.Property<int?>("Id_SectionPostCommentStep")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -334,7 +466,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_SectionPostStep")
+                    b.Property<int?>("Id_SectionPostStep")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -358,6 +490,59 @@ namespace WebsitePresentation.Data.Migrations
                     b.ToTable("SectionPostCommentSteps");
                 });
 
+            modelBuilder.Entity("Model.SectionPostFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileSize")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Id_SectionPostStep")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TagsName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Timable")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_SectionPostStep");
+
+                    b.ToTable("SectionPostFiles");
+                });
+
             modelBuilder.Entity("Model.SectionPostImage", b =>
                 {
                     b.Property<int>("Id")
@@ -378,7 +563,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_SectionPostStep")
+                    b.Property<int?>("Id_SectionPostStep")
                         .HasColumnType("int");
 
                     b.Property<string>("PictureAddress")
@@ -446,6 +631,47 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SectionPostSocialVideos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            Address = "",
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5603),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5608),
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5606),
+                            TagsName = "یوتیوب",
+                            Timable = false,
+                            Title = "Youtube"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            Address = "",
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5616),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5621),
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5618),
+                            TagsName = "فەیسبوک",
+                            Timable = false,
+                            Title = "FaceBook"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = true,
+                            Address = "",
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5627),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5633),
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5630),
+                            TagsName = "تێلێگرام",
+                            Timable = false,
+                            Title = "Telegram"
+                        });
                 });
 
             modelBuilder.Entity("Model.SectionPostStep", b =>
@@ -472,10 +698,10 @@ namespace WebsitePresentation.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Id_SectionPostType")
+                    b.Property<int?>("Id_SectionPostType")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_SectionThirdStep")
+                    b.Property<int?>("Id_SectionThirdStep")
                         .HasColumnType("int");
 
                     b.Property<string>("ShortDescription")
@@ -545,6 +771,44 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SectionPostTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5542),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5548),
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5545),
+                            TagsName = "نوسراوە",
+                            Timable = false,
+                            Title = "Article"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5554),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5559),
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5556),
+                            TagsName = "ویدیۆ",
+                            Timable = false,
+                            Title = "Video"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5565),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5570),
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5568),
+                            TagsName = "فایل",
+                            Timable = false,
+                            Title = "File"
+                        });
                 });
 
             modelBuilder.Entity("Model.SectionPostVideo", b =>
@@ -567,10 +831,10 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_SectionPostSocialVideo")
+                    b.Property<int?>("Id_SectionPostSocialVideo")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_SectionPostStep")
+                    b.Property<int?>("Id_SectionPostStep")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("StartDate")
@@ -623,7 +887,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_SectionFirstStep")
+                    b.Property<int?>("Id_SectionFirstStep")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -670,7 +934,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_SectionSecondStep")
+                    b.Property<int?>("Id_SectionSecondStep")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -731,6 +995,20 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WebsiteActiveTimeControls");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5288),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5298),
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5292),
+                            TagsName = "وێب سایت",
+                            Timable = false,
+                            WebsiteTitle = "ناوی وێب سایت"
+                        });
                 });
 
             modelBuilder.Entity("Model.WebsiteAdminsControl", b =>
@@ -822,6 +1100,296 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WebsiteThemControls");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5665),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5670),
+                            SectionName = "RightSection",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5668),
+                            TagsName = "RightSection",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5677),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5683),
+                            SectionName = "Header",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5680),
+                            TagsName = "Header",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5689),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5694),
+                            SectionName = "HeaderLeft",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5691),
+                            TagsName = "HeaderLeft",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5700),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5705),
+                            SectionName = "HeaderCenter",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5703),
+                            TagsName = "HeaderCenter",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5711),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5716),
+                            SectionName = "HeaderRight",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5714),
+                            TagsName = "HeaderRight",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5722),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5728),
+                            SectionName = "Search",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5725),
+                            TagsName = "Search",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5733),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5739),
+                            SectionName = "Marquee",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5736),
+                            TagsName = "Marquee",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5755),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5761),
+                            SectionName = "LeftSection",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5758),
+                            TagsName = "LeftSection",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5767),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5772),
+                            SectionName = "Footer",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5770),
+                            TagsName = "Footer",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5778),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5784),
+                            SectionName = "News",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5781),
+                            TagsName = "News",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5790),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5795),
+                            SectionName = "SectionVideo",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5792),
+                            TagsName = "SectionVideo",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5801),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5806),
+                            SectionName = "SectionArticle",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5804),
+                            TagsName = "SectionArticle",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5812),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5818),
+                            SectionName = "MostViewd",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5815),
+                            TagsName = "MostViewd",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5823),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5829),
+                            SectionName = "ThirdStepCategories",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5826),
+                            TagsName = "ThirdStepCategories",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5834),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5840),
+                            SectionName = "ViewSubCategoryPosts",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5837),
+                            TagsName = "ViewSubCategoryPosts",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5846),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5851),
+                            SectionName = "ViewPost",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5848),
+                            TagsName = "ViewPost",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5857),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5862),
+                            SectionName = "RelatedPost",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5859),
+                            TagsName = "RelatedPost",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5868),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5873),
+                            SectionName = "ViewComment",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5871),
+                            TagsName = "ViewComment",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5879),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5884),
+                            SectionName = "InsertComment",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5882),
+                            TagsName = "InsertComment",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5890),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5896),
+                            SectionName = "SectionFile",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5893),
+                            TagsName = "SectionFile",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5902),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5907),
+                            SectionName = "ViewFile",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5905),
+                            TagsName = "ViewFile",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5913),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5919),
+                            SectionName = "LogIn",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5916),
+                            TagsName = "LogIn",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5925),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5930),
+                            SectionName = "Language",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5927),
+                            TagsName = "Language",
+                            Timable = false
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Active = true,
+                            CreateDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5936),
+                            Email = "NejatRahmani68@gmail.com",
+                            EndDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5941),
+                            SectionName = "FooterCategories",
+                            StartDate = new DateTime(2022, 12, 4, 23, 42, 54, 101, DateTimeKind.Local).AddTicks(5939),
+                            TagsName = "FooterCategories",
+                            Timable = false
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -875,13 +1443,22 @@ namespace WebsitePresentation.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Model.SectionFirstStep", b =>
+                {
+                    b.HasOne("Model.SectionLanguage", "SectionLanguage")
+                        .WithMany("SectionFirstSteps")
+                        .HasForeignKey("Id_LanguageStep")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("SectionLanguage");
+                });
+
             modelBuilder.Entity("Model.SectionPostAnswerStep", b =>
                 {
                     b.HasOne("Model.SectionPostCommentStep", "SectionPostCommentStep")
                         .WithMany("SectionPostAnswerSteps")
                         .HasForeignKey("Id_SectionPostCommentStep")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("SectionPostCommentStep");
                 });
@@ -891,8 +1468,17 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasOne("Model.SectionPostStep", "SectionPostStep")
                         .WithMany("SectionPostCommentSteps")
                         .HasForeignKey("Id_SectionPostStep")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("SectionPostStep");
+                });
+
+            modelBuilder.Entity("Model.SectionPostFile", b =>
+                {
+                    b.HasOne("Model.SectionPostStep", "SectionPostStep")
+                        .WithMany("SectionPostFiles")
+                        .HasForeignKey("Id_SectionPostStep")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("SectionPostStep");
                 });
@@ -902,8 +1488,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasOne("Model.SectionPostStep", "SectionPostStep")
                         .WithMany("SectionPostImages")
                         .HasForeignKey("Id_SectionPostStep")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("SectionPostStep");
                 });
@@ -913,14 +1498,12 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasOne("Model.SectionPostType", "SectionPostType")
                         .WithMany("SectionPostSteps")
                         .HasForeignKey("Id_SectionPostType")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Model.SectionThirdStep", "SectionThirdStep")
                         .WithMany("SectionPostSteps")
                         .HasForeignKey("Id_SectionThirdStep")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("SectionPostType");
 
@@ -932,14 +1515,12 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasOne("Model.SectionPostSocialVideo", "SectionPostSocialVideo")
                         .WithMany("SectionPostVideos")
                         .HasForeignKey("Id_SectionPostSocialVideo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Model.SectionPostStep", "SectionPostStep")
                         .WithMany("SectionPostVideos")
                         .HasForeignKey("Id_SectionPostStep")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("SectionPostSocialVideo");
 
@@ -951,8 +1532,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasOne("Model.SectionFirstStep", "SectionFirstStep")
                         .WithMany("SectionSecondSteps")
                         .HasForeignKey("Id_SectionFirstStep")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("SectionFirstStep");
                 });
@@ -962,8 +1542,7 @@ namespace WebsitePresentation.Data.Migrations
                     b.HasOne("Model.SectionSecondStep", "SectionSecondStep")
                         .WithMany("SectionThirdSteps")
                         .HasForeignKey("Id_SectionSecondStep")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("SectionSecondStep");
                 });
@@ -971,6 +1550,11 @@ namespace WebsitePresentation.Data.Migrations
             modelBuilder.Entity("Model.SectionFirstStep", b =>
                 {
                     b.Navigation("SectionSecondSteps");
+                });
+
+            modelBuilder.Entity("Model.SectionLanguage", b =>
+                {
+                    b.Navigation("SectionFirstSteps");
                 });
 
             modelBuilder.Entity("Model.SectionPostCommentStep", b =>
@@ -986,6 +1570,8 @@ namespace WebsitePresentation.Data.Migrations
             modelBuilder.Entity("Model.SectionPostStep", b =>
                 {
                     b.Navigation("SectionPostCommentSteps");
+
+                    b.Navigation("SectionPostFiles");
 
                     b.Navigation("SectionPostImages");
 

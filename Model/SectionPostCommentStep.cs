@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace Model
 {
@@ -15,7 +14,7 @@ namespace Model
         public string? Comment { get; set; }
         [DisplayName("ناوی پۆست")]
         [ForeignKey("SectionPostStep")]
-        public int Id_SectionPostStep { get; set; }
+        public int? Id_SectionPostStep { get; set; }
         public SectionPostStep? SectionPostStep { get; set; }
         public ICollection<SectionPostAnswerStep>? SectionPostAnswerSteps { get; set; }
         //Constructors

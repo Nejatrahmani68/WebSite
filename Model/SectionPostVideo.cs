@@ -11,14 +11,14 @@ namespace Model
         public string? Title { get; set; }
         [DisplayName("سۆشیاڵ")]
         [ForeignKey("SectionPostSocialVideo")]
-        public int Id_SectionPostSocialVideo { get; set; }
+        public int? Id_SectionPostSocialVideo { get; set; }
         public SectionPostSocialVideo? SectionPostSocialVideo { get; set; }
         [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ویدیۆ")]
         public string? VideoAddress { get; set; }
         [DisplayName("پۆست")]
         [ForeignKey("SectionPostStep")]
-        public int Id_SectionPostStep { get; set; }
+        public int? Id_SectionPostStep { get; set; }
         public SectionPostStep? SectionPostStep { get; set; }
         
         //Constructors
