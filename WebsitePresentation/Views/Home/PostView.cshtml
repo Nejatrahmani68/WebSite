@@ -5,7 +5,7 @@
 @{
     ViewData["Title"] = "Post View";
     int idPostForComment = 0;
-    var imgaddress = "";
+    var imgaddresspv = "";
 }
 @if (ViewBag.Error != null)
 {
@@ -25,14 +25,14 @@
                     {
                         <div class="mySlidesPostView">
                             @{
-                                imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                                <img class="imglearn" src=@imgaddress alt="@imageitem.Title" title="@imageitem.TagsName" />
+                                imgaddresspv = @"/Images/ImageLarge/" + imageitem.PictureAddress;
+                                <img class="imglearn" src=@imgaddresspv alt="@imageitem.Title" title="@imageitem.TagsName" />
                             }
                         </div>
                     }
                     <div class="top-right">  @item.Title  </div>
                     <div class="bottom-right">  @item.ShortDescription  </div>
-                    <div class="top-left"> <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png">  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div></div>
+                    <div class="top-left"> <div class="divline"><i class="fa fa-clock-o"></i>   @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  <i class="fa fa-user"></i> @item.WriterName </div></div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -83,7 +83,7 @@
                                 <div class="viewlearnhomerightiner" title="@relatedpost.TagsName">
                                     <div class="viewlearn-lefthome">
                                         <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@relatedpost.ShortDescription, "PostView", new { idPost = relatedpost.Id })   </div>
-                                        <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @relatedpost.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                                        <div class="divline"><i class="fa fa-clock-o"></i>   @relatedpost.CreateDate.ToString("HH:mm -MM/dd/yyyy")  <i class="fa fa-user"></i> @relatedpost.WriterName </div>
                                     </div>
                                 </div>
                             }
@@ -100,15 +100,17 @@
                 <div class="viewcontainerindextitleright">
                     <div class="btn btn-info"><img src="~/Images/ImageThem/Icon/Comment.png">  &nbsp @Localizer["comments"]  ▼ </div>
                 </div>
-                @foreach (var comment in Model.sectionPostComments!)
-                {
-                    <div class="divtitlecomment "><img src="~/Images/ImageThem/Icon/User.png">  &nbsp @Html.Raw(@comment.Name) :</div>
-                    <div class="divtextcomment" title="@comment.TagsName"> @Html.Raw(@comment.Comment)</div>
-                    @foreach (var answer in Model.sectionPostAnswers!.Where(m => m.Id_SectionPostCommentStep == comment.Id))
+                <div id="viewlearnhomeright">
+                    @foreach (var comment in Model.sectionPostComments!)
                     {
-                        <div class="divanswercomment" title="@answer.TagsName">><span><img src="~/Images/ImageThem/Icon/User.png">  &nbsp @answer.Name ◄  </span>@Html.Raw(answer.Answer)</div>
+                        <div class="divtitlecomment "><img src="~/Images/ImageThem/Icon/User.png">  &nbsp @Html.Raw(@comment.Name) : </div>
+                        <div class="divtextcomment" title="@comment.TagsName"> @Html.Raw(@comment.Comment)</div>
+                        @foreach (var answer in Model.sectionPostAnswers!.Where(m => m.Id_SectionPostCommentStep == comment.Id))
+                        {
+                            <div class="divanswercomment" title="@answer.TagsName">><span><img src="~/Images/ImageThem/Icon/User.png"> &nbsp @answer.Name &nbsp&nbsp&nbsp :  </span>@Html.Raw(answer.Answer)</div>
+                        }
                     }
-                }
+                </div>
             </div>
         }
         @if (Model.checkThemDictionary!["InsertComment"] == true)
@@ -186,7 +188,7 @@
                         <div class="viewlearnhomerightiner">
                             <div class="viewlearn-lefthome">
                                 <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@video.Title   </div>
-                                <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @video.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                                <div class="divline"><i class="fa fa-clock-o"></i>  @video.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
                             </div>
                         </div>
 

@@ -6,7 +6,7 @@
     int idTemp = @ViewBag.idTemp;
 }
 
-<h5>بابەتەکان بەشی سێ<a class="btn btn-info" style="float:left;padding:0 12px;" asp-action="Index" asp-controller="SectionSecondSteps" asp-route-idTemp="@Model.FirstOrDefault()!.Id_SectionSecondStep">گەڕانەوە بۆ لیست</a><a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a></h5>
+<h5>بابەتەکان بەشی سێ<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a></h5>
 
 <table class="table">
     <thead>

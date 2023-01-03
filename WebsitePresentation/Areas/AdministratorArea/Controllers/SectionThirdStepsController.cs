@@ -34,7 +34,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
-                var applicationDbContext = _context.SectionThirdSteps!.Where(m => m.Id_SectionSecondStep == idTemp).Include(s => s.SectionSecondStep);
+                var applicationDbContext = _context.SectionThirdSteps!.Where(m => m.Id_SectionSecondStep == idTemp).OrderByDescending(m => m.CreateDate).Include(s => s.SectionSecondStep);
                 return View(await applicationDbContext.ToListAsync());
             }
             return RedirectToAction("Index", "SectionFirstSteps");

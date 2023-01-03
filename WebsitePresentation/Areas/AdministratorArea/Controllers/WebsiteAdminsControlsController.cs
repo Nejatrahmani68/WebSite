@@ -36,7 +36,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            return View(await _context.WebsiteAdminsControls!.ToListAsync());
+            return View(await _context.WebsiteAdminsControls!.OrderByDescending(m => m.CreateDate).ToListAsync());
         }
 
         // GET: AdministratorArea/WebsiteAdminsControls/Details/5

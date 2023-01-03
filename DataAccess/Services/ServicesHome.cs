@@ -25,14 +25,15 @@ namespace DataAccess.Services
             _viewModelHomePage.sectionFirstSteps = _builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = _builderFillData.FillSecondStepSectionData();
             _viewModelHomePage.sectionThirdStepCategories = _builderFillData.FillThirdStepCategoriesData();
-            _viewModelHomePage.sectionPostTop10Steps = _builderFillData.FillPostStepSectionTop10Data();
-            _viewModelHomePage.sectionPostTop10MostViewedSteps = _builderFillData.FillPostStepSectionTop10MostViewedData();
+            _viewModelHomePage.sectionPostTop12Steps = _builderFillData.FillPostStepSectionTop12Data();
+            _viewModelHomePage.sectionPostImageTop12Steps = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop12Steps!.ToList());
+            _viewModelHomePage.sectionPostTop5LastMonthSteps = _builderFillData.FillPostStepSectionTop5LastMonthData();
+            _viewModelHomePage.sectionPostImageTop5LastMonthSteps = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5LastMonthSteps!.ToList());
+            _viewModelHomePage.sectionPostTop7MostViewedSteps = _builderFillData.FillPostStepSectionTop7MostViewedData();
+            _viewModelHomePage.sectionPostImageTop7MostViewedSteps = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop7MostViewedSteps!.ToList());
             _viewModelHomePage.sectionPostTop5ArticleSteps = _builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = _builderFillData.FillPostStepSectionTop5VideoData();
             _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
-            _viewModelHomePage.sectionPostImagesForVideo = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForArticl = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5ArticleSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForFile = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5FileSteps!.ToList());
             _viewModelHomePage.sectionPostSocialVideos = _builderFillData.FillSectionPostSocialVideoData();
             return _viewModelHomePage;
         }
@@ -45,7 +46,7 @@ namespace DataAccess.Services
             _viewModelHomePage.SectionLanguages = _builderFillData.FillSectionLanguagesSectionData();
             _viewModelHomePage.sectionFirstSteps = _builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = _builderFillData.FillSecondStepSectionData();
-            _viewModelHomePage.sectionPostTop10Steps = _builderFillData.FillPostStepSectionTop10Data();
+            _viewModelHomePage.sectionPostTop12Steps = _builderFillData.FillPostStepSectionTop12Data();
             _viewModelHomePage.sectionPostSteps = _builderFillData.FillPostStepSectionDataById(idPost);
             _viewModelHomePage.sectionPostTopMostRelatedSteps = _builderFillData.FillPostStepSectionDataMostRelatedStepsById(idPost);
             _viewModelHomePage.sectionPostImages = _builderFillData.FillSectionPostImageDataById(idPost);
@@ -56,9 +57,6 @@ namespace DataAccess.Services
             _viewModelHomePage.sectionPostTop5ArticleSteps = _builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = _builderFillData.FillPostStepSectionTop5VideoData();
             _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
-            _viewModelHomePage.sectionPostImagesForVideo = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForArticl = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5ArticleSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForFile = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5FileSteps!.ToList());
             _viewModelHomePage.sectionPostSocialVideos = _builderFillData.FillSectionPostSocialVideoData();
             return _viewModelHomePage;
         }
@@ -71,15 +69,12 @@ namespace DataAccess.Services
             _viewModelHomePage.SectionLanguages = _builderFillData.FillSectionLanguagesSectionData();
             _viewModelHomePage.sectionFirstSteps = _builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = _builderFillData.FillSecondStepSectionData();
-            _viewModelHomePage.sectionPostTop10Steps = _builderFillData.FillPostStepSectionTop10Data();
+            _viewModelHomePage.sectionPostTop12Steps = _builderFillData.FillPostStepSectionTop12Data();
             _viewModelHomePage.sectionPostSocialVideos = _builderFillData.FillSectionPostSocialVideoData();
             _viewModelHomePage.sectionThirdSteps = _builderFillData.FillSectionPostThirdStepData(idSecondStep);
             _viewModelHomePage.sectionPostTop5ArticleSteps = _builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = _builderFillData.FillPostStepSectionTop5VideoData();
             _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
-            _viewModelHomePage.sectionPostImagesForVideo = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForArticl = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5ArticleSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForFile = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5FileSteps!.ToList());
             return _viewModelHomePage;
         }
         //Fill ViewModel For Home/PostsCategoryView
@@ -91,16 +86,13 @@ namespace DataAccess.Services
             _viewModelHomePage.SectionLanguages = _builderFillData.FillSectionLanguagesSectionData();
             _viewModelHomePage.sectionFirstSteps = _builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = _builderFillData.FillSecondStepSectionData();
-            _viewModelHomePage.sectionPostTop10Steps = _builderFillData.FillPostStepSectionTop10Data();
+            _viewModelHomePage.sectionPostTop12Steps = _builderFillData.FillPostStepSectionTop12Data();
             _viewModelHomePage.sectionPostSteps = _builderFillData.FillPostStepSectionDataByCategotyId(idThirdStep, page);
             _viewModelHomePage.sectionPostImages = _builderFillData.FillSectionPostImageDataByCategoryId(idThirdStep);
             _viewModelHomePage.sectionPostSocialVideos = _builderFillData.FillSectionPostSocialVideoData();
             _viewModelHomePage.sectionPostTop5ArticleSteps = _builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = _builderFillData.FillPostStepSectionTop5VideoData();
             _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
-            _viewModelHomePage.sectionPostImagesForVideo = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForArticl = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5ArticleSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForFile = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5FileSteps!.ToList());
             return _viewModelHomePage;
         }
 
@@ -113,16 +105,13 @@ namespace DataAccess.Services
             _viewModelHomePage.SectionLanguages = _builderFillData.FillSectionLanguagesSectionData();
             _viewModelHomePage.sectionFirstSteps = _builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = _builderFillData.FillSecondStepSectionData();
-            _viewModelHomePage.sectionPostTop10Steps = _builderFillData.FillPostStepSectionTop10Data();
+            _viewModelHomePage.sectionPostTop12Steps = _builderFillData.FillPostStepSectionTop12Data();
             _viewModelHomePage.sectionPostSteps = _builderFillData.FillPostStepSectionDataForInfiniteScroll(page);
             _viewModelHomePage.sectionPostImages = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostSteps!.ToList());
             _viewModelHomePage.sectionPostSocialVideos = _builderFillData.FillSectionPostSocialVideoData();
             _viewModelHomePage.sectionPostTop5ArticleSteps = _builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = _builderFillData.FillPostStepSectionTop5VideoData();
             _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
-            _viewModelHomePage.sectionPostImagesForVideo = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForArticl = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5ArticleSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForFile = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5FileSteps!.ToList());
             return _viewModelHomePage;
         }
         public ViewModelHomePage FillHomapageModelForViewAllPostOrderedByType(string postType,int? page)
@@ -133,16 +122,13 @@ namespace DataAccess.Services
             _viewModelHomePage.SectionLanguages = _builderFillData.FillSectionLanguagesSectionData();
             _viewModelHomePage.sectionFirstSteps = _builderFillData.FillFirstStepSectionData();
             _viewModelHomePage.sectionSecondSteps = _builderFillData.FillSecondStepSectionData();
-            _viewModelHomePage.sectionPostTop10Steps = _builderFillData.FillPostStepSectionTop10Data();
+            _viewModelHomePage.sectionPostTop12Steps = _builderFillData.FillPostStepSectionTop12Data();
             _viewModelHomePage.sectionPostSteps = _builderFillData.FillPostStepSectionDataOrderedByType(postType,page);
             _viewModelHomePage.sectionPostImages = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostSteps!.ToList());
             _viewModelHomePage.sectionPostSocialVideos = _builderFillData.FillSectionPostSocialVideoData();
             _viewModelHomePage.sectionPostTop5ArticleSteps = _builderFillData.FillPostStepSectionTop5ArticleData();
             _viewModelHomePage.sectionPostTop5VideoSteps = _builderFillData.FillPostStepSectionTop5VideoData();
             _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
-            _viewModelHomePage.sectionPostImagesForVideo = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5VideoSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForArticl = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5ArticleSteps!.ToList());
-            _viewModelHomePage.sectionPostImagesForFile = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage!.sectionPostTop5FileSteps!.ToList());
             return _viewModelHomePage;
         }
     }

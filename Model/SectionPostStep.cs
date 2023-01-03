@@ -23,6 +23,9 @@ namespace Model
         [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("لەبارەی")]
         public string? FullDescription { get; set; }
+        [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
+        [DisplayName("نوسەر")]
+        public string? WriterName { get; set; }
         [DisplayName("دیتراو")]
         public int ViewsNumber { get; set; } = 1;
         public ICollection<SectionPostImage>? SectionPostImages { get; set; }
@@ -34,13 +37,14 @@ namespace Model
         {
 
         }
-        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, int id_SectionPostType, int id_SectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionPostStep(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, int id_SectionPostType, int id_SectionThirdStep, string? title, string? shortDescription, string? fullDescription, string? writerName) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
             Id_SectionThirdStep = id_SectionThirdStep;
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;
+            WriterName = writerName;    
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -48,13 +52,14 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostStep(bool ActivatedNotTimabled, string? email,string? tagsName, int id_SectionPostType, int id_SectionThirdStep, string? title, string? shortDescription, string? fullDescription) : base(ActivatedNotTimabled,email,tagsName)
+        public SectionPostStep(bool ActivatedNotTimabled, string? email,string? tagsName, int id_SectionPostType, int id_SectionThirdStep, string? title, string? shortDescription, string? fullDescription, string? writerName) : base(ActivatedNotTimabled,email,tagsName)
         {
             Id_SectionPostType = id_SectionPostType;
             Id_SectionThirdStep = id_SectionThirdStep;
             Title = title;
             ShortDescription = shortDescription;
             FullDescription = fullDescription;
+            WriterName = writerName;
         }
     }
 }

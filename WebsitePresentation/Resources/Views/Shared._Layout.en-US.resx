@@ -129,11 +129,17 @@
   <data name="home" xml:space="preserve">
     <value>Home Page</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>Log In</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>Log Out</value>
+  </data>
+  <data name="menu" xml:space="preserve">
+    <value>Categories</value>
   </data>
   <data name="menubutton" xml:space="preserve">
     <value>Menu</value>

@@ -109,12 +109,12 @@
       "PackagePath": "staticwebassets\\Images\\ImageLarge\\2-956163a5-1693-420e-bba4-01fba82b7e25.png"
     },
     {
-      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\2.JPG",
-      "PackagePath": "staticwebassets\\Images\\ImageLarge\\2.JPG"
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\2-eed80f72-53a0-485d-a03b-40adba31a3bc.jpg",
+      "PackagePath": "staticwebassets\\Images\\ImageLarge\\2-eed80f72-53a0-485d-a03b-40adba31a3bc.jpg"
     },
     {
-      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\2.jfif",
-      "PackagePath": "staticwebassets\\Images\\ImageLarge\\2.jfif"
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\2.JPG",
+      "PackagePath": "staticwebassets\\Images\\ImageLarge\\2.JPG"
     },
     {
       "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\3-3d6955e1-b8a7-4076-8c1b-c234f040c192.jpg",
@@ -125,12 +125,12 @@
       "PackagePath": "staticwebassets\\Images\\ImageLarge\\3.JPG"
     },
     {
-      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\3.jfif",
-      "PackagePath": "staticwebassets\\Images\\ImageLarge\\3.jfif"
-    },
-    {
       "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\4-6ad959ef-d46c-41fe-98e3-fc2ad4ba8ebc.jpg",
       "PackagePath": "staticwebassets\\Images\\ImageLarge\\4-6ad959ef-d46c-41fe-98e3-fc2ad4ba8ebc.jpg"
+    },
+    {
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageThem\\Footersections.png",
+      "PackagePath": "staticwebassets\\Images\\ImageThem\\Footersections.png"
     },
     {
       "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageThem\\Icon\\Add.png",
@@ -339,6 +339,10 @@
     {
       "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\js\\crousalfile.js",
       "PackagePath": "staticwebassets\\js\\crousalfile.js"
+    },
+    {
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\js\\crousaltop10mostview.js",
+      "PackagePath": "staticwebassets\\js\\crousaltop10mostview.js"
     },
     {
       "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\js\\crousalvideo.js",

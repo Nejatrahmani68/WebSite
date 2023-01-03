@@ -24,7 +24,7 @@ builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 104857600;
 });
-//builder.Services.AddScoped<ISectionFirstStep, ServiceSectionFirstStep>();
+builder.Services.AddScoped<ServiceSectionFirstStep, ServiceSectionFirstStep>();
 builder.Services.AddScoped<ViewModelHomePage, ViewModelHomePage>();
 builder.Services.AddScoped<ServiceAdminControl, ServiceAdminControl>();
 builder.Services.AddScoped<ServicesHome, ServicesHome>();

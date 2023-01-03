@@ -110,8 +110,12 @@ namespace DataAccess.Data
                 { Id = 22, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "LogIn", SectionName = "LogIn" },
                 new WebsiteThemControl
                 { Id = 23, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "Language", SectionName = "Language" },
-                 new WebsiteThemControl
-                { Id = 24, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "FooterCategories", SectionName = "FooterCategories" });
+                new WebsiteThemControl
+                { Id = 24, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "FooterCategories", SectionName = "FooterCategories" },
+                new WebsiteThemControl
+                { Id = 25, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "NavBarSticky", SectionName = "NavBarSticky" },
+                new WebsiteThemControl
+                { Id = 26, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "SlideShow", SectionName = "SlideShow" });
 
             builder.Entity<IdentityRole>().HasData(new IdentityRole
             { Id = "1", Name = "Administrator", NormalizedName = "ADMINISTRATOR" },

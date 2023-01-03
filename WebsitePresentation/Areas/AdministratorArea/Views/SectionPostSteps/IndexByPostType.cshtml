@@ -40,6 +40,9 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.WriterName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ViewsNumber)
             </th>
             <th>
@@ -55,44 +58,48 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SectionPostType!.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SectionThirdStep!.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ViewsNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"class="fa fa-edit"> </a> |
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionPostType!.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionThirdStep!.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WriterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViewsNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="fa fa-edit"> </a> |
                     <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-book"> </a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a> 
-                     <a asp-action="Index" asp-controller="SectionPostImages" asp-route-idTemp="@item.Id" class="fa fa-image"></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a>
+                    <a asp-action="Index" asp-controller="SectionPostImages" asp-route-idTemp="@item.Id" class="fa fa-image"></a>
                     <a asp-action="Index" asp-controller="SectionPostVideos" asp-route-idTemp="@item.Id" class="fa fa-file-video-o"></a>
                     <a asp-action="Index" asp-controller="SectionPostFiles" asp-route-idTemp="@item.Id" class="fa fa-file-archive-o"></a>
                     <a asp-action="Index" asp-controller="SectionPostCommentSteps" asp-route-idTemp="@item.Id" class="fa fa-comments"></a>
-                   
-            </td>
-        </tr>
-}
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 @if (Model.Count() > 0)

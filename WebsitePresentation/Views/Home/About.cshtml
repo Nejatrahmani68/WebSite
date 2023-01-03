@@ -1,6 +1,20 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer Localizer
 
-<h4>@Localizer["title"]</h4>
 
-<p>@Localizer["message"]</p>
+<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                @Localizer["title"]
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                @Localizer["message"]
+            </div>
+        </div>
+    </div>
+</div>

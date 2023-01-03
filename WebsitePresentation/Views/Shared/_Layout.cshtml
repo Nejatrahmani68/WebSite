@@ -3,9 +3,6 @@
 @using System.Globalization;
 @model ViewModelHomePage
 @inject IViewLocalizer Localizer
-@{
-    var imgaddress = "";
-}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,26 +11,30 @@
     <title>@Localizer["websitetitle"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
-    @*<link rel="stylesheet" href="~/css/slideshow.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/slideshow.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebsitePresentation.styles.css" asp-append-version="true" />
     @if (CultureInfo.CurrentCulture.Name == "ku-Arab" || CultureInfo.CurrentCulture.Name == "fa-IR")
     {
+        <link rel="stylesheet" href="~/css/siteforall.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/sitelarge.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/sitemedium.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/sitesmall.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/siteforall.css" asp-append-version="true" />
+
     }
     @if (CultureInfo.CurrentCulture.Name == "en-US")
     {
+        <link rel="stylesheet" href="~/css/siteforallltr.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/sitelargeltr.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/sitemediumltr.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/sitesmallltr.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/siteforallltr.css" asp-append-version="true" />
+
     }
 
 </head>
 <body>
     <header>
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> @Localizer["websitetitle"]</a>
@@ -60,13 +61,34 @@
                         {
                             if (Model.checkThemDictionary["Language"] == true)
                             {
-                                foreach (var item in Model.SectionLanguages!)
-                                {
-                                    string imgLanguage = @item.Name + ".png";
-                                    <li class="nav-item" style="font-family:Bookman Old Style;font-weight:bold;">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ChangeLanguage" asp-route-Language="@item.Name" title="@item.TagsName"><img src="~/Images/ImageThem/Icon/@imgLanguage"></a>
-                                    </li>
-                                }
+
+                                <li class="nav-item dropdown">
+                                    <i class="nav-link  text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        @Localizer["language"]
+                                    </i>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @foreach (var item in Model.SectionLanguages!)
+                                        {
+                                            <li>
+                                                @{
+                                                    string imgLanguage = @item.Name + ".png";
+                                                }
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ChangeLanguage" asp-route-Language="@item.Name" title="@item.TagsName">
+                                                    <img src="~/Images/ImageThem/Icon/@imgLanguage"> @item.Title
+                                                    @if (CultureInfo.CurrentCulture.Name == item.Name)
+                                                    {
+                                                        <i class="fa fa-check " aria-hidden="true"></i>
+                                                    }
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                @* string imgLanguage = @item.Name + ".png";
+                        <li class="nav-item" style="font-family:Bookman Old Style;font-weight:bold;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ChangeLanguage" asp-route-Language="@item.Name" title="@item.TagsName"><img src="~/Images/ImageThem/Icon/@imgLanguage"></a>
+                        </li>*@
+
                             }
                         }
                     </ul>
@@ -80,6 +102,8 @@
                 </div>
             </div>
         </nav>
+
+
     </header>
 
     <!--overlay navigation -->
@@ -176,57 +200,32 @@
                 }
             }
         }
-        @if (Model.checkThemDictionary != null)
-        {
-            @if (Model.checkThemDictionary["Marquee"] == true)
-            {
-                @if (CultureInfo.CurrentCulture.Name == "fa-IR")
-                {
-                    <div class="marquee">
-                        <marquee direction="right" onmouseover="this.stop()" onmouseout="this.start()">
-                            @foreach (var item in Model.sectionPostTop10Steps!)
-                            {
-                                <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.Title, "PostView", new { idPost = item.Id , title=@item.TagsName})</strong>
-                            }
-                        </marquee>
-                    </div>
-                }
-                @if (CultureInfo.CurrentCulture.Name != "fa-IR")
-                {
-                    <div class="marquee">
-                        <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
-                            @foreach (var item in Model.sectionPostTop10Steps!)
-                            {
-                                <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.Title, "PostView", new { idPost = item.Id, title=@item.TagsName })</strong>
-                            }
-                        </marquee>
-                    </div>
-                }
 
-            }
-
-        }
-        <div id="container">
-            <div class="downloadbutton-allsubjects" onclick="openNav()">
-                <!-- Use any element to open/show the overlay navigation menu -->
-                <span onclick="openNav()">@Localizer["menubutton"]</span>
-            </div>
-            <div id="right">
-                @{
-                    if (Model.checkThemDictionary != null)
-                    {
-                        if (Model.checkThemDictionary["RightSection"] == true)
+        <nav id="categorynav" class="navbar navbar-expand-sm navbar-toggleable-sm sticky-top  bg-white border-bottom box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand"> @Localizer["menu"]</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuitems" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" style="border:solid 1px white;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="menuitems" class="navbar-collapse collapse d-sm-inline-flex justify-content-between menu">
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (Model.checkThemDictionary != null)
                         {
-                            if (Model.sectionFirstSteps!.ToList().Count() >= 1)
+                            if (Model.checkThemDictionary["NavBarSticky"] == true)
                             {
-                                foreach (var firstStepItem in Model.sectionFirstSteps!)
+                                if (Model.sectionFirstSteps!.ToList().Count() >= 1)
                                 {
-                                    <div class="blockinformationoverly" title="@firstStepItem.TagsName">
-                                        <div class="right-balaoverly">@firstStepItem.Name</div>
-                                        <div class="right-vasatoverly">
-                                            <ul>
+                                    foreach (var firstStepItem in Model.sectionFirstSteps!)
+                                    {
+                                        <li class="nav-item dropdown">
+                                            <i class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                @firstStepItem.Name
+                                            </i>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                 @foreach (var secondStepItem in Model.sectionSecondSteps!)
                                                 {
+
                                                     if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
                                                     {
                                                         <li>
@@ -234,18 +233,106 @@
                                                         </li>
                                                     }
                                                 }
+
                                             </ul>
-                                        </div>
-                                        <div class="right-payinoverly">
-                                        </div>
-                                    </div>
+                                        </li>
+                                    }
                                 }
                             }
                         }
-                    }
-                }
-                <br />
+
+                    </ul>
+
+                </div>
             </div>
+        </nav>
+        @if (Model.checkThemDictionary != null)
+        {
+            @if (Model.checkThemDictionary["Marquee"] == true)
+            {
+                @if (CultureInfo.CurrentCulture.Name == "fa-IR")
+                {
+                    <div class="marquee">
+                        <div class="marqueespinner">
+                            <div class="spinner-grow text-primary" role="status">
+                                <span class="visually-hidden"></span>
+                            </div>
+                        </div>
+                        <div class="marqueenews">
+                           
+                            <marquee direction="right" onmouseover="this.stop()" onmouseout="this.start()">
+                                @foreach (var item in Model.sectionPostTop12Steps!)
+                                {
+                                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.Title, "PostView", new { idPost = item.Id , title=@item.TagsName})</strong>
+                                }
+                            </marquee>
+                        </div>
+                    </div>
+                }
+                @if (CultureInfo.CurrentCulture.Name != "fa-IR")
+                {
+                    <div class="marquee">
+                        <div class="marqueespinner">
+                            <div class="spinner-grow text-primary" role="status">
+                                <span class="visually-hidden"></span>
+                            </div>
+                        </div>
+                        <div class="marqueenews">
+                          
+                            <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
+                                @foreach (var item in Model.sectionPostTop12Steps!)
+                                {
+                                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.Title, "PostView", new { idPost = item.Id, title=@item.TagsName })</strong>
+                                }
+                            </marquee>
+                        </div>
+                    </div>
+                }
+
+            }
+
+        }
+        <div id="container">
+
+            <div class="downloadbutton-allsubjects" onclick="openNav()">
+                <!-- Use any element to open/show the overlay navigation menu -->
+                <span onclick="openNav()">@Localizer["menubutton"]</span>
+            </div>
+            @* <div id="right">
+            @{
+            if (Model.checkThemDictionary != null)
+            {
+            if (Model.checkThemDictionary["RightSection"] == true)
+            {
+            if (Model.sectionFirstSteps!.ToList().Count() >= 1)
+            {
+            foreach (var firstStepItem in Model.sectionFirstSteps!)
+            {
+            <div class="blockinformationoverly" title="@firstStepItem.TagsName">
+            <div class="right-balaoverly">@firstStepItem.Name</div>
+            <div class="right-vasatoverly">
+            <ul>
+            @foreach (var secondStepItem in Model.sectionSecondSteps!)
+            {
+            if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
+            {
+            <li>
+            @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id,title=@secondStepItem.TagsName })
+            </li>
+            }
+            }
+            </ul>
+            </div>
+            <div class="right-payinoverly">
+            </div>
+            </div>
+            }
+            }
+            }
+            }
+            }
+            <br />
+            </div>*@
             <div id="left">
                 @if (Model.checkThemDictionary != null)
                 {
@@ -273,30 +360,20 @@
                                         <div class="containerindex">
                                             <div class="viewcontainerindextitleright">
 
-                                                <div class="btn btn-info"><a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="Video"> @Localizer["newestvideos"]</a>   ▼ </div>
+                                                <div><a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="Video"> @Localizer["newestvideos"]</a>   ▼ </div>
                                             </div>
                                         </div>
-                                        @foreach (var item in Model.sectionPostTop5VideoSteps!)
-                                        {
-                                            <div class="mySlidesVideo">
-                                                <div id="viewlearnhomeright" title="@item.TagsName">
-                                                    <div class=" imagesection">
-                                                        @foreach (var imageitem in Model.sectionPostImagesForVideo!.Where(m => m.Id_SectionPostStep == item.Id))
-                                                        {
-                                                            imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                                                            <img class="imagesection" src=@imgaddress alt="@imageitem.Title" title="@imageitem.TagsName" />
-                                                        }
+                                        <div id="viewlearnhomeright" style="min-height:337px;border:none;">
+                                            @foreach (var item in Model.sectionPostTop5VideoSteps!)
+                                            {
+                                                <div class="viewlearnhomerightiner" style="border:none;" title="@item.TagsName">
+                                                    <div class="viewlearn-lefthome">
+                                                        <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                                        <div class="divline"><i class="fa fa-clock-o"></i> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")<i class="fa fa-user"></i> @item.WriterName  </div>
                                                     </div>
-                                                    <div class="viewlearnhomerightiner">
-                                                        <div class="viewlearn-lefthome">
-                                                            <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
-                                                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
-                                            </div>
-                                        }
+                                            }
+                                        </div>
                                     </div>
 
                                 }
@@ -311,30 +388,20 @@
                                         <div class="containerindex">
                                             <div class="viewcontainerindextitleright">
 
-                                                <div class="btn btn-info"> <a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="Article">@Localizer["newestarticles"]</a>    ▼ </div>
+                                                <div > <a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="Article">@Localizer["newestarticles"]</a>    ▼ </div>
                                             </div>
                                         </div>
-                                        @foreach (var item in Model.sectionPostTop5ArticleSteps!)
-                                        {
-                                            <div class="mySlidesArticle">
-                                                <div id="viewlearnhomeright" title="@item.TagsName">
-                                                    <div class=" imagesection">
-                                                        @foreach (var imageitem in Model.sectionPostImagesForArticl!.Where(m => m.Id_SectionPostStep == item.Id))
-                                                        {
-                                                            imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                                                            <img class="imagesection" src=@imgaddress alt="@imageitem.Title" title="@imageitem.TagsName" />
-                                                        }
+                                        <div id="viewlearnhomeright" style="min-height:337px;border:none;">
+                                            @foreach (var item in Model.sectionPostTop5ArticleSteps!)
+                                            {
+                                                <div class="viewlearnhomerightiner" style="border:none;" title="@item.TagsName">
+                                                    <div class="viewlearn-lefthome">
+                                                        <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                                        <div class="divline"><i class="fa fa-clock-o"></i>  @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")<i class="fa fa-user"></i> @item.WriterName  </div>
                                                     </div>
-                                                    <div class="viewlearnhomerightiner">
-                                                        <div class="viewlearn-lefthome">
-                                                            <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
-                                                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
-                                            </div>
-                                        }
+                                            }
+                                        </div>
                                     </div>
                                 }
                             }
@@ -347,34 +414,20 @@
                                     <div class="sectionscontainer">
                                         <div class="containerindex">
                                             <div class="viewcontainerindextitleright">
-
-                                                <div class="btn btn-info"> <a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="File">@Localizer["newestfiles"] </a>   ▼ </div>
+                                                <div> <a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="File">@Localizer["newestfiles"] </a>   ▼ </div>
                                             </div>
                                         </div>
-                                        @foreach (var item in Model.sectionPostTop5FileSteps!)
-                                        {
-                                            <div class="mySlidesFile">
-                                                <div id="viewlearnhomeright" title="@item.TagsName">
-                                                    <div class=" imagesection">
-                                                        @if (Model.sectionPostImagesForFile != null)
-                                                        {
-                                                            @foreach (var imageitem in Model.sectionPostImagesForFile!.Where(m => m.Id_SectionPostStep == item.Id))
-                                                            {
-                                                                imgaddress = @"/Images/ImageLarge/" + imageitem.PictureAddress;
-                                                                <img class="imagesection" src=@imgaddress alt="@imageitem.Title" title="@imageitem.TagsName" />
-                                                            }
-                                                        }
+                                        <div id="viewlearnhomeright" style="min-height:337px;border:none;">
+                                            @foreach (var item in Model.sectionPostTop5FileSteps!)
+                                            {
+                                                <div class="viewlearnhomerightiner" style="border:none;" title="@item.TagsName">
+                                                    <div class="viewlearn-lefthome">
+                                                        <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
+                                                        <div class="divline"><i class="fa fa-clock-o"></i> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy") <i class="fa fa-user"></i> @item.WriterName </div>
                                                     </div>
-                                                    <div class="viewlearnhomerightiner">
-                                                        <div class="viewlearn-lefthome">
-                                                            <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@item.ShortDescription, "PostView", new { idPost = item.Id })   </div>
-                                                            <div class="divline"><img src="~/Images/ImageThem/Icon/TimeImage.png"> @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
-                                            </div>
-                                        }
+                                            }
+                                        </div>
                                     </div>
                                 }
                             }
@@ -384,8 +437,9 @@
 
             }
         </div>
-
+     
         <div id="footer">
+            <hr />
             @if (Model.checkThemDictionary != null)
             {
                 @if (Model.checkThemDictionary["Footer"] == true)
@@ -427,18 +481,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @if (Model.sectionPostTop5VideoSteps!.Count() > 0)
-    {
-        <script type="text/javascript" src="~/js/crousalvideo.js"> </script>
-    }
-    @if (Model.sectionPostTop5ArticleSteps!.Count() > 0)
-    {
-        <script type="text/javascript" src="~/js/crousalarticle.js"> </script>
-    }
-    @if (Model.sectionPostTop5FileSteps!.Count() > 0)
-    {
-        <script type="text/javascript" src="~/js/crousalfile.js"> </script>
-    }
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

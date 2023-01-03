@@ -7,7 +7,7 @@
     var imgaddress = "";
 }
 
-<h5><a class="btn btn-info" style="float:left;padding:0 12px;" asp-action="Index" asp-controller="SectionPostSteps" asp-route-idTemp="@ViewBag.idTemp">گەڕانەوە بۆ لیست</a>فایلەکان<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a></h5>
+<h5>فایلەکان<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a></h5>
 @if (@ViewBag.idTemp != null)
 {
     <h5>@ViewBag.ParentDetail</h5>

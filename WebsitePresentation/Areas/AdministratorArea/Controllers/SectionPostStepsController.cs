@@ -117,7 +117,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         [Authorize(Roles = "Add,Administrator,FullWriter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id_SectionPostType,Id_SectionThirdStep,Title,ShortDescription,FullDescription,ViewsNumber,Id,Active,Timable,StartDate,EndDate,TagsName")] SectionPostStep sectionPostStep)
+        public async Task<IActionResult> Create([Bind("Id_SectionPostType,Id_SectionThirdStep,Title,ShortDescription,FullDescription,ViewsNumber,Id,Active,Timable,StartDate,EndDate,TagsName,WriterName")] SectionPostStep sectionPostStep)
         {
             //Check Admin WorkTime
             
@@ -170,7 +170,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
         [Authorize(Roles = "Edit,Administrator,FullWriter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_SectionPostType,Id_SectionThirdStep,Title,ShortDescription,FullDescription,ViewsNumber,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName")] SectionPostStep sectionPostStep)
+        public async Task<IActionResult> Edit(int id, [Bind("Id_SectionPostType,Id_SectionThirdStep,Title,ShortDescription,FullDescription,ViewsNumber,Id,Active,Timable,StartDate,EndDate,CreateDate,Email,TagsName,WriterName")] SectionPostStep sectionPostStep)
         {
             //Check Admin WorkTime
             

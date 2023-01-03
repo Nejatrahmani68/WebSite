@@ -9,7 +9,7 @@
 }
 
 <h5>
-    پۆستەکان<a class="btn btn-info" style="float:left;padding:0 12px;" asp-action="Index" asp-controller="SectionThirdSteps" asp-route-idTemp="@Model.FirstOrDefault()!.Id_SectionThirdStep">گەڕانەوە بۆ لیست</a><a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a>
+    پۆستەکان<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a>
 </h5>
 @if (Model.Count() > 0)
 {
@@ -42,6 +42,9 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.WriterName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ViewsNumber)
             </th>
             <th>
@@ -71,6 +74,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WriterName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ViewsNumber)
