@@ -129,11 +129,17 @@
   <data name="home" xml:space="preserve">
     <value>ماڵپەری سەرەکی</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>زمان</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>چونە ژوور</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>چونە دەر</value>
+  </data>
+  <data name="menu" xml:space="preserve">
+    <value>بابەتەکان</value>
   </data>
   <data name="menubutton" xml:space="preserve">
     <value>بابەتەکان</value>

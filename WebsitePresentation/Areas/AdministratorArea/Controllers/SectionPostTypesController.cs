@@ -29,7 +29,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            return View(await _context.SectionPostTypes!.ToListAsync());
+            return View(await _context.SectionPostTypes!.OrderByDescending(m => m.CreateDate).ToListAsync());
         }
 
         // GET: AdministratorArea/SectionPostTypes/Details/5

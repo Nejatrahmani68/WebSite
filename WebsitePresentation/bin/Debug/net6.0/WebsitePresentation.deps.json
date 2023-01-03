@@ -28,6 +28,9 @@
           },
           "fa-IR/WebsitePresentation.resources.dll": {
             "locale": "fa-IR"
+          },
+          "ku-Arab/WebsitePresentation.resources.dll": {
+            "locale": "ku-Arab"
           }
         }
       },

@@ -8,6 +8,8 @@ namespace Model
         [Required(ErrorMessage ="پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
         public string? Name { get; set; }
+        [DisplayName("ناونیشان")]
+        public string? Title { get; set; }
         [DisplayName("لەبارەی")]
         public string? Description { get; set; }
 
@@ -17,10 +19,11 @@ namespace Model
         {
 
         }
-        public SectionLanguage(int id, bool active, bool timable, DateTime? startDate, DateTime? endDate, DateTime createDate, string? email, string? tagsName, string? name, string? description) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public SectionLanguage(int id, bool active, bool timable, DateTime? startDate, DateTime? endDate, DateTime createDate, string? email, string? tagsName, string? name,string title, string? description) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Name = name;
             Description = description;
+            Title= title;
         }
         /// <summary>
         /// Publish Activated and Not Timabled Automatically
@@ -28,10 +31,11 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionLanguage(bool ActivatedNotTimabled, string? email, string? tagsName, string? name, string? description) : base(ActivatedNotTimabled, email, tagsName)
+        public SectionLanguage(bool ActivatedNotTimabled, string? email, string? tagsName, string? name, string title, string? description) : base(ActivatedNotTimabled, email, tagsName)
         {
             Name = name;
             Description = description;
+            Title= title;
         }
     }
 }

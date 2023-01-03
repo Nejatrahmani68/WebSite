@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WYBrfhRTZwHCQesHYG1fTIqIjED+R2lFM230ILONYvw=",
+  "Hash": "hOb8fyRZU3j33lT17kdZt//C4r+UsS6OFq44Ey/mjfA=",
   "Source": "WebsitePresentation",
   "BasePath": "_content/WebsitePresentation",
   "Mode": "Default",
@@ -1853,23 +1853,6 @@
       "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\1-ea1de9d1-12ba-431d-924d-0cafa9fcb244.png"
     },
     {
-      "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\2.jfif",
-      "SourceId": "WebsitePresentation",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\",
-      "BasePath": "_content/WebsitePresentation",
-      "RelativePath": "Images/ImageLarge/2.jfif",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\2.jfif"
-    },
-    {
       "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\2.JPG",
       "SourceId": "WebsitePresentation",
       "SourceType": "Discovered",
@@ -1938,12 +1921,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\2-956163a5-1693-420e-bba4-01fba82b7e25.png"
     },
     {
-      "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\3.jfif",
+      "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\2-eed80f72-53a0-485d-a03b-40adba31a3bc.jpg",
       "SourceId": "WebsitePresentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\",
       "BasePath": "_content/WebsitePresentation",
-      "RelativePath": "Images/ImageLarge/3.jfif",
+      "RelativePath": "Images/ImageLarge/2-eed80f72-53a0-485d-a03b-40adba31a3bc.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1952,7 +1935,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\3.jfif"
+      "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\2-eed80f72-53a0-485d-a03b-40adba31a3bc.jpg"
     },
     {
       "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageLarge\\3.JPG",
@@ -2004,6 +1987,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\ImageLarge\\4-6ad959ef-d46c-41fe-98e3-fc2ad4ba8ebc.jpg"
+    },
+    {
+      "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageThem\\Footersections.png",
+      "SourceId": "WebsitePresentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\",
+      "BasePath": "_content/WebsitePresentation",
+      "RelativePath": "Images/ImageThem/Footersections.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ImageThem\\Footersections.png"
     },
     {
       "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\Images\\ImageThem\\Icon\\Add.png",
@@ -2463,6 +2463,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\crousalfile.js"
+    },
+    {
+      "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\js\\crousaltop10mostview.js",
+      "SourceId": "WebsitePresentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\",
+      "BasePath": "_content/WebsitePresentation",
+      "RelativePath": "js/crousaltop10mostview.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\crousaltop10mostview.js"
     },
     {
       "Identity": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\js\\crousalvideo.js",

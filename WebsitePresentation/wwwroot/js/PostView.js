@@ -1,13 +1,13 @@
-﻿var slideIndex = 0;
-carousel();
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlidesPostView");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+﻿var slideIndexpv = 0;
+carouselpostview();
+function carouselpostview() {
+    var p;
+    var pv = document.getElementsByClassName("mySlidesPostView");
+    for (p = 0; p < pv.length; p++) {
+        pv[p].style.display = "none";
     }
-    slideIndex++;
-    if (slideIndex > x.length) { slideIndex = 1 }
-    x[slideIndex - 1].style.display = "block";
-    setTimeout(carousel, 2000); // Change image every 2 seconds
+    slideIndexpv++;
+    if (slideIndexpv > pv.length) { slideIndexpv = 1 }
+    pv[slideIndexpv - 1].style.display = "block";
+    setTimeout(carouselpostview, 3000); // Change image every 2 seconds
 }

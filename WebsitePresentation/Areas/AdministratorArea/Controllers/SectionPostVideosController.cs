@@ -35,7 +35,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
-                var applicationDbContext = _context.SectionPostVideos!.Where(m => m.Id_SectionPostStep == idTemp).Include(s => s.SectionPostSocialVideo).Include(s => s.SectionPostStep);
+                var applicationDbContext = _context.SectionPostVideos!.Where(m => m.Id_SectionPostStep == idTemp).OrderByDescending(m => m.CreateDate).Include(s => s.SectionPostSocialVideo).Include(s => s.SectionPostStep);
                 var ParentDetail = _context.SectionPostSteps!.Find(idTemp);
                 ViewBag.ParentDetail = ParentDetail!.Id + "-" + ParentDetail!.Title;
                 return View(await applicationDbContext.ToListAsync());

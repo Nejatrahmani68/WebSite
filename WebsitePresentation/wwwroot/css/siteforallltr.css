@@ -10,6 +10,7 @@
     background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    z-index:1021;
 }
 
 /* Position the content inside the overlay */
@@ -67,7 +68,14 @@
     margin-top: 10px;
 }
 
-
+.navbar-light .navbar-nav .nav-link  {
+    text-decoration: none;
+    font-style: normal;
+}
+.dropdown-menu{
+    font-style:normal;
+    text-align:left;
+}
 .memberoverly {
     text-align: right;
     color: yellow;

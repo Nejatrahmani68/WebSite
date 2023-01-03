@@ -61,14 +61,19 @@ namespace DataAccess.Services.Builders
             IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
             return fillData;
         }
-        public IEnumerable<SectionPostStep>? FillPostStepSectionTop10MostViewedData()
+        public IEnumerable<SectionPostStep>? FillPostStepSectionTop7MostViewedData()
         {
             IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.ViewsNumber).Take(7);
             return fillData;
         }
-        public IEnumerable<SectionPostStep>? FillPostStepSectionTop10Data()
+        public IEnumerable<SectionPostStep>? FillPostStepSectionTop12Data()
         {
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate).Take(10);
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate).Take(12);
+            return fillData;
+        }
+        public IEnumerable<SectionPostStep>? FillPostStepSectionTop5LastMonthData()
+        {
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name &&m.CreateDate>=DateTime.Now.AddDays(-30) && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.ViewsNumber).Take(5);
             return fillData;
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop5VideoData()
@@ -139,7 +144,7 @@ namespace DataAccess.Services.Builders
         }
         public List<SectionPostImage>? FillSectionPostImageDataByModel(List<SectionPostStep> postData)
         {
-            List<SectionPostImage> fillData = new List<SectionPostImage>();
+            List<SectionPostImage> fillData = new();
             foreach (var item in postData)
             {
                 fillData.AddRange( _db.SectionPostImages!.Where(image => image.Id_SectionPostStep == item.Id && image.Active == true && (image.Timable == false || (image.StartDate <= System.DateTime.Now && System.DateTime.Now <= image.EndDate))));

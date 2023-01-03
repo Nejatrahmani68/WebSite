@@ -4,16 +4,20 @@
         position: relative;
         min-height: 100%;
     }
+
     .slideshowsection {
         width: 80%;
         height: 500px;
         float: left;
     }
-    .imgslideshow {
-        width: 100%;
-        height: 400px;
+    .text a {
+        text-decoration: none;
+        color: #0dcaf0;
     }
-    body {
+    .text a:hover {
+        color:yellow;
+    }
+        body {
         font-family: Rudaw;
         direction: rtl;
     }
@@ -26,7 +30,69 @@
         text-decoration: none;
     }
 
+    #menuitems ul li {
+        font-size: 20px;
+        padding: 0px;
+    }
 
+        #menuitems ul li i {
+            font-size: 20px;
+            padding: 10px;
+            text-decoration: none;
+            font-family: Rudaw;
+            color: white;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        #menuitems ul li :hover {
+            background-color: red;
+            color: black;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+       
+    #categorynav {
+        background-color: rgb(1 0 102) !important;
+    }
+
+        #categorynav a {
+            color: white;
+        }
+
+    #menuitems ul li ul {
+        background-color: red;
+        text-align: center;
+        min-width: 400px;
+        min-height: 30px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        border-color: red;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+        #menuitems ul li ul li a {
+            text-decoration: none;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+        }
+
+        #menuitems ul li ul :hover {
+            background-color: navy;
+            color: white;
+        }
+   
+    .dropdown-menu[data-bs-popper] {
+        right: 0;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
     /* Set width on the form input elements since they're 100% wide by default */
     .titletext {
         font-family: Rudaw;
@@ -40,6 +106,7 @@
         text-align: center;
         overflow: hidden;
         background-color: lightblue;
+        max-height: 36px;
     }
 
     .btn btn-danger pull-right {
@@ -47,11 +114,12 @@
 
     .marquee {
         width: 100%;
-        height: 30px;
+        height: 50px;
         margin: 0 auto;
         background-color: #0dcaf0;
         font-size: large;
         color: black;
+
     }
 
         .marquee a {
@@ -66,8 +134,21 @@
             }
 
         .marquee i {
-            font-size:18px;
+            font-size: 18px;
         }
+
+    .marqueespinner {
+        width: 10%;
+        height: 100%;
+        float: right;
+        padding:9px;
+        text-align:center;
+    }
+    .marqueenews {
+        width: 90%;
+        float: left;
+        padding: 9px;
+    }
 
     .container {
         position: absolute;
@@ -152,12 +233,13 @@
 
     .btn {
         padding: 4px 12px;
-        font-size: 17px;
+        font-size: 16px;
     }
-        .btn a {
 
+        .btn a {
             color: black !important;
         }
+
     .btnmember {
         font-family: Rudaw;
         text-align: center;
@@ -450,8 +532,9 @@
 
     #left {
         float: left;
-        width: 80%;
-        margin: 5px 5px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
     }
 
     .containerindex {
@@ -479,7 +562,8 @@
 
     .leftleft {
         float: left;
-        width: 33%;
+        width: 34%;
+        margin-right:1%;
     }
 
     .sectionscontainer {
@@ -640,6 +724,7 @@
         width: 100%;
         color: black;
         border: 5px solid #0dcaf0;
+        min-height:300px;
     }
 
     .viewlearnhomerightiner {
@@ -649,7 +734,7 @@
         border: solid 1px #0dcaf0;
     }
 
-   
+
     #viewlearnhomerightnew {
         float: right;
         width: 360px;
@@ -873,7 +958,8 @@
 
     .imglearn {
         width: 100%;
-        height: 400px;
+        height: 550px;
+        min-height: 550px;
         border-radius: 2px;
     }
 
@@ -883,7 +969,7 @@
 
     .imglearncategory {
         width: 100%;
-        height: 255px;
+        height: 100%;
         border-radius: 2px;
     }
 
@@ -903,7 +989,7 @@
         border-radius: 5px;
         padding: 5px;
         float: right;
-        height: 255px;
+        height: 310px;
         overflow: hidden;
         margin-right: 1px;
         margin-left: 1px;
@@ -915,7 +1001,7 @@
         color: black;
         height: 100%;
         width: 100%;
-        min-height: 250px;
+        min-height:300px;
     }
 
 
@@ -933,66 +1019,51 @@
         left: 0px;
         font-size: 18px;
         color: #0dcaf0;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        background-color: rgb(8 0 0 / 70%);
+        background-color: rgb(8 0 0 / 80%);
         width: 100%;
         height: 30px;
         text-align: left;
     }
 
-        .top-left:hover {
-            background-color: rgb(8 0 0 / 80%);
-            color: yellow;
-        }
+        
     /* Top right text */
     .top-right {
         position: absolute;
         top: 0px;
         right: 0px;
         font-size: 18px;
-        background-color: rgb(8 0 0 / 70%);
+        background-color: rgb(8 0 0 / 80%);
         color: #0dcaf0;
-        border-radius: 5px;
         width: 100%;
     }
 
-        .top-right:hover {
-            background-color: rgb(8 0 0 / 80%);
-            color: yellow;
-        }
+      
     /* Top rightcategory text */
     .top-rightcategory {
         position: absolute;
         top: 0px;
         right: 0px;
-        font-size: 14px;
-        background-color: rgb(8 0 0 / 70%);
+        font-size: 20px;
+        background-color: rgb(8 0 0 / 80%);
         color: #0dcaf0;
-        border-radius: 5px;
         width: 100%;
     }
 
-        .top-rightcategory:hover {
-            background-color: rgb(8 0 0 / 80%);
-            color: yellow;
-        }
+       
     /* Bottom right text */
     .bottom-right {
         position: absolute;
         bottom: 30px;
         right: 0px;
-        background-color: rgb(8 0 0 / 70%);
+        background-color: rgb(8 0 0 / 80%);
         color: #0dcaf0;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
         width: 100%;
         height: 90px;
         overflow: hidden;
     }
 
         .bottom-right:hover {
-            background-color: rgb(8 0 0 / 80%);
+
             color: yellow;
         }
     /* Bottom rightcategory text */
@@ -1000,29 +1071,21 @@
         position: absolute;
         bottom: 30px;
         right: 0px;
-        background-color: rgb(8 0 0 / 70%);
+        background-color: rgb(8 0 0 / 80%);
         color: #0dcaf0;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
         width: 100%;
         height: 90px;
         overflow: hidden;
         font-size: 14px;
     }
 
-        .bottom-rightcategory:hover {
-            background-color: rgb(8 0 0 / 80%);
+        .bottom-rightcategory:hover a{
             color: yellow;
         }
 
         .bottom-rightcategory a {
             text-decoration: none;
         }
-
-            .bottom-rightcategory a:hover {
-                text-decoration: none;
-                color: yellow;
-            }
     /* Centered text */
     .centered {
         position: absolute;
@@ -1055,6 +1118,7 @@
     .videodisplay {
         width: 100%;
         height: 100%;
+        min-height: 300px;
     }
 
     .downloadbuttonreport {
@@ -1335,7 +1399,7 @@
     }
 
     #footer {
-        margin: 20px auto;
+        margin: 0px auto;
         width: 100%;
         height: 80px;
         box-shadow: 1px 1px 10px 5px navy;
@@ -1345,8 +1409,7 @@
         text-align: center;
         color: yellow;
         font-family: IranNastaliq;
-        font-size: 20px;
-        padding-top: 10px;
+        font-size: 14px;
         float: left;
     }
 
@@ -1361,12 +1424,15 @@
     .footercategories {
         width: 100%;
         margin: 0 auto;
-        float:left;
+        float: left;
+        box-shadow: 0px -25px 30px 30px navy;
+        background: navy;
+        margin-top: 60px;
     }
 
     .footercategoriessection {
         width: 32%;
-        margin: 7px;
+        margin-left:1%;
         float: left;
     }
 
@@ -1433,6 +1499,7 @@
         font-size: 15px;
         white-space: nowrap;
         overflow: hidden;
+        font-weight:bold;
     }
 
         .divlinetitle a {

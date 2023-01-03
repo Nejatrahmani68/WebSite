@@ -129,11 +129,17 @@
   <data name="home" xml:space="preserve">
     <value>صفحە اصلی</value>
   </data>
+  <data name="language" xml:space="preserve">
+    <value>زبان</value>
+  </data>
   <data name="login" xml:space="preserve">
     <value>ورود</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>خروج</value>
+  </data>
+  <data name="menu" xml:space="preserve">
+    <value>دستە بندیها</value>
   </data>
   <data name="menubutton" xml:space="preserve">
     <value>موضوعات</value>

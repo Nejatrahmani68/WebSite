@@ -10,10 +10,7 @@
         float: left;
     }
 
-    .imgslideshow {
-        width: 100%;
-        height: 400px;
-    }
+
     .container {
         position: absolute;
         margin: 0 auto;
@@ -71,7 +68,7 @@
 
     .btn {
         padding: 4px 12px;
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .btnmember {
@@ -136,20 +133,6 @@
         }
 
 
-    .marquee {
-        width: 100%;
-        height: 30px;
-        margin: 0 auto;
-        background-color: #0dcaf0;
-        font-size: large;
-        color: black;
-    }
-
-        .marquee a {
-            font-family: Rudaw;
-            color: black;
-            text-align: left;
-        }
 
     #container {
         width: 100%;
@@ -163,7 +146,7 @@
         border-left-style: solid;
         border-left-width: 1px;
         font-family: Rudaw;
-        direction: rtl;
+        direction: ltr;
     }
 
     #right {
@@ -225,7 +208,8 @@
     #left {
         float: left;
         width: 100%;
-        margin:0 auto;
+        margin: 0 auto;
+        padding:0px;
     }
 
 
@@ -458,12 +442,22 @@
         font-size: 10px;
         word-wrap: break-word;
     }
+    .slideshow-container {
+        max-height: 470px;
+        min-height: 470px;
+    }
 
+    .imgslideshow {
+        width: 100%;
+        margin-top: 0px;
+        height: 470px;
+    }
     #viewlearnhomeright {
         float: right;
         width: 100%;
         color: black;
         border: 6px solid #0dcaf0;
+        min-height:337px;
     }
 
     .viewlearnhomerightiner {
@@ -551,7 +545,7 @@
         padding: 5px;
         float: right;
         margin-right: 1px;
-        height: 200px;
+        height: 350px;
     }
 
     .viewlearn-lefthome {
@@ -652,6 +646,7 @@
     .videodisplay {
         width: 100%;
         height: 100%;
+        min-height:250px;
     }
 
 
@@ -795,18 +790,7 @@
         padding-left: 10px;
     }
 
-    .divlinetitle {
-        margin-top: 4px;
-        text-align: left;
-        font-size: 15px;
-        white-space: nowrap;
-        overflow: hidden;
-        direction:ltr;
-    }
 
-        .divlinetitle a:hover {
-            color: red;
-        }
 
     .divtitle {
         margin-top: 2px;
@@ -917,7 +901,7 @@
     }
 
     #footer {
-        margin: 20px auto;
+        margin: 0px auto;
         width: 100%;
         height: 80px;
         box-shadow: 1px 1px 10px 5px navy;

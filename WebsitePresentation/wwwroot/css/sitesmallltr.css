@@ -9,9 +9,8 @@
         height: 250px;
         float: left;
     }
-    .imgslideshow {
-        width: 100%;
-        height: 250px;
+    .slideshow-container {
+        min-height: 200px;
     }
     .container {
         position: absolute;
@@ -174,21 +173,7 @@
             border-radius: 40px;
         }
 
-    .marquee {
-        width: 100%;
-        height: 30px;
-        margin: 0 auto;
-        background-color: #0dcaf0;
-        font-size: large;
-        color: black;
-        padding: 0px;
-    }
-
-        .marquee a {
-            font-family: Rudaw;
-            color: black;
-            text-align: left;
-        }
+   
 
     #container {
         width: 100%;
@@ -202,7 +187,7 @@
         border-left-style: solid;
         border-left-width: 1px;
         font-family: Rudaw;
-        direction: rtl;
+        direction: ltr;
     }
 
     #right {
@@ -265,6 +250,7 @@
         float: left;
         width: 100%;
         margin :0 auto;
+        padding:0px;
     }
 
 
@@ -469,7 +455,16 @@
         .learnlefthomenew:hover {
             box-shadow: 1px 1px 6px 6px navy;
         }
+    .slideshow-container {
+        max-height: 330px;
+        min-height: 330px;
+    }
 
+    .imgslideshow {
+        width: 100%;
+        margin-top: 0px;
+        height: 330px;
+    }
     .divlinetitlenew {
         margin-top: 4px;
         text-align: center;
@@ -490,14 +485,32 @@
 
     .btn {
         padding: 4px 12px;
-        font-size: 17px;
+        font-size: 16px;
     }
-
+    #menuitems ul li ul {
+        background-color: red;
+        text-align: center;
+        min-width: 300px;
+        min-height: 30px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .navbar-nav {
+        padding: 0;
+    }
+    .viewlearnpic{
+        min-height:350px;
+    }
+    .imglearn{
+        min-height:350px;
+    }
     #viewlearnhomeright {
         float: right;
         width: 100%;
         color: black;
         border: 5px solid #0dcaf0;
+        min-height: 337px;
     }
 
     .viewlearnhomerightiner {
@@ -581,7 +594,7 @@
         border-radius: 5px;
         padding: 5px;
         float: right;
-        height: 250px;
+        height: 360px;
     }
 
     .viewlearn-lefthome {
@@ -794,6 +807,7 @@
     .videodisplay {
         width: 100%;
         height: 100%;
+        min-height:250px;
     }
 
     .submitbutton {
@@ -833,14 +847,7 @@
         padding-left: 10px;
     }
 
-    .divlinetitle {
-        margin-top: 4px;
-        text-align: left;
-        font-size: 15px;
-        white-space: nowrap;
-        overflow: hidden;
-        direction:ltr;
-    }
+
 
     .divtitle {
         margin-top: 2px;
@@ -948,7 +955,7 @@
     }
 
     #footer {
-        margin: 20px auto;
+        margin: 0px auto;
         width: 100%;
         height: 80px;
         box-shadow: 1px 1px 10px 5px navy;
@@ -1046,14 +1053,7 @@
     }
 
 
-    .divlinetitle {
-        margin-top: 4px;
-        text-align: left;
-        font-size: 15px;
-        white-space: nowrap;
-        overflow: hidden;
-        direction:ltr;
-    }
+
 
     #viewanswer {
         text-align: right;
