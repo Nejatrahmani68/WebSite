@@ -4427,9 +4427,6 @@
       "Utility/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.UI": "6.0.10"
-        },
         "compile": {
           "bin/placeholder/Utility.dll": {}
         },
