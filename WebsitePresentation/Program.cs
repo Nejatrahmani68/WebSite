@@ -44,7 +44,7 @@ new CultureInfo("fa-IR"),
 };
 var options = new RequestLocalizationOptions()
 {
-    DefaultRequestCulture = new RequestCulture("fa-IR"),
+    DefaultRequestCulture = new RequestCulture("ku-Arab"),
     SupportedCultures = supportedCulture,
     SupportedUICultures = supportedCulture,
     RequestCultureProviders = new List<IRequestCultureProvider>()

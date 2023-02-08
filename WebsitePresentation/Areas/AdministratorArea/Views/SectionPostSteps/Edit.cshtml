@@ -114,7 +114,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label asp-for="FullDescription" class="control-label"></label>
-                        <input asp-for="FullDescription" class="form-control" />
+                        <textarea asp-for="FullDescription" class="form-control" ></textarea>
                         <span asp-validation-for="FullDescription" class="text-danger"></span>
                     </div>
                 </div>
@@ -127,5 +127,6 @@
         </form>
     </div>
 </div>
+<script src="~/js/ckeditor.js"></script>
 
 

@@ -2,9 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Model;
 using System.Globalization;
+using WebsitePresentation;
 namespace DataAccess.Services
 {
-    public class ServiceSectionFirstStep
+    public class ServiceSectionFirstStep 
     {
         private readonly ApplicationDbContext _context;
 
@@ -20,7 +21,7 @@ namespace DataAccess.Services
 
         public async Task<SectionFirstStep> GetByIdAsync(int? id)
         {
-            var Data=await _context.SectionFirstSteps!.FirstOrDefaultAsync(m => m.Id == id);
+            var Data = await _context.SectionFirstSteps!.FirstOrDefaultAsync(m => m.Id == id);
             return Data!;
         }
         public async Task AddAsync(SectionFirstStep entityToAdd)
@@ -51,9 +52,6 @@ namespace DataAccess.Services
         {
             return _context.SectionLanguages!.First(l => l.Name == CultureInfo.CurrentCulture.Name).Id;
         }
-
-
-
     }
 
 }

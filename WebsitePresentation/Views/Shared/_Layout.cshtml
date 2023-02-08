@@ -152,54 +152,70 @@
     </div>
     <div class="container">
 
+        @* @if (Model.checkThemDictionary != null)
+        {
+        @if (Model.checkThemDictionary["Header"] == true)
+        {
+        <div class="mainheader">
+        @if (Model.checkThemDictionary["HeaderLeft"] == true)
+        {
+        <div class="partheaderleft">
+        </div>
+        }
+        @if (Model.checkThemDictionary["HeaderCenter"] == true)
+        {
+        <div class="partheadercenter">
+        @Localizer["websitetitle"]
+        </div>
+        }
+        @if (Model.checkThemDictionary["HeaderRight"] == true)
+        {
+        <div class="partheaderright">
+        </div>
+        }
+        </div>
+        }
+        }*@
+
         @if (Model.checkThemDictionary != null)
         {
             @if (Model.checkThemDictionary["Header"] == true)
             {
                 <div class="mainheader">
-                    @if (Model.checkThemDictionary["HeaderLeft"] == true)
-                    {
-                        <div class="partheaderleft">
-                        </div>
-                    }
-                    @if (Model.checkThemDictionary["HeaderCenter"] == true)
-                    {
-                        <div class="partheadercenter">
-                            @Localizer["websitetitle"]
-                        </div>
-                    }
-                    @if (Model.checkThemDictionary["HeaderRight"] == true)
-                    {
-                        <div class="partheaderright">
-                        </div>
-                    }
+                    <div class="mainheaderlogo">
+                    </div>
                 </div>
             }
+            <div class="websitetitle">
+                <div class="websitetitletext">
+                    @Localizer["websitetitle"]
+                    @foreach (var socialaddress in Model.sectionPostSocialVideos!)
+                    {
+                        if (socialaddress.Title == "FaceBook")
+                        {
+                           <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-facebook"></i> </a>
+                        }
+                        if (socialaddress.Title == "Twiter")
+                        {
+                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-twitter"></i> </a>
+                        }
+                        if (socialaddress.Title == "Instagram")
+                        {
+                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-instagram"></i> </a>
+                        }
+                        if (socialaddress.Title == "YouTube")
+                        {
+                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-youtube"></i> </a>
+                        }
+                        if (socialaddress.Title == "Telegram")
+                        {
+                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-telegram"></i> </a>
+                        }
+                    }
+                </div>
+            </div>
         }
 
-
-        @if (Model.checkThemDictionary != null)
-        {
-            @if (Model.checkThemDictionary["Search"] == true)
-            {
-                using (Html.BeginForm("searchIndex", "Home"))
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div id="menu">
-                        <div id="menuleft">
-                            @Html.TextBox("searchtxt")
-                            <input type="submit" value="@Localizer["search"]" class="submitbutton" />
-
-                        </div>
-
-                        <div id="menuright">
-                        </div>
-
-                    </div>
-                }
-            }
-        }
 
         <nav id="categorynav" class="navbar navbar-expand-sm navbar-toggleable-sm sticky-top  bg-white border-bottom box-shadow">
             <div class="container-fluid">
@@ -242,7 +258,24 @@
                         }
 
                     </ul>
+                    @if (Model.checkThemDictionary != null)
+                    {
+                        @if (Model.checkThemDictionary["Search"] == true)
+                        {
+                            using (Html.BeginForm("searchIndex", "Home"))
+                            {
+                                @Html.AntiForgeryToken()
 
+                                <div id="menu">
+                                    <div id="menuleft">
+                                       
+                                        <input type="submit" value="@Localizer["search"]" class="submitbutton" />
+                                        @Html.TextBox("searchtxt")
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
                 </div>
             </div>
         </nav>
@@ -250,7 +283,7 @@
         {
             @if (Model.checkThemDictionary["Marquee"] == true)
             {
-                @if (CultureInfo.CurrentCulture.Name == "fa-IR")
+                @if (CultureInfo.CurrentCulture.Name == "ku-Arab" || CultureInfo.CurrentCulture.Name == "fa-IR")
                 {
                     <div class="marquee">
                         <div class="marqueespinner">
@@ -259,7 +292,7 @@
                             </div>
                         </div>
                         <div class="marqueenews">
-                           
+
                             <marquee direction="right" onmouseover="this.stop()" onmouseout="this.start()">
                                 @foreach (var item in Model.sectionPostTop12Steps!)
                                 {
@@ -269,7 +302,7 @@
                         </div>
                     </div>
                 }
-                @if (CultureInfo.CurrentCulture.Name != "fa-IR")
+                @if (CultureInfo.CurrentCulture.Name == "en-US")
                 {
                     <div class="marquee">
                         <div class="marqueespinner">
@@ -278,7 +311,7 @@
                             </div>
                         </div>
                         <div class="marqueenews">
-                          
+
                             <marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
                                 @foreach (var item in Model.sectionPostTop12Steps!)
                                 {
@@ -388,7 +421,7 @@
                                         <div class="containerindex">
                                             <div class="viewcontainerindextitleright">
 
-                                                <div > <a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="Article">@Localizer["newestarticles"]</a>    ▼ </div>
+                                                <div> <a asp-action="ViewAllPostOrderByType" asp-controller="Home" asp-route-postType="Article">@Localizer["newestarticles"]</a>    ▼ </div>
                                             </div>
                                         </div>
                                         <div id="viewlearnhomeright" style="min-height:337px;border:none;">
@@ -437,7 +470,7 @@
 
             }
         </div>
-     
+
         <div id="footer">
             <hr />
             @if (Model.checkThemDictionary != null)
@@ -446,32 +479,6 @@
                 {
                     <div>
                         Copyright 2023
-                        <ul>
-                            @foreach (var socialaddress in Model.sectionPostSocialVideos!)
-                            {
-                                if (socialaddress.Title == "FaceBook")
-                                {
-                                    <li><a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-facebook"></i> </a></li>
-                                }
-                                if (socialaddress.Title == "Twiter")
-                                {
-                                    <li><a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-twitter"></i> </a></li>
-                                }
-                                if (socialaddress.Title == "Instagram")
-                                {
-                                    <li><a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-instagram"></i> </a></li>
-                                }
-                                if (socialaddress.Title == "YouTube")
-                                {
-                                    <li><a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-youtube"></i> </a></li>
-                                }
-                                if (socialaddress.Title == "Telegram")
-                                {
-                                    <li><a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-telegram"></i> </a></li>
-                                }
-                            }
-
-                        </ul>
                     </div>
                 }
             }

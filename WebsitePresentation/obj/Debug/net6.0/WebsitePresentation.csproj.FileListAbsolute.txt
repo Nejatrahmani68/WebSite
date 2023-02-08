@@ -323,3 +323,4 @@ D:\Active Project\WebsitePresentationApp\WebsitePresentation\obj\Debug\net6.0\re
 D:\Active Project\WebsitePresentationApp\WebsitePresentation\obj\Debug\net6.0\WebsitePresentation.pdb
 D:\Active Project\WebsitePresentationApp\WebsitePresentation\obj\Debug\net6.0\WebsitePresentation.genruntimeconfig.cache
 D:\Active Project\WebsitePresentationApp\WebsitePresentation\obj\Debug\net6.0\ref\WebsitePresentation.dll
+D:\Active Project\WebsitePresentationApp\WebsitePresentation\obj\Debug\net6.0\WebsitePresentation.MvcApplicationPartsAssemblyInfo.cs
