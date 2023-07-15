@@ -13,12 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj" />
-    <ProjectReference Include="..\Utility\Utility.csproj" />
+    <Folder Include="Services\Factories\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Factories\" />
+    <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\Utility\Utility.csproj" />
   </ItemGroup>
 
 </Project>

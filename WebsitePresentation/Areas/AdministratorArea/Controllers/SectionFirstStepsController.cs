@@ -12,13 +12,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
     [Authorize(Roles = "Admin,Administrator")]
     public class SectionFirstStepsController : Controller
     {
-        private readonly ServiceSectionFirstStep _context;
+        private readonly ApplicationDbContext _context;
         private readonly ServiceAdminControl _serviceAdminControl;
 
-        public SectionFirstStepsController(ServiceAdminControl serviceAdminControl, ServiceSectionFirstStep context)
+        public SectionFirstStepsController(ApplicationDbContext context, ServiceAdminControl serviceAdminControl)
         {
-            _serviceAdminControl = serviceAdminControl;
             _context = context;
+            _serviceAdminControl = serviceAdminControl;
         }
 
         // GET: AdministratorArea/SectionFirstSteps
@@ -30,7 +30,7 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            return View(await _context.GetAllAsync());
+            return View(await _context.SectionFirstSteps!.Where(m => m.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name).ToListAsync());
         }
 
         // GET: AdministratorArea/SectionFirstSteps/Details/5
@@ -42,12 +42,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (id == null || await _context.GetAllAsync() == null)
+            if (id == null || _context.SectionFirstSteps == null)
             {
                 return NotFound();
             }
 
-            var sectionFirstStep = await _context.GetByIdAsync(id);
+            var sectionFirstStep = await _context.SectionFirstSteps
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sectionFirstStep == null)
             {
                 return NotFound();
@@ -84,9 +85,10 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             }
             if (ModelState.IsValid)
             {
-                sectionFirstStep.Id_LanguageStep = _context.LanguageId();
+                sectionFirstStep.Id_LanguageStep = _context.SectionLanguages!.First(l => l.Name == CultureInfo.CurrentCulture.Name).Id;
                 sectionFirstStep.Email = User.Identity!.Name;
-                await _context.AddAsync(sectionFirstStep);
+                _context.Add(sectionFirstStep);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(sectionFirstStep);
@@ -101,11 +103,12 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (id == null || await _context.GetAllAsync() == null)
+            if (id == null || _context.SectionFirstSteps == null)
             {
                 return NotFound();
             }
-            var sectionFirstStep = await _context.GetByIdAsync(id);
+
+            var sectionFirstStep = await _context.SectionFirstSteps.FindAsync(id);
             if (sectionFirstStep == null)
             {
                 return NotFound();
@@ -136,8 +139,8 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
             {
                 try
                 {
-                    await _context.UpdateAsync(sectionFirstStep);
-
+                    _context.Update(sectionFirstStep);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -164,12 +167,13 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (id == null ||await _context.GetAllAsync() == null)
+            if (id == null || _context.SectionFirstSteps == null)
             {
                 return NotFound();
             }
 
-            var sectionFirstStep = await _context.GetByIdAsync(id);
+            var sectionFirstStep = await _context.SectionFirstSteps
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sectionFirstStep == null)
             {
                 return NotFound();
@@ -190,22 +194,23 @@ namespace WebsitePresentation.Areas.AdministratorArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (await _context.GetAllAsync() == null)
+            if (_context.SectionFirstSteps == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.SectionFirstSteps'  is null.");
             }
-            var sectionFirstStep = await _context.GetByIdAsync(id);
+            var sectionFirstStep = await _context.SectionFirstSteps.FindAsync(id);
             if (sectionFirstStep != null)
             {
-                await _context.RemoveAsync(sectionFirstStep);
+                _context.SectionFirstSteps.Remove(sectionFirstStep);
             }
+
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SectionFirstStepExists(int id)
         {
-            return _context.SectionFirstStepExistsAsync(id);
+            return _context.SectionFirstSteps!.Any(e => e.Id == id);
         }
-       
     }
 }

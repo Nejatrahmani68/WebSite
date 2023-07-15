@@ -14,7 +14,7 @@
         public IEnumerable<SectionPostStep>? sectionPostSteps { get; set; }
         public IEnumerable<SectionPostImage>? sectionPostImages { get; set; }
         public IEnumerable<SectionPostFile>? sectionPostFiles { get; set; }
-        public IEnumerable<SectionPostVideo>? sectionPostVideos { get; set; }
+        public IEnumerable<ArmyMembersAccounts>? sectionPostVideos { get; set; }
         public IEnumerable<SectionPostCommentStep>? sectionPostComments { get; set; }
         public IEnumerable<SectionPostAnswerStep>? sectionPostAnswers { get; set; }
         public IEnumerable<SectionPostStep>? sectionPostTop12Steps { get; set; }

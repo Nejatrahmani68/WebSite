@@ -1,0 +1,12 @@
+D:\Active Project\WebsitePresentationApp\Utility\bin\Release\net6.0\Utility.deps.json
+D:\Active Project\WebsitePresentationApp\Utility\bin\Release\net6.0\Utility.dll
+D:\Active Project\WebsitePresentationApp\Utility\bin\Release\net6.0\Utility.pdb
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\Utility.csproj.AssemblyReference.cache
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\Utility.AssemblyInfoInputs.cache
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\Utility.AssemblyInfo.cs
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\Utility.csproj.CoreCompileInputs.cache
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\Utility.dll
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\refint\Utility.dll
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\Utility.pdb
+D:\Active Project\WebsitePresentationApp\Utility\obj\Release\net6.0\ref\Utility.dll

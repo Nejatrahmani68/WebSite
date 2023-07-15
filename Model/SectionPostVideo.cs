@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
-    public class SectionPostVideo : ControlPublishFields
+    public class ArmyMembersAccounts : ControlPublishFields
     {
         [Required(ErrorMessage = "پێویستە پڕ کرێتەوە")]
         [DisplayName("ناو")]
@@ -22,11 +22,11 @@ namespace Model
         public SectionPostStep? SectionPostStep { get; set; }
         
         //Constructors
-        public SectionPostVideo()
+        public ArmyMembersAccounts()
         {
                 
         }
-        public SectionPostVideo(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? title, string? videoAddress, int id_SectionPostStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
+        public ArmyMembersAccounts(int id, bool active, bool timable, DateTime startDate, DateTime endDate, DateTime createDate, string? email,string? tagsName, string? title, string? videoAddress, int id_SectionPostStep) : base(id, active, timable, startDate, endDate, createDate, email, tagsName)
         {
             Title = title;
             VideoAddress = videoAddress;
@@ -38,7 +38,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="sectionSecondSteps"></param>
-        public SectionPostVideo(bool ActivatedNotTimabled, string? email,string? tagsName, string? title, string? videoAddress, int id_SectionPostStep) : base(ActivatedNotTimabled,email,tagsName)
+        public ArmyMembersAccounts(bool ActivatedNotTimabled, string? email,string? tagsName, string? title, string? videoAddress, int id_SectionPostStep) : base(ActivatedNotTimabled,email,tagsName)
         {
             Title = title;
             VideoAddress = videoAddress;

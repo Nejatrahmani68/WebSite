@@ -21,7 +21,7 @@ namespace DataAccess.Services.Builders
             string fillData = _db.WebsiteActiveTimeControls!.Find(1)!.WebsiteTitle!;
             return fillData;
         }
-        
+
         //LanguageFillData
         public IEnumerable<SectionLanguage>? FillSectionLanguagesSectionData()
         {
@@ -38,14 +38,14 @@ namespace DataAccess.Services.Builders
         //SecondStepFillData
         public IEnumerable<SectionSecondStep>? FillSecondStepSectionData()
         {
-            IEnumerable<SectionSecondStep> fillData = _db.SectionSecondSteps!.Where(m => m.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name&& m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
+            IEnumerable<SectionSecondStep> fillData = _db.SectionSecondSteps!.Where(m => m.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate)));
             return fillData;
         }
 
         //ThirdStepFillData
         public IEnumerable<SectionThirdStep>? FillThirdStepCategoriesData()
         {
-            IEnumerable<SectionThirdStep> fillData = _db.SectionThirdSteps!.Where(m => m.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name&& m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate).Take(7);
+            IEnumerable<SectionThirdStep> fillData = _db.SectionThirdSteps!.Where(m => m.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate).Take(7);
             return fillData;
         }
 
@@ -73,7 +73,7 @@ namespace DataAccess.Services.Builders
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop5LastMonthData()
         {
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name &&m.CreateDate>=DateTime.Now.AddDays(-30) && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.ViewsNumber).Take(5);
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.CreateDate >= DateTime.Now.AddDays(-30) && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.ViewsNumber).Take(5);
             return fillData;
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop5VideoData()
@@ -112,19 +112,26 @@ namespace DataAccess.Services.Builders
             IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.Id_SectionThirdStep == idThirdStep && m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
             return fillData.ToPagedList(pageNumber, PageSize);
         }
-
+        //Searched Posts
+        public IEnumerable<SectionPostStep>? FillPostStepSectionDataBySearch(string searchtxt, int? page)
+        {
+            var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
+            int PageSize = 9;
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => (m.Title!.Contains(searchtxt) || m.ShortDescription!.Contains(searchtxt) || m.FullDescription!.Contains(searchtxt) || m.WriterName!.Contains(searchtxt) || m.TagsName!.Contains(searchtxt)) && m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
+            return fillData.ToPagedList(pageNumber, PageSize);
+        }
         public IEnumerable<SectionPostStep>? FillPostStepSectionDataForInfiniteScroll(int? page)
         {
             var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
             int PageSize = 27;
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m =>m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
             return fillData.ToPagedList(pageNumber, PageSize);
         }
-        public IEnumerable<SectionPostStep>? FillPostStepSectionDataOrderedByType(string postType,int? page)
+        public IEnumerable<SectionPostStep>? FillPostStepSectionDataOrderedByType(string postType, int? page)
         {
             var pageNumber = page ?? 1; // if no page is specified, default to the first page (1)
             int PageSize = 27;
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.SectionPostType.Title==postType && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.SectionPostType!.Title == postType && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.CreateDate);
             return fillData.ToPagedList(pageNumber, PageSize);
         }
         //Add PostViewNumber
@@ -147,7 +154,7 @@ namespace DataAccess.Services.Builders
             List<SectionPostImage> fillData = new();
             foreach (var item in postData)
             {
-                fillData.AddRange( _db.SectionPostImages!.Where(image => image.Id_SectionPostStep == item.Id && image.Active == true && (image.Timable == false || (image.StartDate <= System.DateTime.Now && System.DateTime.Now <= image.EndDate))));
+                fillData.AddRange(_db.SectionPostImages!.Where(image => image.Id_SectionPostStep == item.Id && image.Active == true && (image.Timable == false || (image.StartDate <= System.DateTime.Now && System.DateTime.Now <= image.EndDate))));
             }
             return fillData;
 
@@ -164,9 +171,9 @@ namespace DataAccess.Services.Builders
         }
 
         //VideoStepFillData
-        public IEnumerable<SectionPostVideo>? FillSectionPostVideoDataById(int idPost)
+        public IEnumerable<ArmyMembersAccounts>? FillSectionPostVideoDataById(int idPost)
         {
-            IEnumerable<SectionPostVideo> fillData = _db.SectionPostVideos!.Where(m => m.Id_SectionPostStep == idPost && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).Include(m => m.SectionPostSocialVideo);
+            IEnumerable<ArmyMembersAccounts> fillData = _db.SectionPostVideos!.Where(m => m.Id_SectionPostStep == idPost && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).Include(m => m.SectionPostSocialVideo);
             return fillData;
         }
 
