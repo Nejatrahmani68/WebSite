@@ -131,5 +131,22 @@ namespace DataAccess.Services
             _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
             return _viewModelHomePage;
         }
+        public ViewModelHomePage FillHomapageModelForSearchedPosts(string searchtxt, int? page)
+        {
+            _viewModelHomePage.IsActive = _builderThemMangaer.CheckActiveTime();
+            _viewModelHomePage.WebsiteTitle = _builderFillData.FillWebSiteTitleData();
+            _viewModelHomePage.checkThemDictionary = _builderThemMangaer.CheckThemSections();
+            _viewModelHomePage.SectionLanguages = _builderFillData.FillSectionLanguagesSectionData();
+            _viewModelHomePage.sectionFirstSteps = _builderFillData.FillFirstStepSectionData();
+            _viewModelHomePage.sectionSecondSteps = _builderFillData.FillSecondStepSectionData();
+            _viewModelHomePage.sectionPostTop12Steps = _builderFillData.FillPostStepSectionTop12Data();
+            _viewModelHomePage.sectionPostSteps = _builderFillData.FillPostStepSectionDataBySearch(searchtxt, page);
+            _viewModelHomePage.sectionPostImages = _builderFillData.FillSectionPostImageDataByModel(_viewModelHomePage.sectionPostSteps!.ToList());
+            _viewModelHomePage.sectionPostSocialVideos = _builderFillData.FillSectionPostSocialVideoData();
+            _viewModelHomePage.sectionPostTop5ArticleSteps = _builderFillData.FillPostStepSectionTop5ArticleData();
+            _viewModelHomePage.sectionPostTop5VideoSteps = _builderFillData.FillPostStepSectionTop5VideoData();
+            _viewModelHomePage.sectionPostTop5FileSteps = _builderFillData.FillPostStepSectionTop5FileData();
+            return _viewModelHomePage;
+        }
     }
 }

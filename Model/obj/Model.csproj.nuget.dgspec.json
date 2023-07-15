@@ -10,15 +10,11 @@
         "projectUniqueName": "D:\\Active Project\\WebsitePresentationApp\\Model\\Model.csproj",
         "projectName": "Model",
         "projectPath": "D:\\Active Project\\WebsitePresentationApp\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\Nejat Rahmani\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\NezatRahmani\\.nuget\\packages\\",
         "outputPath": "D:\\Active Project\\WebsitePresentationApp\\Model\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Nejat Rahmani\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\NezatRahmani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,7 +46,7 @@
           "dependencies": {
             "Microsoft.AspNet.Identity.EntityFramework": {
               "target": "Package",
-              "version": "[2.2.3, )"
+              "version": "[2.2.4, )"
             }
           },
           "imports": [
@@ -69,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -79,15 +75,11 @@
         "projectUniqueName": "D:\\Active Project\\WebsitePresentationApp\\Utility\\Utility.csproj",
         "projectName": "Utility",
         "projectPath": "D:\\Active Project\\WebsitePresentationApp\\Utility\\Utility.csproj",
-        "packagesPath": "C:\\Users\\Nejat Rahmani\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\NezatRahmani\\.nuget\\packages\\",
         "outputPath": "D:\\Active Project\\WebsitePresentationApp\\Utility\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Nejat Rahmani\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\NezatRahmani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -134,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

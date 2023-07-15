@@ -30,4 +30,11 @@
     <Folder Include="wwwroot\Files\PostFiles\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Home\PostsSearches.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -154,7 +154,18 @@ namespace WebsitePresentation.Controllers
 
             return View("ViewAllPostInfinitScroll", _viewModelHomPage);
         }
-        
 
+        public IActionResult PostsSearches(string searchtxt, int? page)
+        {
+            _serviceHome.FillHomapageModelForSearchedPosts(searchtxt, page);
+            //Check Website Active Time
+            if (!_viewModelHomPage.IsActive)
+            {
+                ViewData["ErrorReportMessage"] = "لە کۆنترۆڵی کاتی کارا بوونی وێبسایت دا کێشە هاتۆتە پێش";
+                return View("ErrorReportView", _viewModelHomPage);
+            }
+
+            return View(_viewModelHomPage);
+        }
     }
 }

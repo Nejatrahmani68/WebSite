@@ -107,6 +107,7 @@
         overflow: hidden;
         background-color: lightblue;
         max-height: 36px;
+        margin:5px;
     }
 
     .btn btn-danger pull-right {
@@ -308,7 +309,7 @@
         border-radius: 5px;
         text-align: center;
         font-family: Rudaw;
-        width: 75%;
+        width: 70%;
         font-size: 1.25rem;
     }
 
@@ -750,6 +751,7 @@
         color: black;
         border: 5px solid #0dcaf0;
         min-height:300px;
+        padding:5px;
     }
 
     .viewlearnhomerightiner {

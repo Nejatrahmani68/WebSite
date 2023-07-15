@@ -237,8 +237,28 @@
       "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
     },
     {
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\css\\fonts\\BOOKOS.TTF",
+      "PackagePath": "staticwebassets\\css\\fonts\\BOOKOS.TTF"
+    },
+    {
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\css\\fonts\\BOOKOSB.TTF",
+      "PackagePath": "staticwebassets\\css\\fonts\\BOOKOSB.TTF"
+    },
+    {
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\css\\fonts\\BOOKOSBI.TTF",
+      "PackagePath": "staticwebassets\\css\\fonts\\BOOKOSBI.TTF"
+    },
+    {
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\css\\fonts\\BOOKOSI.TTF",
+      "PackagePath": "staticwebassets\\css\\fonts\\BOOKOSI.TTF"
+    },
+    {
       "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\css\\fonts\\FontAwesome.otf",
       "PackagePath": "staticwebassets\\css\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\css\\fonts\\RUDAWBOLD.TTF",
+      "PackagePath": "staticwebassets\\css\\fonts\\RUDAWBOLD.TTF"
     },
     {
       "Id": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\wwwroot\\css\\fonts\\fontawesome-webfont.eot",

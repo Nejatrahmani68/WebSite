@@ -74,7 +74,7 @@
                                                     string imgLanguage = @item.Name + ".png";
                                                 }
                                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ChangeLanguage" asp-route-Language="@item.Name" title="@item.TagsName">
-                                                    <img src="~/Images/ImageThem/Icon/@imgLanguage"> @item.Title
+                                                   @* <img src="~/Images/ImageThem/Icon/@imgLanguage">*@ @item.Title
                                                     @if (CultureInfo.CurrentCulture.Name == item.Name)
                                                     {
                                                         <i class="fa fa-check " aria-hidden="true"></i>
@@ -262,7 +262,7 @@
                     {
                         @if (Model.checkThemDictionary["Search"] == true)
                         {
-                            using (Html.BeginForm("searchIndex", "Home"))
+                            using (Html.BeginForm("PostsSearches", "Home"))
                             {
                                 @Html.AntiForgeryToken()
 

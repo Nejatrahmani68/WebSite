@@ -72,7 +72,7 @@
       "MessagePackAnalyzer/2.1.152": {
         "type": "package"
       },
-      "Microsoft.AspNet.Identity.Core/2.2.3": {
+      "Microsoft.AspNet.Identity.Core/2.2.4": {
         "type": "package",
         "compile": {
           "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
@@ -85,11 +85,11 @@
           }
         }
       },
-      "Microsoft.AspNet.Identity.EntityFramework/2.2.3": {
+      "Microsoft.AspNet.Identity.EntityFramework/2.2.4": {
         "type": "package",
         "dependencies": {
           "EntityFramework": "6.1.0",
-          "Microsoft.AspNet.Identity.Core": "2.2.3"
+          "Microsoft.AspNet.Identity.Core": "2.2.4"
         },
         "compile": {
           "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {
@@ -4414,7 +4414,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.AspNet.Identity.EntityFramework": "2.2.3",
+          "Microsoft.AspNet.Identity.EntityFramework": "2.2.4",
           "Utility": "1.0.0"
         },
         "compile": {
@@ -4532,29 +4532,29 @@
         "tools/uninstall.ps1"
       ]
     },
-    "Microsoft.AspNet.Identity.Core/2.2.3": {
-      "sha512": "Mv5FpoaxspE8hlWLE4r1IdZtovg/OyFgVRhxQbx47J4sqdLImN1hnM1lnwCj+/wLmqtqFk/RYMoZ5GAcwm/00g==",
+    "Microsoft.AspNet.Identity.Core/2.2.4": {
+      "sha512": "s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g==",
       "type": "package",
-      "path": "microsoft.aspnet.identity.core/2.2.3",
+      "path": "microsoft.aspnet.identity.core/2.2.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/Microsoft.AspNet.Identity.Core.dll",
         "lib/net45/Microsoft.AspNet.Identity.Core.xml",
-        "microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
+        "microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
         "microsoft.aspnet.identity.core.nuspec"
       ]
     },
-    "Microsoft.AspNet.Identity.EntityFramework/2.2.3": {
-      "sha512": "dt4XZChjw3a6jE66Yd6LkF9omspxi0A9lJpwBZz8Wl1sabOS6dlLP1OOTVuUjtPaoAshjoIzvS6DFRQdPyq55g==",
+    "Microsoft.AspNet.Identity.EntityFramework/2.2.4": {
+      "sha512": "ay5FMSwNF0tb9KiC4l4aqm7D1E6Da9nU3euI/X0UD1SuumJX7OkZ9LtZjU9xT3xmou3XLXO8DDcgrW6udSQk6Q==",
       "type": "package",
-      "path": "microsoft.aspnet.identity.entityframework/2.2.3",
+      "path": "microsoft.aspnet.identity.entityframework/2.2.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll",
         "lib/net45/Microsoft.AspNet.Identity.EntityFramework.xml",
-        "microsoft.aspnet.identity.entityframework.2.2.3.nupkg.sha512",
+        "microsoft.aspnet.identity.entityframework.2.2.4.nupkg.sha512",
         "microsoft.aspnet.identity.entityframework.nuspec"
       ]
     },
@@ -11918,8 +11918,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nejat Rahmani\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\NezatRahmani\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -11927,15 +11926,11 @@
       "projectUniqueName": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\WebsitePresentation.csproj",
       "projectName": "WebsitePresentation",
       "projectPath": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\WebsitePresentation.csproj",
-      "packagesPath": "C:\\Users\\Nejat Rahmani\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\NezatRahmani\\.nuget\\packages\\",
       "outputPath": "D:\\Active Project\\WebsitePresentationApp\\WebsitePresentation\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Nejat Rahmani\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\NezatRahmani\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11943,6 +11938,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12021,7 +12017,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -12040,7 +12036,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Identity.Core",
       "targetGraphs": [
         "net6.0"
@@ -12050,7 +12046,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Identity.EntityFramework 2.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.AspNet.Identity.EntityFramework 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Identity.EntityFramework",
       "targetGraphs": [
         "net6.0"

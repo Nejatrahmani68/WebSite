@@ -29,7 +29,7 @@ namespace Model
         [DisplayName("دیتراو")]
         public int ViewsNumber { get; set; } = 1;
         public ICollection<SectionPostImage>? SectionPostImages { get; set; }
-        public ICollection<SectionPostVideo>? SectionPostVideos { get; set; }
+        public ICollection<ArmyMembersAccounts>? SectionPostVideos { get; set; }
         public ICollection<SectionPostFile>? SectionPostFiles { get; set; }
         public ICollection<SectionPostCommentStep>? SectionPostCommentSteps { get; set; }
         //Constructors

@@ -23,7 +23,7 @@ namespace DataAccess.Data
         public DbSet<SectionPostType>? SectionPostTypes { get; set; }
         public DbSet<SectionPostCommentStep>? SectionPostCommentSteps { get; set; }
         public DbSet<SectionPostAnswerStep>? SectionPostAnswerSteps { get; set; }
-        public DbSet<SectionPostVideo>? SectionPostVideos { get; set; }
+        public DbSet<ArmyMembersAccounts>? SectionPostVideos { get; set; }
         public DbSet<SectionPostFile>? SectionPostFiles { get; set; }
         public DbSet<WebsiteAdminsControl>? WebsiteAdminsControls { get; set; }
         public DbSet<SectionLanguage>? SectionLanguages { get; set; }
