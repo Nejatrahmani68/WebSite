@@ -47,6 +47,55 @@ button.accept-policy[b-02daph5l9g] {
   white-space: nowrap;
   line-height: 60px;
 }
+/* _content/WebsitePresentation/Areas/ArmyMembersArea/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-xdmvar6odn] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-xdmvar6odn] {
+  color: #0077cc;
+}
+
+.btn-primary[b-xdmvar6odn] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-xdmvar6odn], .nav-pills .show > .nav-link[b-xdmvar6odn] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-xdmvar6odn] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-xdmvar6odn] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-xdmvar6odn] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-xdmvar6odn] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-xdmvar6odn] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
 /* _content/WebsitePresentation/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */

@@ -123,6 +123,9 @@
   <data name="adminpanel" xml:space="preserve">
     <value>Admin Panel</value>
   </data>
+  <data name="adminpanelarmy" xml:space="preserve">
+    <value>Admin Panel Army</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>Hi</value>
   </data>
@@ -157,6 +160,6 @@
     <value>Search</value>
   </data>
   <data name="websitetitle" xml:space="preserve">
-    <value>Wikipedia Kurd</value>
+    <value>Jina Army</value>
   </data>
 </root>

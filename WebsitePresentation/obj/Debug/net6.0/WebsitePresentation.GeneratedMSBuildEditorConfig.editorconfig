@@ -312,6 +312,78 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembersAccounts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembersAccounts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzQWNjb3VudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembersAccounts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzQWNjb3VudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembersAccounts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzQWNjb3VudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembersAccounts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzQWNjb3VudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyMembers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmySocialsNames/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlTb2NpYWxzTmFtZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmySocialsNames/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlTb2NpYWxzTmFtZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmySocialsNames/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlTb2NpYWxzTmFtZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmySocialsNames/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlTb2NpYWxzTmFtZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmySocialsNames/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlTb2NpYWxzTmFtZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/Shared/ErrorReportView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXFNoYXJlZFxFcnJvclJlcG9ydFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -527,6 +599,10 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-02daph5l9g
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-xdmvar6odn
 
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

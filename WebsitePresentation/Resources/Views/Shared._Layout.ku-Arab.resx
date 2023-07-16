@@ -123,6 +123,9 @@
   <data name="adminpanel" xml:space="preserve">
     <value>ئەدمین پەنێل</value>
   </data>
+  <data name="adminpanelarmy" xml:space="preserve">
+    <value>ئەدمین پەنێلی ئەندامان</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>سڵاو</value>
   </data>
@@ -157,6 +160,6 @@
     <value>گەڕان</value>
   </data>
   <data name="websitetitle" xml:space="preserve">
-    <value>ویکیپێدیا کورد</value>
+    <value>هێزی ژینا</value>
   </data>
 </root>

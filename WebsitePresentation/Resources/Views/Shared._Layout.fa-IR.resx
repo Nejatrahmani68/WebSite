@@ -123,6 +123,9 @@
   <data name="adminpanel" xml:space="preserve">
     <value>پنل مدیریت</value>
   </data>
+  <data name="adminpanelarmy" xml:space="preserve">
+    <value>پنل مدیریت اعضا</value>
+  </data>
   <data name="hi" xml:space="preserve">
     <value>سلام</value>
   </data>
@@ -157,6 +160,6 @@
     <value>جستجو</value>
   </data>
   <data name="websitetitle" xml:space="preserve">
-    <value>ویکیپدیا کورد</value>
+    <value>ارتش ژینا</value>
   </data>
 </root>

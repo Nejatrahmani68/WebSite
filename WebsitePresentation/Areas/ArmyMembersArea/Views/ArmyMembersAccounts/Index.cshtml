@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Model.ArmyMembersAccount>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/ArmyMembersArea/Views/Shared/_Layout.cshtml";
+    int idTemp = @ViewBag.idTemp;
+}
+<h5>ئاکاونتی ئەندامان<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a></h5>
+@if (@ViewBag.idTemp != null)
+{
+    <h5>@ViewBag.ParentDetail</h5>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("ئەندام")
+            </th>
+            <th>
+                @Html.Label("سۆشیال")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialAddress)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArmyMembers.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArmySocialsName.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SocialAddress)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="fa fa-edit"> </a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-book"> </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

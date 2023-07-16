@@ -47,15 +47,35 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["home"]</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">@Localizer["about"]</a>
-                        </li>
-
+                        @if (Model.checkThemDictionary != null)
+                        {
+                            if (Model.checkThemDictionary["AboutUs"] == true)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">@Localizer["about"]</a>
+                                </li>
+                            }
+                        }
                         @if (User.IsInRole("Admin") || User.IsInRole("Administrator"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="AdministratorArea" asp-controller="HomeAdmin" asp-action="Index"> @Localizer["adminpanel"]</a>
-                            </li>
+                            if (Model.checkThemDictionary != null)
+                            {
+                                if (Model.checkThemDictionary["AdminPanel"] == true)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="AdministratorArea" asp-controller="HomeAdmin" asp-action="Index"> @Localizer["adminpanel"]</a>
+                                    </li>
+                                }
+                            }
+                            if (Model.checkThemDictionary != null)
+                            {
+                                if (Model.checkThemDictionary["AdminPanelArmy"] == true)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="ArmyMembersArea" asp-controller="ArmyMembers" asp-action="Index"> @Localizer["adminpanelarmy"]</a>
+                                    </li>
+                                }
+                            }
                         }
                         @if (Model.checkThemDictionary != null)
                         {
@@ -74,7 +94,7 @@
                                                     string imgLanguage = @item.Name + ".png";
                                                 }
                                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ChangeLanguage" asp-route-Language="@item.Name" title="@item.TagsName">
-                                                   @* <img src="~/Images/ImageThem/Icon/@imgLanguage">*@ @item.Title
+                                                    @* <img src="~/Images/ImageThem/Icon/@imgLanguage">*@ @item.Title
                                                     @if (CultureInfo.CurrentCulture.Name == item.Name)
                                                     {
                                                         <i class="fa fa-check " aria-hidden="true"></i>
@@ -107,49 +127,55 @@
     </header>
 
     <!--overlay navigation -->
-    <div id="myNav" class="overlay">
+    @if (Model.checkThemDictionary != null)
+    {
+        if (Model.checkThemDictionary["MenuBar"] == true)
+        {
+            <div id="myNav" class="overlay">
 
-        <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="fa fa-window-close-o" style="font-size:50px;" onclick="closeNav()">&times;</a>
+                <!-- Button to close the overlay navigation -->
+                <a href="javascript:void(0)" class="fa fa-window-close-o" style="font-size:50px;" onclick="closeNav()">&times;</a>
 
-        <!-- Overlay content -->
-        <div class="overlay-content">
-            @{
-                if (Model.checkThemDictionary != null)
-                {
-                    if (Model.checkThemDictionary["RightSection"] == true)
-                    {
-                        if (Model.sectionFirstSteps!.ToList().Count() > 0)
+                <!-- Overlay content -->
+                <div class="overlay-content">
+                    @{
+                        if (Model.checkThemDictionary != null)
                         {
-                            foreach (var firstStepItem in Model.sectionFirstSteps!)
+                            if (Model.checkThemDictionary["RightSection"] == true)
                             {
-                                <div class="blockinformationoverly" title="@firstStepItem.TagsName">
-                                    <div class="right-balaoverly">@firstStepItem.Name</div>
-                                    <div class="right-vasatoverly">
-                                        <ul>
-                                            @foreach (var secondStepItem in Model.sectionSecondSteps!)
-                                            {
-                                                if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
-                                                {
-                                                    <li>
-                                                        @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id,title=@secondStepItem.TagsName })
+                                if (Model.sectionFirstSteps!.ToList().Count() > 0)
+                                {
+                                    foreach (var firstStepItem in Model.sectionFirstSteps!)
+                                    {
+                                        <div class="blockinformationoverly" title="@firstStepItem.TagsName">
+                                            <div class="right-balaoverly">@firstStepItem.Name</div>
+                                            <div class="right-vasatoverly">
+                                                <ul>
+                                                    @foreach (var secondStepItem in Model.sectionSecondSteps!)
+                                                    {
+                                                        if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
+                                                        {
+                                                            <li>
+                                                                @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id,title=@secondStepItem.TagsName })
 
-                                                    </li>
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
-                                    <div class="right-payinoverly">
-                                    </div>
-                                </div>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </div>
+                                            <div class="right-payinoverly">
+                                            </div>
+                                        </div>
+                                    }
+                                }
                             }
                         }
                     }
-                }
-            }
-        </div>
+                </div>
 
-    </div>
+            </div>
+        }
+    }
     <div class="container">
 
         @* @if (Model.checkThemDictionary != null)
@@ -186,99 +212,110 @@
                     </div>
                 </div>
             }
-            <div class="websitetitle">
-                <div class="websitetitletext">
-                    @Localizer["websitetitle"]
-                    @foreach (var socialaddress in Model.sectionPostSocialVideos!)
-                    {
-                        if (socialaddress.Title == "FaceBook")
-                        {
-                           <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-facebook"></i> </a>
-                        }
-                        if (socialaddress.Title == "Twiter")
-                        {
-                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-twitter"></i> </a>
-                        }
-                        if (socialaddress.Title == "Instagram")
-                        {
-                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-instagram"></i> </a>
-                        }
-                        if (socialaddress.Title == "YouTube")
-                        {
-                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-youtube"></i> </a>
-                        }
-                        if (socialaddress.Title == "Telegram")
-                        {
-                            <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-telegram"></i> </a>
-                        }
-                    }
-                </div>
-            </div>
+            @if (Model.checkThemDictionary != null)
+            {
+                @if (Model.checkThemDictionary["HeaderTitle"] == true)
+                {
+                    <div class="websitetitle">
+                        <div class="websitetitletext">
+                            @Localizer["websitetitle"]
+                            @foreach (var socialaddress in Model.sectionPostSocialVideos!)
+                            {
+                                if (socialaddress.Title == "FaceBook")
+                                {
+                                    <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-facebook"></i> </a>
+                                }
+                                if (socialaddress.Title == "Twiter")
+                                {
+                                    <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-twitter"></i> </a>
+                                }
+                                if (socialaddress.Title == "Instagram")
+                                {
+                                    <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-instagram"></i> </a>
+                                }
+                                if (socialaddress.Title == "YouTube")
+                                {
+                                    <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-youtube"></i> </a>
+                                }
+                                if (socialaddress.Title == "Telegram")
+                                {
+                                    <a href="@socialaddress.Address" title="@socialaddress.TagsName"><i class="fa fa-telegram"></i> </a>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+            }
         }
 
-
-        <nav id="categorynav" class="navbar navbar-expand-sm navbar-toggleable-sm sticky-top  bg-white border-bottom box-shadow">
-            <div class="container-fluid">
-                <a class="navbar-brand"> @Localizer["menu"]</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuitems" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation" style="border:solid 1px white;">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="menuitems" class="navbar-collapse collapse d-sm-inline-flex justify-content-between menu">
-                    <ul class="navbar-nav flex-grow-1">
-                        @if (Model.checkThemDictionary != null)
-                        {
-                            if (Model.checkThemDictionary["NavBarSticky"] == true)
-                            {
-                                if (Model.sectionFirstSteps!.ToList().Count() >= 1)
+        @if (Model.checkThemDictionary != null)
+        {
+            if (Model.checkThemDictionary["MenuBar"] == true)
+            {
+                <nav id="categorynav" class="navbar navbar-expand-sm navbar-toggleable-sm sticky-top  bg-white border-bottom box-shadow">
+                    <div class="container-fluid">
+                        <a class="navbar-brand"> @Localizer["menu"]</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuitems" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation" style="border:solid 1px white;">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="menuitems" class="navbar-collapse collapse d-sm-inline-flex justify-content-between menu">
+                            <ul class="navbar-nav flex-grow-1">
+                                @if (Model.checkThemDictionary != null)
                                 {
-                                    foreach (var firstStepItem in Model.sectionFirstSteps!)
+                                    if (Model.checkThemDictionary["NavBarSticky"] == true)
                                     {
-                                        <li class="nav-item dropdown">
-                                            <i class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                @firstStepItem.Name
-                                            </i>
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                @foreach (var secondStepItem in Model.sectionSecondSteps!)
-                                                {
+                                        if (Model.sectionFirstSteps!.ToList().Count() >= 1)
+                                        {
+                                            foreach (var firstStepItem in Model.sectionFirstSteps!)
+                                            {
+                                                <li class="nav-item dropdown">
+                                                    <i class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        @firstStepItem.Name
+                                                    </i>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        @foreach (var secondStepItem in Model.sectionSecondSteps!)
+                                                        {
 
-                                                    if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
-                                                    {
-                                                        <li>
-                                                            @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id,title=@secondStepItem.TagsName })
-                                                        </li>
-                                                    }
-                                                }
+                                                            if (secondStepItem.Id_SectionFirstStep == firstStepItem.Id)
+                                                            {
+                                                                <li>
+                                                                    @Html.ActionLink(secondStepItem.Name, "SectionThirdStepView", new { idSecondStep = secondStepItem.Id,title=@secondStepItem.TagsName })
+                                                                </li>
+                                                            }
+                                                        }
 
-                                            </ul>
-                                        </li>
+                                                    </ul>
+                                                </li>
+                                            }
+                                        }
+                                    }
+                                }
+
+                            </ul>
+                            @if (Model.checkThemDictionary != null)
+                            {
+                                @if (Model.checkThemDictionary["Search"] == true)
+                                {
+                                    using (Html.BeginForm("PostsSearches", "Home"))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div id="menu">
+                                            <div id="menuleft">
+
+                                                <input type="submit" value="@Localizer["search"]" class="submitbutton" />
+                                                @Html.TextBox("searchtxt")
+                                            </div>
+                                        </div>
                                     }
                                 }
                             }
-                        }
-
-                    </ul>
-                    @if (Model.checkThemDictionary != null)
-                    {
-                        @if (Model.checkThemDictionary["Search"] == true)
-                        {
-                            using (Html.BeginForm("PostsSearches", "Home"))
-                            {
-                                @Html.AntiForgeryToken()
-
-                                <div id="menu">
-                                    <div id="menuleft">
-                                       
-                                        <input type="submit" value="@Localizer["search"]" class="submitbutton" />
-                                        @Html.TextBox("searchtxt")
-                                    </div>
-                                </div>
-                            }
-                        }
-                    }
-                </div>
-            </div>
-        </nav>
+                        </div>
+                    </div>
+                </nav>
+            }
+        }
         @if (Model.checkThemDictionary != null)
         {
             @if (Model.checkThemDictionary["Marquee"] == true)
@@ -326,11 +363,16 @@
 
         }
         <div id="container">
-
-            <div class="downloadbutton-allsubjects" onclick="openNav()">
-                <!-- Use any element to open/show the overlay navigation menu -->
-                <span onclick="openNav()">@Localizer["menubutton"]</span>
-            </div>
+            @if (Model.checkThemDictionary != null)
+            {
+                if (Model.checkThemDictionary["MenuBar"] == true)
+                {
+                    <div class="downloadbutton-allsubjects" onclick="openNav()">
+                        <!-- Use any element to open/show the overlay navigation menu -->
+                        <span onclick="openNav()">@Localizer["menubutton"]</span>
+                    </div>
+                }
+            }
             @* <div id="right">
             @{
             if (Model.checkThemDictionary != null)

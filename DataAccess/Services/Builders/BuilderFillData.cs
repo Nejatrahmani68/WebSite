@@ -73,7 +73,8 @@ namespace DataAccess.Services.Builders
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop5LastMonthData()
         {
-            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.CreateDate >= DateTime.Now.AddDays(-30) && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.ViewsNumber).Take(5);
+            //IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.CreateDate >= DateTime.Now.AddDays(-30) && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.ViewsNumber).Take(5);
+            IEnumerable<SectionPostStep> fillData = _db.SectionPostSteps!.Where(m => m.SectionThirdStep!.SectionSecondStep!.SectionFirstStep!.SectionLanguage!.Name == CultureInfo.CurrentCulture.Name && m.Active == true && (m.Timable == false || (m.StartDate <= System.DateTime.Now && System.DateTime.Now <= m.EndDate))).OrderByDescending(m => m.ViewsNumber).Take(5);
             return fillData;
         }
         public IEnumerable<SectionPostStep>? FillPostStepSectionTop5VideoData()

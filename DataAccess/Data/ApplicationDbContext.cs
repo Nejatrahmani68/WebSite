@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Model;
+using System;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace DataAccess.Data
@@ -27,6 +28,9 @@ namespace DataAccess.Data
         public DbSet<SectionPostFile>? SectionPostFiles { get; set; }
         public DbSet<WebsiteAdminsControl>? WebsiteAdminsControls { get; set; }
         public DbSet<SectionLanguage>? SectionLanguages { get; set; }
+        public DbSet<ArmyMembers>? ArmyMembers { get; set; }
+        public DbSet<ArmyMembersAccount>? armyMembersAccounts { get; set; }
+        public DbSet<ArmySocialsName>? armySocialsNames { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -40,12 +44,12 @@ namespace DataAccess.Data
             { Id = 1, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "وێب سایت", WebsiteTitle = "ناوی وێب سایت" });
 
             builder.Entity<SectionLanguage>().HasData(
+                 new SectionLanguage
+               { Id = 1, Name = "ku-Arab", Description = "", Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "Kurdish", Title = "کوردی" },
                new SectionLanguage
-               { Id = 1, Name = "fa-IR", Description = "", Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "Farsi" },
+               { Id = 2, Name = "fa-IR", Description = "", Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "Farsi",Title="فارسی" },
                new SectionLanguage
-               { Id = 2, Name = "en-US", Description = "", Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "English" },
-               new SectionLanguage
-               { Id = 3, Name = "ku-Arab", Description = "", Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "Kurdish" });
+               { Id = 3, Name = "en-US", Description = "", Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "English", Title = "English" });
 
             builder.Entity<SectionPostType>().HasData(
                 new SectionPostType
@@ -115,7 +119,17 @@ namespace DataAccess.Data
                 new WebsiteThemControl
                 { Id = 25, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "NavBarSticky", SectionName = "NavBarSticky" },
                 new WebsiteThemControl
-                { Id = 26, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "SlideShow", SectionName = "SlideShow" });
+                { Id = 26, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "SlideShow", SectionName = "SlideShow" },
+                new WebsiteThemControl
+                 { Id = 27, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "AdminPanel", SectionName = "AdminPanel" },
+                new WebsiteThemControl
+                { Id = 28, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "AdminPanelArmy", SectionName = "AdminPanelArmy" },
+                new WebsiteThemControl
+                { Id = 29, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "MenuBar", SectionName = "MenuBar" },
+                new WebsiteThemControl
+                { Id = 30, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "HeaderTitle", SectionName = "HeaderTitle" },
+                new WebsiteThemControl
+                { Id = 31, Active = true, CreateDate = DateTime.Now, Email = "NejatRahmani68@gmail.com", Timable = false, StartDate = DateTime.Now, EndDate = DateTime.Now, TagsName = "AboutUs", SectionName = "AboutUs" });
 
             builder.Entity<IdentityRole>().HasData(new IdentityRole
             { Id = "1", Name = "Administrator", NormalizedName = "ADMINISTRATOR" },
@@ -128,7 +142,10 @@ namespace DataAccess.Data
             new IdentityRole
             { Id = "5", Name = "Delete", NormalizedName = "DELETE" },
             new IdentityRole
-            { Id = "6", Name = "FullWriter", NormalizedName = "FULLWRITER" });
+            { Id = "6", Name = "FullWriter", NormalizedName = "FULLWRITER" },
+             new IdentityRole
+             { Id = "7", Name = "ArmyAdmin", NormalizedName = "ARMYADMIN" });
+
 
             //builder.Entity<IdentityUser>().HasData(new IdentityUser
             //{ Id = "1", Email = "nejatrahmani68@gmail.com", EmailConfirmed = true, NormalizedEmail = "NEJATRAHMANI68@GMAIL.COM", UserName = "nejatrahmani68", NormalizedUserName = "NEJATRAHMANI68", PhoneNumber = "009647821765944", PhoneNumberConfirmed = true, PasswordHash = "AQAAAAEAACcQAAAAEKKhMm7G+AeXU9x9ADvYCx+QL+pvjoSEeoUQu5MDdOdFVCW50/zmP7Lzaz9ccskrkQ==" });
