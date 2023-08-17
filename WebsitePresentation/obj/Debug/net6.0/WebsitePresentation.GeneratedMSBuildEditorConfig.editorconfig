@@ -352,6 +352,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlNZW1iZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyPostDetails/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlQb3N0RGV0YWlsc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyPostDetails/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlQb3N0RGV0YWlsc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyPostDetails/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlQb3N0RGV0YWlsc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyPostDetails/DetailsForConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlQb3N0RGV0YWlsc1xEZXRhaWxzRm9yQ29uZmlybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyPostDetails/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlQb3N0RGV0YWlsc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmyPostDetails/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlQb3N0RGV0YWlsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Active Project/WebsitePresentationApp/WebsitePresentation/Areas/ArmyMembersArea/Views/ArmySocialsNames/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXJteU1lbWJlcnNBcmVhXFZpZXdzXEFybXlTb2NpYWxzTmFtZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

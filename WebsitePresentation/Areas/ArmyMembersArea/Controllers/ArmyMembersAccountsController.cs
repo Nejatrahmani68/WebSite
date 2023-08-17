@@ -13,7 +13,7 @@ using DataAccess.Services;
 namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
 {
     [Area("ArmyMembersArea")]
-    [Authorize(Roles = "ArmyAdmin")]
+    [Authorize(Roles = "Administrator,ArmyAdmin,ArmyAdminRegister")]
     public class ArmyMembersAccountsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -36,7 +36,7 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
-                var applicationDbContext = _context.armyMembersAccounts!.Where(m => m.Id_ArmyMembers == idTemp).OrderByDescending(m => m.CreateDate).Include(a => a.ArmyMembers).Include(a => a.ArmySocialsName);
+                var applicationDbContext = _context.ArmyMembersAccounts!.Where(m => m.Id_ArmyMembers == idTemp).OrderByDescending(m => m.CreateDate).Include(a => a.ArmyMembers).Include(a => a.ArmySocialsName);
                 var ParentDetail = _context.ArmyMembers!.Find(idTemp);
                 ViewBag.ParentDetail = ParentDetail!.Id + "-" + ParentDetail!.Name;
                 return View(await applicationDbContext.ToListAsync());
@@ -53,12 +53,12 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (id == null || _context.armyMembersAccounts == null)
+            if (id == null || _context.ArmyMembersAccounts == null)
             {
                 return NotFound();
             }
 
-            var armyMembersAccount = await _context.armyMembersAccounts
+            var armyMembersAccount = await _context.ArmyMembersAccounts
                 .Include(a => a.ArmyMembers)
                 .Include(a => a.ArmySocialsName)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -83,7 +83,7 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
             ViewBag.idTemp = idTemp;
             if (idTemp != null)
             {
-                ViewData["Id_ArmySocialsName"] = new SelectList(_context.armySocialsNames, "Id", "Title");
+                ViewData["Id_ArmySocialsName"] = new SelectList(_context.ArmySocialsNames, "Id", "Title");
                 ViewData["Id_ArmyMembers"] = new SelectList(_context.ArmyMembers!.Where(m => m.Id == idTemp), "Id", "Name");
                 return View();
             }
@@ -107,12 +107,26 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
             }
             if (ModelState.IsValid)
             {
+                ArmySocialsName? SocialNameChecking = _context.ArmySocialsNames!.Find(armyMembersAccount.Id_ArmySocialsName);
+                if (SocialNameChecking!=null && (SocialNameChecking.Title=="Telegram"|| SocialNameChecking.Title == "TELEGRAM"|| SocialNameChecking.Title == "telegram"))
+                {
+                    int socialCheck = 0;
+                    if (!int.TryParse( armyMembersAccount.SocialAddress,out socialCheck))
+                    {
+                        ModelState.AddModelError("SocialAddress", "ئادرەسەکە تەنیا دەتونیت ژمارە بەکار بێنی");
+                        ViewData["Id_ArmyMembers"] = new SelectList(_context.ArmyMembers, "Id", "Name", armyMembersAccount.Id_ArmyMembers);
+                        ViewData["Id_ArmySocialsName"] = new SelectList(_context.ArmySocialsNames, "Id", "Title", armyMembersAccount.Id_ArmySocialsName);
+                        ViewBag.idTemp = armyMembersAccount.Id_ArmyMembers;
+                        return View(armyMembersAccount);
+                    }
+                }
+                armyMembersAccount.Email = User.Identity!.Name;
                 _context.Add(armyMembersAccount);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index), new { @idTemp = armyMembersAccount.Id_ArmyMembers });
             }
             ViewData["Id_ArmyMembers"] = new SelectList(_context.ArmyMembers, "Id", "Name", armyMembersAccount.Id_ArmyMembers);
-            ViewData["Id_ArmySocialsName"] = new SelectList(_context.armySocialsNames, "Id", "Title", armyMembersAccount.Id_ArmySocialsName);
+            ViewData["Id_ArmySocialsName"] = new SelectList(_context.ArmySocialsNames, "Id", "Title", armyMembersAccount.Id_ArmySocialsName);
             ViewBag.idTemp = armyMembersAccount.Id_ArmyMembers;
             return View(armyMembersAccount);
         }
@@ -127,18 +141,18 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (id == null || _context.armyMembersAccounts == null)
+            if (id == null || _context.ArmyMembersAccounts == null)
             {
                 return NotFound();
             }
 
-            var armyMembersAccount = await _context.armyMembersAccounts.FindAsync(id);
+            var armyMembersAccount = await _context.ArmyMembersAccounts.FindAsync(id);
             if (armyMembersAccount == null)
             {
                 return NotFound();
             }
             ViewData["Id_ArmyMembers"] = new SelectList(_context.ArmyMembers, "Id", "Name", armyMembersAccount.Id_ArmyMembers);
-            ViewData["Id_ArmySocialsName"] = new SelectList(_context.armySocialsNames, "Id", "Title", armyMembersAccount.Id_ArmySocialsName);
+            ViewData["Id_ArmySocialsName"] = new SelectList(_context.ArmySocialsNames, "Id", "Title", armyMembersAccount.Id_ArmySocialsName);
             return View(armyMembersAccount);
         }
 
@@ -183,7 +197,7 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
                 return RedirectToAction(nameof(Index), new { @idTemp = armyMembersAccount.Id_ArmyMembers });
             }
             ViewData["Id_ArmyMembers"] = new SelectList(_context.ArmyMembers, "Id", "Name", armyMembersAccount.Id_ArmyMembers);
-            ViewData["Id_ArmySocialsName"] = new SelectList(_context.armySocialsNames, "Id", "Title", armyMembersAccount.Id_ArmySocialsName);
+            ViewData["Id_ArmySocialsName"] = new SelectList(_context.ArmySocialsNames, "Id", "Title", armyMembersAccount.Id_ArmySocialsName);
             return View(armyMembersAccount);
         }
 
@@ -197,12 +211,12 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (id == null || _context.armyMembersAccounts == null)
+            if (id == null || _context.ArmyMembersAccounts == null)
             {
                 return NotFound();
             }
 
-            var armyMembersAccount = await _context.armyMembersAccounts
+            var armyMembersAccount = await _context.ArmyMembersAccounts
                 .Include(a => a.ArmyMembers)
                 .Include(a => a.ArmySocialsName)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -227,15 +241,15 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
                 ViewData["ErrorReportMessage"] = "بەکارهێنەری بەرێز ئاکانتەکەتان ڕاگیراوە یا کاتی بەسەر چووە تکایە پەیوەندی بە بەرپرسانەوە بگرە.";
                 return View("ErrorReportView");
             }
-            if (_context.armyMembersAccounts == null)
+            if (_context.ArmyMembersAccounts == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.armyMembersAccounts'  is null.");
             }
-            var armyMembersAccount = await _context.armyMembersAccounts.FindAsync(id);
+            var armyMembersAccount = await _context.ArmyMembersAccounts.FindAsync(id);
 
             if (armyMembersAccount != null)
             {
-                _context.armyMembersAccounts.Remove(armyMembersAccount);
+                _context.ArmyMembersAccounts.Remove(armyMembersAccount);
             }
             
             await _context.SaveChangesAsync();
@@ -244,7 +258,7 @@ namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
 
         private bool ArmyMembersAccountExists(int id)
         {
-          return (_context.armyMembersAccounts?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.ArmyMembersAccounts?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

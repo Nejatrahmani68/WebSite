@@ -24,20 +24,24 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                      @*  <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="HomeAdmin" asp-action="Index" asp-area="AdministratorArea">بابەتەکان</a>
+                        @*  <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="HomeAdmin" asp-action="Index" asp-area="AdministratorArea">بابەتەکان</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="SectionPostTypes" asp-action="Index" asp-area="AdministratorArea">جۆری پۆستەکان</a>
+                        <a class="nav-link text-dark" asp-controller="SectionPostTypes" asp-action="Index" asp-area="AdministratorArea">جۆری پۆستەکان</a>
                         </li>*@
                         @if (User.IsInRole("ArmyAdmin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="ArmyMembersArea" asp-controller="ArmyMembers" asp-action="Index" asp-area="AdministratorArea">ئەندامان</a>
                             </li>
-                           @*  <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="ArmyMembersArea" asp-controller="ArmyMembersAccounts" asp-action="Index" asp-area="AdministratorArea">ئەکاونت</a>
-                            </li>*@
+                            @*  <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="ArmyMembersArea" asp-controller="ArmyMembersAccounts" asp-action="Index" asp-area="AdministratorArea">ئەکاونت</a>
+                        </li>*@
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="ArmyMembersArea" asp-controller="ArmyPostDetails" asp-action="Index" asp-area="AdministratorArea">کۆنتڕۆڵی پۆستەکان</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="ArmyMembersArea" asp-controller="ArmySocialsNames" asp-action="Index" asp-area="AdministratorArea">جۆری سۆشیال میدیا</a>
                             </li>

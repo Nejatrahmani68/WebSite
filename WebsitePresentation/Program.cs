@@ -10,6 +10,7 @@ using Model;
 using Model.ViewModels;
 using System.Globalization;
 using Utility;
+using WebsitePresentation.Areas.ArmyMembersArea.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ builder.Services.AddScoped<ServicesHome, ServicesHome>();
 builder.Services.AddScoped<BuilderThemMangaer, BuilderThemMangaer>();
 builder.Services.AddScoped<BuilderFillData, BuilderFillData>();
 builder.Services.AddScoped<EmailSender, EmailSender>();
+builder.Services.AddScoped<ServiceTelegramBotControl, ServiceTelegramBotControl>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()

@@ -29,8 +29,9 @@ namespace DataAccess.Data
         public DbSet<WebsiteAdminsControl>? WebsiteAdminsControls { get; set; }
         public DbSet<SectionLanguage>? SectionLanguages { get; set; }
         public DbSet<ArmyMembers>? ArmyMembers { get; set; }
-        public DbSet<ArmyMembersAccount>? armyMembersAccounts { get; set; }
-        public DbSet<ArmySocialsName>? armySocialsNames { get; set; }
+        public DbSet<ArmyMembersAccount>? ArmyMembersAccounts { get; set; }
+        public DbSet<ArmySocialsName>? ArmySocialsNames { get; set; }
+        public DbSet<ArmyPostDetails>? ArmyPostDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -143,8 +144,12 @@ namespace DataAccess.Data
             { Id = "5", Name = "Delete", NormalizedName = "DELETE" },
             new IdentityRole
             { Id = "6", Name = "FullWriter", NormalizedName = "FULLWRITER" },
-             new IdentityRole
-             { Id = "7", Name = "ArmyAdmin", NormalizedName = "ARMYADMIN" });
+            new IdentityRole
+            { Id = "7", Name = "ArmyAdmin", NormalizedName = "ARMYADMIN" },
+            new IdentityRole
+            { Id = "8", Name = "ArmyAdminRegister", NormalizedName = "ARMYADMINREGISTER" },
+            new IdentityRole
+            { Id = "9", Name = "ArmyAdminBotControl", NormalizedName = "ARMYADMINBOTCONTROL" });
 
 
             //builder.Entity<IdentityUser>().HasData(new IdentityUser

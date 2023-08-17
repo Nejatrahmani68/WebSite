@@ -15,7 +15,7 @@ using System.Collections.Immutable;
 namespace WebsitePresentation.Areas.ArmyMembersArea.Controllers
 {
     [Area("ArmyMembersArea")]
-    [Authorize(Roles = "ArmyAdmin")]
+    [Authorize(Roles = "Administrator,ArmyAdmin,ArmyAdminRegister")]
     public class ArmyMembersController : Controller
     {
         private readonly ApplicationDbContext _context;

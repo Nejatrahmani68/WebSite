@@ -305,3 +305,4 @@ D:\Active Project\WebsitePresentationApp\WebsitePresentation\bin\Debug\net6.0\zh
 D:\Active Project\WebsitePresentationApp\WebsitePresentation\bin\Debug\net6.0\zh-Hant\Humanizer.resources.dll
 D:\Active Project\WebsitePresentationApp\WebsitePresentation\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 D:\Active Project\WebsitePresentationApp\WebsitePresentation\obj\Debug\net6.0\scopedcss\Areas\ArmyMembersArea\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Active Project\WebsitePresentationApp\WebsitePresentation\bin\Debug\net6.0\Telegram.Bot.dll

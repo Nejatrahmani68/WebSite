@@ -52,51 +52,65 @@ namespace WebsitePresentation.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "da915b4e-ce9c-4940-9993-1d09e47a4002",
+                            ConcurrencyStamp = "f0fb04b5-f3bf-4a05-a9ee-df944436b70f",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "db81bb12-6b4c-4132-9610-8ed69bc5c337",
+                            ConcurrencyStamp = "f4b0a0db-0759-45b1-8145-eb970adb083e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "2714118d-2e8d-4ddf-94c3-e5b5f6dceaa1",
+                            ConcurrencyStamp = "293e56d0-9ca7-49fb-8545-9698c7856195",
                             Name = "Add",
                             NormalizedName = "ADD"
                         },
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "3620bd79-71b7-4516-9d46-a21e27276afc",
+                            ConcurrencyStamp = "0958175f-b0b8-490d-848a-85853e3c042b",
                             Name = "Edit",
                             NormalizedName = "EDIT"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "72652e4d-7883-4f1a-8fab-cbbd3dea87e2",
+                            ConcurrencyStamp = "1ffd4054-15a1-453a-a322-a8db122f31ba",
                             Name = "Delete",
                             NormalizedName = "DELETE"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "d139c389-113c-4066-b95c-9bc81150d74e",
+                            ConcurrencyStamp = "0ebc169e-4233-49f5-933f-249fc1431db0",
                             Name = "FullWriter",
                             NormalizedName = "FULLWRITER"
                         },
                         new
                         {
                             Id = "7",
-                            ConcurrencyStamp = "6fbcec7b-814c-4f0b-97c1-1d3b5e6749bf",
+                            ConcurrencyStamp = "33f56ccf-9b28-46f5-86dc-72fee35f1431",
                             Name = "ArmyAdmin",
                             NormalizedName = "ARMYADMIN"
+                        },
+                        new
+                        {
+                            Id = "8",
+                            ConcurrencyStamp = "d3b7338b-ce43-46e8-b83c-80aa465fbeb6",
+                            Name = "ArmyAdminRegister",
+                            NormalizedName = "ARMYADMINREGISTER"
+                        },
+                        new
+                        {
+                            Id = "9",
+                            ConcurrencyStamp = "2a1f9d45-e56c-4862-8bc9-0874c701e878",
+                            Name = "ArmyAdminBotControl",
+                            NormalizedName = "ARMYADMINBOTCONTROL"
                         });
                 });
 
@@ -362,7 +376,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasIndex("Id_ArmySocialsName");
 
-                    b.ToTable("armyMembersAccounts");
+                    b.ToTable("ArmyMembersAccounts");
                 });
 
             modelBuilder.Entity("Model.ArmyMembersAccounts", b =>
@@ -423,6 +437,77 @@ namespace WebsitePresentation.Data.Migrations
                     b.ToTable("SectionPostVideos");
                 });
 
+            modelBuilder.Entity("Model.ArmyPostDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Block")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CommentNegetive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CommentPssitive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Like")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Report")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Save")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ShareAsPost")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ShareAsStory")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TagsName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Timable")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Twit")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ArmyPostDetails");
+                });
+
             modelBuilder.Entity("Model.ArmySocialsName", b =>
                 {
                     b.Property<int>("Id")
@@ -462,7 +547,7 @@ namespace WebsitePresentation.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("armySocialsNames");
+                    b.ToTable("ArmySocialsNames");
                 });
 
             modelBuilder.Entity("Model.SectionFirstStep", b =>
@@ -561,12 +646,12 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7821),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(467),
                             Description = "",
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7823),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(470),
                             Name = "ku-Arab",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7822),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(468),
                             TagsName = "Kurdish",
                             Timable = false,
                             Title = "کوردی"
@@ -575,12 +660,12 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7827),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(473),
                             Description = "",
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7829),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(476),
                             Name = "fa-IR",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7828),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(474),
                             TagsName = "Farsi",
                             Timable = false,
                             Title = "فارسی"
@@ -589,12 +674,12 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7832),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(482),
                             Description = "",
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7835),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(485),
                             Name = "en-US",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7834),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(484),
                             TagsName = "English",
                             Timable = false,
                             Title = "English"
@@ -845,10 +930,10 @@ namespace WebsitePresentation.Data.Migrations
                             Id = 1,
                             Active = true,
                             Address = "",
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7888),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(545),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7891),
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7889),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(548),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(546),
                             TagsName = "یوتیوب",
                             Timable = false,
                             Title = "Youtube"
@@ -858,10 +943,10 @@ namespace WebsitePresentation.Data.Migrations
                             Id = 2,
                             Active = true,
                             Address = "",
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7893),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(551),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7896),
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7895),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(554),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(553),
                             TagsName = "فەیسبوک",
                             Timable = false,
                             Title = "FaceBook"
@@ -871,10 +956,10 @@ namespace WebsitePresentation.Data.Migrations
                             Id = 3,
                             Active = true,
                             Address = "",
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7899),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(557),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7901),
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7900),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(559),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(558),
                             TagsName = "تێلێگرام",
                             Timable = false,
                             Title = "Telegram"
@@ -988,10 +1073,10 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7856),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(506),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7858),
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7857),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(509),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(508),
                             TagsName = "نوسراوە",
                             Timable = false,
                             Title = "Article"
@@ -1000,10 +1085,10 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7861),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(513),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7864),
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7862),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(516),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(514),
                             TagsName = "ویدیۆ",
                             Timable = false,
                             Title = "Video"
@@ -1012,10 +1097,10 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7866),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(518),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7869),
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7868),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(521),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(520),
                             TagsName = "فایل",
                             Timable = false,
                             Title = "File"
@@ -1159,10 +1244,10 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7714),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(349),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7719),
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7716),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(354),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(351),
                             TagsName = "وێب سایت",
                             Timable = false,
                             WebsiteTitle = "ناوی وێب سایت"
@@ -1264,11 +1349,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7915),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(578),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7918),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(581),
                             SectionName = "RightSection",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7917),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(580),
                             TagsName = "RightSection",
                             Timable = false
                         },
@@ -1276,11 +1361,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7962),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(584),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7964),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(587),
                             SectionName = "Header",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7963),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(585),
                             TagsName = "Header",
                             Timable = false
                         },
@@ -1288,11 +1373,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7968),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(590),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7970),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(592),
                             SectionName = "HeaderLeft",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7969),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(591),
                             TagsName = "HeaderLeft",
                             Timable = false
                         },
@@ -1300,11 +1385,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 4,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7973),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(595),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7976),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(598),
                             SectionName = "HeaderCenter",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7974),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(596),
                             TagsName = "HeaderCenter",
                             Timable = false
                         },
@@ -1312,11 +1397,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 5,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7979),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(601),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7981),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(603),
                             SectionName = "HeaderRight",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7980),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(602),
                             TagsName = "HeaderRight",
                             Timable = false
                         },
@@ -1324,11 +1409,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 6,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7984),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(606),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7986),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(609),
                             SectionName = "Search",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7985),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(607),
                             TagsName = "Search",
                             Timable = false
                         },
@@ -1336,11 +1421,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 7,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7989),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(612),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7991),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(614),
                             SectionName = "Marquee",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7990),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(613),
                             TagsName = "Marquee",
                             Timable = false
                         },
@@ -1348,11 +1433,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 8,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7994),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(617),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7997),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(620),
                             SectionName = "LeftSection",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7995),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(618),
                             TagsName = "LeftSection",
                             Timable = false
                         },
@@ -1360,11 +1445,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 9,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(7999),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(622),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8002),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(625),
                             SectionName = "Footer",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8001),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(624),
                             TagsName = "Footer",
                             Timable = false
                         },
@@ -1372,11 +1457,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 10,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8005),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(628),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8007),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(631),
                             SectionName = "News",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8006),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(629),
                             TagsName = "News",
                             Timable = false
                         },
@@ -1384,11 +1469,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 11,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8010),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(633),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8012),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(636),
                             SectionName = "SectionVideo",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8011),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(635),
                             TagsName = "SectionVideo",
                             Timable = false
                         },
@@ -1396,11 +1481,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 12,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8015),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(639),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8017),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(641),
                             SectionName = "SectionArticle",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8016),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(640),
                             TagsName = "SectionArticle",
                             Timable = false
                         },
@@ -1408,11 +1493,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 13,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8020),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(644),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8023),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(647),
                             SectionName = "MostViewd",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8021),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(646),
                             TagsName = "MostViewd",
                             Timable = false
                         },
@@ -1420,11 +1505,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 14,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8025),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(650),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8028),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(652),
                             SectionName = "ThirdStepCategories",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8027),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(651),
                             TagsName = "ThirdStepCategories",
                             Timable = false
                         },
@@ -1432,11 +1517,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 15,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8031),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(655),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8033),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(658),
                             SectionName = "ViewSubCategoryPosts",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8032),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(656),
                             TagsName = "ViewSubCategoryPosts",
                             Timable = false
                         },
@@ -1444,11 +1529,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 16,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8036),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(661),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8038),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(663),
                             SectionName = "ViewPost",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8037),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(662),
                             TagsName = "ViewPost",
                             Timable = false
                         },
@@ -1456,11 +1541,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 17,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8041),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(666),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8043),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(669),
                             SectionName = "RelatedPost",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8042),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(667),
                             TagsName = "RelatedPost",
                             Timable = false
                         },
@@ -1468,11 +1553,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 18,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8046),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(671),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8049),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(674),
                             SectionName = "ViewComment",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8047),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(673),
                             TagsName = "ViewComment",
                             Timable = false
                         },
@@ -1480,11 +1565,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 19,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8051),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(677),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8054),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(680),
                             SectionName = "InsertComment",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8052),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(678),
                             TagsName = "InsertComment",
                             Timable = false
                         },
@@ -1492,11 +1577,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 20,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8056),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(682),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8059),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(685),
                             SectionName = "SectionFile",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8058),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(684),
                             TagsName = "SectionFile",
                             Timable = false
                         },
@@ -1504,11 +1589,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 21,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8062),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(688),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8064),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(690),
                             SectionName = "ViewFile",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8063),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(689),
                             TagsName = "ViewFile",
                             Timable = false
                         },
@@ -1516,11 +1601,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 22,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8067),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(693),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8069),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(696),
                             SectionName = "LogIn",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8068),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(695),
                             TagsName = "LogIn",
                             Timable = false
                         },
@@ -1528,11 +1613,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 23,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8072),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(699),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8075),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(701),
                             SectionName = "Language",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8073),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(700),
                             TagsName = "Language",
                             Timable = false
                         },
@@ -1540,11 +1625,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 24,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8077),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(704),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8080),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(707),
                             SectionName = "FooterCategories",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8079),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(705),
                             TagsName = "FooterCategories",
                             Timable = false
                         },
@@ -1552,11 +1637,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 25,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8083),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(709),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8085),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(712),
                             SectionName = "NavBarSticky",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8084),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(711),
                             TagsName = "NavBarSticky",
                             Timable = false
                         },
@@ -1564,11 +1649,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 26,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8088),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(716),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8090),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(718),
                             SectionName = "SlideShow",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8089),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(717),
                             TagsName = "SlideShow",
                             Timable = false
                         },
@@ -1576,11 +1661,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 27,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8093),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(721),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8096),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(724),
                             SectionName = "AdminPanel",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8094),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(723),
                             TagsName = "AdminPanel",
                             Timable = false
                         },
@@ -1588,11 +1673,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 28,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8098),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(727),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8101),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(729),
                             SectionName = "AdminPanelArmy",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8100),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(728),
                             TagsName = "AdminPanelArmy",
                             Timable = false
                         },
@@ -1600,11 +1685,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 29,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8103),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(732),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8106),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(735),
                             SectionName = "MenuBar",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8105),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(733),
                             TagsName = "MenuBar",
                             Timable = false
                         },
@@ -1612,11 +1697,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 30,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8109),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(737),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8111),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(740),
                             SectionName = "HeaderTitle",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8110),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(739),
                             TagsName = "HeaderTitle",
                             Timable = false
                         },
@@ -1624,11 +1709,11 @@ namespace WebsitePresentation.Data.Migrations
                         {
                             Id = 31,
                             Active = true,
-                            CreateDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8114),
+                            CreateDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(743),
                             Email = "NejatRahmani68@gmail.com",
-                            EndDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8117),
+                            EndDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(745),
                             SectionName = "AboutUs",
-                            StartDate = new DateTime(2023, 7, 16, 20, 37, 13, 491, DateTimeKind.Local).AddTicks(8116),
+                            StartDate = new DateTime(2023, 7, 18, 17, 11, 5, 794, DateTimeKind.Local).AddTicks(744),
                             TagsName = "AboutUs",
                             Timable = false
                         });

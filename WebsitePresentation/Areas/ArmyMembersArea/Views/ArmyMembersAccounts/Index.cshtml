@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.Label("ئایدی")
+            </th>
+            <th>
                 @Html.Label("ئەندام")
             </th>
             <th>
@@ -35,10 +38,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ArmyMembers.Name)
+                    @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ArmySocialsName.Title)
+                    @Html.DisplayFor(modelItem => item.ArmyMembers!.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArmySocialsName!.Title)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SocialAddress)
