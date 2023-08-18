@@ -4,3 +4,4 @@
 # Microsoft.AspNetCore.Identity.EntityFrameworkCore for authentication.
 # Multi Language application controlled by Resources (English - Kurdish - Persian).
 # Commit List earased (Sensetive data commited) Gitflow Workflow used for control version.
+# *Application data is in master branch.
