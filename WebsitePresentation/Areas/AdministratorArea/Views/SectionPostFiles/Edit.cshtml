@@ -1,0 +1,116 @@
+﻿@model Model.SectionPostFile
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+}
+<h4>گۆڕین-فایل بۆ پۆست</h4>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="Id_SectionPostStep" class="control-label"></label>
+            <select asp-for="Id_SectionPostStep" class="form-control" asp-items="ViewBag.Id_SectionPostStep" disabled></select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Timable" /> @Html.DisplayNameFor(model => model.Timable)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="CreateDate" class="control-label"></label>
+                        <input asp-for="CreateDate" class="form-control" />
+                        <span asp-validation-for="CreateDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="TagsName" class="control-label"></label>
+                        <input asp-for="TagsName" class="form-control" />
+                        <span asp-validation-for="TagsName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="FileType" class="control-label"></label>
+                        <input asp-for="FileType" class="form-control" />
+                        <span asp-validation-for="FileType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="FileSize" class="control-label"></label>
+                        <input asp-for="FileSize" class="form-control" />
+                        <span asp-validation-for="FileSize" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="FileAddress" class="control-label"></label>
+                        <input asp-for="FileAddress" class="form-control" />
+                        <span asp-validation-for="FileAddress" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <select asp-for="Id_SectionPostStep" class="form-control" asp-items="ViewBag.Id_SectionPostStep" hidden></select>
+            <div class="form-group">
+                <input type="submit" value="دانان" class="btn btn-primary" />
+                <a class="btn btn-info" asp-action="Index" asp-route-idTemp="@Model!.Id_SectionPostStep">گەڕانەوە بۆ لیست</a>
+            </div>
+        </form>
+    </div>
+</div>
+

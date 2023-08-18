@@ -1,0 +1,537 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebsitePresentation
+build_property.RootNamespace = WebsitePresentation
+build_property.ProjectDir = D:\WebSite\WebsitePresentationApp\WebsitePresentation\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\WebSite\WebsitePresentationApp\WebsitePresentation
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/HomeAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcSG9tZUFkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/RoleManager/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcUm9sZU1hbmFnZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/RoleManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcUm9sZU1hbmFnZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionFirstSteps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvbkZpcnN0U3RlcHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionFirstSteps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvbkZpcnN0U3RlcHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionFirstSteps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvbkZpcnN0U3RlcHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionFirstSteps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvbkZpcnN0U3RlcHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionFirstSteps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvbkZpcnN0U3RlcHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostAnswerSteps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RBbnN3ZXJTdGVwc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostAnswerSteps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RBbnN3ZXJTdGVwc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostAnswerSteps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RBbnN3ZXJTdGVwc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostAnswerSteps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RBbnN3ZXJTdGVwc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostAnswerSteps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RBbnN3ZXJTdGVwc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostCommentSteps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RDb21tZW50U3RlcHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostCommentSteps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RDb21tZW50U3RlcHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostCommentSteps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RDb21tZW50U3RlcHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostCommentSteps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RDb21tZW50U3RlcHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostCommentSteps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RDb21tZW50U3RlcHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostFiles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RGaWxlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostImages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RJbWFnZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostImages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RJbWFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostImages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RJbWFnZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostImages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RJbWFnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostImages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RJbWFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostSteps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RTdGVwc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostSteps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RTdGVwc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostSteps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RTdGVwc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostSteps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RTdGVwc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostSteps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RTdGVwc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostSteps/IndexByPostType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RTdGVwc1xJbmRleEJ5UG9zdFR5cGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostTypes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RUeXBlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostTypes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RUeXBlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostTypes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RUeXBlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostTypes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RUeXBlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RUeXBlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostVideos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RWaWRlb3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostVideos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RWaWRlb3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostVideos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RWaWRlb3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostVideos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RWaWRlb3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionPostVideos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblBvc3RWaWRlb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionSecondSteps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblNlY29uZFN0ZXBzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionSecondSteps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblNlY29uZFN0ZXBzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionSecondSteps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblNlY29uZFN0ZXBzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionSecondSteps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblNlY29uZFN0ZXBzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionSecondSteps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblNlY29uZFN0ZXBzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionThirdSteps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblRoaXJkU3RlcHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionThirdSteps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblRoaXJkU3RlcHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionThirdSteps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblRoaXJkU3RlcHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionThirdSteps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblRoaXJkU3RlcHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/SectionThirdSteps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2VjdGlvblRoaXJkU3RlcHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/Shared/ErrorReportView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2hhcmVkXEVycm9yUmVwb3J0Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/UserRoles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcVXNlclJvbGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/UserRoles/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcVXNlclJvbGVzXE1hbmFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteActiveTimeControls/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFjdGl2ZVRpbWVDb250cm9sc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteActiveTimeControls/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFjdGl2ZVRpbWVDb250cm9sc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteActiveTimeControls/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFjdGl2ZVRpbWVDb250cm9sc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteActiveTimeControls/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFjdGl2ZVRpbWVDb250cm9sc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteActiveTimeControls/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFjdGl2ZVRpbWVDb250cm9sc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteAdminsControls/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFkbWluc0NvbnRyb2xzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteAdminsControls/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFkbWluc0NvbnRyb2xzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteAdminsControls/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFkbWluc0NvbnRyb2xzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteAdminsControls/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFkbWluc0NvbnRyb2xzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteAdminsControls/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZUFkbWluc0NvbnRyb2xzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteThemControls/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZVRoZW1Db250cm9sc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteThemControls/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZVRoZW1Db250cm9sc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteThemControls/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZVRoZW1Db250cm9sc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteThemControls/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZVRoZW1Db250cm9sc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/WebsiteThemControls/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcV2Vic2l0ZVRoZW1Db250cm9sc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Home/PostsCategoryView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQb3N0c0NhdGVnb3J5Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Home/PostsSearches.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQb3N0c1NlYXJjaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Home/PostView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQb3N0Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Home/SectionThirdStepView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWN0aW9uVGhpcmRTdGVwVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Home/ViewAllPostInfinitScroll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3QWxsUG9zdEluZmluaXRTY3JvbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Shared/ErrorReportView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yUmVwb3J0Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Areas/AdministratorArea/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvckFyZWFcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-02daph5l9g
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-7vjpqwdrsh
+
+[D:/WebSite/WebsitePresentationApp/WebsitePresentation/Views/Shared/_LayoutLogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dJbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-p2hnonmcse

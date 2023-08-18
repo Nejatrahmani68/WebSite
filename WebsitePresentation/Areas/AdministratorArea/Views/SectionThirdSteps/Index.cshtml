@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Model.SectionThirdStep>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+    int idTemp = @ViewBag.idTemp;
+}
+
+<h5>بابەتەکان بەشی سێ<a asp-action="Create" asp-route-idTemp="@idTemp" class="fa fa-plus"></a></h5>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.Label("ناوی سەردەستە")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.SectionSecondStep!.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"class="fa fa-edit"> </a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-book"> </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a> |
+                    <a asp-action="Index" asp-controller="SectionPostSteps" asp-route-idTemp="@item.Id"class="fa fa-folder-open"></a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

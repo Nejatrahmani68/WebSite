@@ -1,0 +1,286 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using Model.ViewModels
+@model ViewModelHomePage
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Post View";
+    int idPostForComment = 0;
+    var imgaddresspv = "";
+}
+@if (ViewBag.Error != null)
+{
+    <script>alert(@ViewBag.Error)</script>
+}
+
+
+@if (Model.checkThemDictionary!["ViewPost"] == true)
+{
+    <div class="leftmiddle">
+        @foreach (var item in Model.sectionPostSteps!)
+        {
+            idPostForComment = item.Id;
+            <div class="ViewPostMain" title="@item.TagsName">
+                <div class="viewlearnpic">
+                    @foreach (var imageitem in Model.sectionPostImages!.Where(m => m.Id_SectionPostStep == item.Id))
+                    {
+                        <div class="mySlidesPostView">
+                            @{
+                                imgaddresspv = @"/Images/ImageLarge/" + imageitem.PictureAddress;
+                                <img class="imglearn" src=@imgaddresspv alt="@imageitem.Title" title="@imageitem.TagsName" />
+                            }
+                        </div>
+                    }
+                    <div class="top-right">  @item.Title  </div>
+                    <div class="bottom-right">  @item.ShortDescription  </div>
+                    <div class="top-left"> <div class="divline"><i class="fa fa-clock-o"></i>   @item.CreateDate.ToString("HH:mm -MM/dd/yyyy")  <i class="fa fa-user"></i> @item.WriterName </div></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divline"> @Html.Raw(@item.FullDescription) </div>
+
+                    </div>
+                </div>
+                <div class="viewcontainerindextitleright">
+                    <div class="btn btn-info">@Localizer["tags"]  ▼ </div>
+                </div>
+                <div id="viewlearnhomeright">
+                    <div class="row">
+
+                        @{
+                            string[] tags = item.TagsName!.Split("#");
+                        }
+
+                        @foreach (string s in tags)
+                        {
+                            if (s.Length >= 2)
+                            {
+                                <div class="col-md-3">
+                                    <div class="divtags"> @s.ToString() </div>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        }
+        <div class="ViewPostMain">
+            @if (Model.checkThemDictionary != null)
+            {
+                @if (Model.checkThemDictionary["RelatedPost"] == true)
+                {
+                    <div class="newscontainer" style="margin-right:0px;">
+                        <div class="containerindex">
+                            <div class="viewcontainerindextitleright">
+
+                                <div class="btn btn-info"> @Localizer["relatedpost"]  ▼ </div>
+                            </div>
+                        </div>
+                        <div id="viewlearnhomeright">
+                            @foreach (var relatedpost in Model.sectionPostTopMostRelatedSteps!)
+                            {
+                                <div class="viewlearnhomerightiner" title="@relatedpost.TagsName">
+                                    <div class="viewlearn-lefthome">
+                                        <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@Html.ActionLink(@relatedpost.ShortDescription, "PostView", new { idPost = relatedpost.Id })   </div>
+                                        <div class="divline"><i class="fa fa-clock-o"></i>   @relatedpost.CreateDate.ToString("HH:mm -MM/dd/yyyy")  <i class="fa fa-user"></i> @relatedpost.WriterName </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                }
+            }
+        </div>
+        @if (Model.checkThemDictionary!["ViewComment"] == true)
+        {
+
+            <div id="viewanswer">
+                <div class="viewcontainerindextitleright">
+                    <div class="btn btn-info"><img src="~/Images/ImageThem/Icon/Comment.png">  &nbsp @Localizer["comments"]  ▼ </div>
+                </div>
+                <div id="viewlearnhomeright">
+                    @foreach (var comment in Model.sectionPostComments!)
+                    {
+                        <div class="divtitlecomment "><img src="~/Images/ImageThem/Icon/User.png">  &nbsp @Html.Raw(@comment.Name) : </div>
+                        <div class="divtextcomment" title="@comment.TagsName"> @Html.Raw(@comment.Comment)</div>
+                        @foreach (var answer in Model.sectionPostAnswers!.Where(m => m.Id_SectionPostCommentStep == comment.Id))
+                        {
+                            <div class="divanswercomment" title="@answer.TagsName">><span><img src="~/Images/ImageThem/Icon/User.png"> &nbsp @answer.Name &nbsp&nbsp&nbsp :  </span>@Html.Raw(answer.Answer)</div>
+                        }
+                    }
+                </div>
+            </div>
+        }
+        @if (Model.checkThemDictionary!["InsertComment"] == true)
+        {
+            @using (Html.BeginForm("PostInsertComment", "Home", FormMethod.Post, new { id = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="viewcomment">
+                    <div id="message"> </div>
+                    <div class="form-group">
+                        @Localizer["commentname"]
+                        <div class="col-md-12">
+                            @Html.TextBox("userName", "", new { @class = "form-control", required = "required", oninvalid = "this.setCustomValidity('تکایە فۆرمەکە پر کەوە')", oninput = "setCustomValidity('')" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Localizer["commentmail"]
+                        <div class="col-md-12">
+                            @Html.TextBox("mailAddress", "", new { @class = "form-control", type = "email", required = "required", oninvalid = "this.setCustomValidity('تکایە ئیمەێلەکە بە دروستی پر کەوە')", oninput = "setCustomValidity('')" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Localizer["commentmessage"]
+                        <div class="col-md-12">
+                            @Html.TextArea("commentText", "", new { @class = "form-control", required = "required", oninvalid = "this.setCustomValidity('تکایە فۆرمەکە پر کەوە')", oninput = "setCustomValidity('')" })
+                        </div>
+                    </div>
+                    @Html.Hidden("idPost", idPostForComment)
+                    <div class=" insertcomment">
+                        <input type="submit" value="@Localizer["commentsend"]" class="downloadbuttonhome" />
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+    <div class="leftleft">
+        @if (Model.sectionPostVideos!.Count() > 0)
+        {
+            @foreach (var video in Model.sectionPostVideos!)
+            {
+                <div class="sectionscontainer">
+                    <div class="containerindex">
+                        <div class="viewcontainerindextitleright">
+                            <div class="btn btn-info">@Localizer["videos"]  ▼ </div>
+                        </div>
+                    </div>
+                    <div id="viewlearnhomeright" style="height:auto;" title="@video.TagsName">
+
+                        @if (video.SectionPostSocialVideo!.Title == "YouTube")
+                        {
+                            <div class=" imagesection">
+                                <div class="videodisplay">
+                                    <iframe class="videodisplay" src="@video.VideoAddress" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        }
+
+                        @if (video.SectionPostSocialVideo!.Title == "FaceBook")
+                        {
+                            <div class=" imagesection" style="height:auto;">
+                                <div class="videodisplay">
+                                    <iframe class="videodisplay" src="@video.VideoAddress" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                                </div>
+                            </div>
+                        }
+                        @if (video.SectionPostSocialVideo!.Title == "Telegram")
+                        {
+                            <div class=" imagesection" style="height:auto;">
+                                <div class="videodisplay">
+                                    <script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-post="@video.VideoAddress" data-width="100%" data-height="100%"></script>
+                                </div>
+                            </div>
+                        }
+                        <div class="viewlearnhomerightiner">
+                            <div class="viewlearn-lefthome">
+                                <div class="divlinetitle"><i class="fa fa-circle" aria-hidden="true"></i>@video.Title   </div>
+                                <div class="divline"><i class="fa fa-clock-o"></i>  @video.CreateDate.ToString("HH:mm -MM/dd/yyyy")  </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        }
+        @if (Model.checkThemDictionary!["ViewFile"] == true)
+        {
+            @if (Model.sectionPostFiles!.Count() > 0)
+            {
+                @foreach (var file in Model.sectionPostFiles!)
+                {
+                    <div class="sectionscontainer">
+                        <div class="containerindex">
+                            <div class="viewcontainerindextitleright">
+                                <div class="btn btn-info">@Localizer["files"]  ▼ </div>
+                            </div>
+                        </div>
+                        <div id="viewlearnhomeright" style="height:auto;" title="@file.TagsName">
+                            <div class=" imagesection">
+                                <div class="videodisplay">
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>@Localizer["filename"]</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @file.Title
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>@Localizer["filesize"]</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @file.FileSize
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>@Localizer["filetype"]</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @file.FileType
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        @{
+                                            string[] tags = file.TagsName!.Split("#");
+                                        }
+
+                                        @foreach (string s in tags)
+                                        {
+                                            if (s.Length >= 2)
+                                            {
+                                                <div class="col-md-3">
+                                                    <div class="divtags"> @s.ToString() </div>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary" style="width:100%" asp-action="Download" asp-route-idFile="@file.Id">@Localizer["filedownload"]</a>
+
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+
+
+
+}
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/PostView.js"></script>
+    }
+

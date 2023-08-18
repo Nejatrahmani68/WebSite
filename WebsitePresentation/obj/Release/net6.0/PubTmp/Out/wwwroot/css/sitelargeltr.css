@@ -1,0 +1,1698 @@
+@media (max-width: 2048px) {
+    html {
+        font-size: 16px;
+        position: relative;
+        min-height: 100%;
+    }
+
+    body {
+        font-family: Bookman Old Style;
+        direction: ltr;
+        font-weight: bold;
+    }
+    .text a {
+        text-decoration: none;
+        color: #0dcaf0;
+    }
+        .text a:hover {
+            color: yellow;
+        }
+    .h4, h4 {
+        text-align: center;
+    }
+
+    a.article-link {
+        text-decoration: none;
+    }
+    #menuitems ul li {
+        font-size: 20px;
+        padding: 0px;
+    }
+        #menuitems ul li i {
+            font-size: 20px;
+            padding: 10px;
+            text-decoration: none;
+            font-family: Bookman Old Style;
+            color:white;
+            font-weight:bold;
+            font-style:normal;
+        }
+    #menuitems ul li :hover {
+        background-color: red;
+        color:black;
+        border-top-left-radius:5px;
+        border-top-right-radius:5px;
+
+    }
+    #categorynav {
+        background-color: rgb(1 0 102) !important;
+    }
+    #categorynav a {
+      color:white;
+    }
+    #menuitems ul li ul {
+        background-color: red;
+        text-align: center;
+        min-width: 400px;
+        min-height: 30px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        border-color: red;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+        #menuitems ul li ul li a {
+            text-decoration: none;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+        }
+
+        #menuitems ul li ul :hover {
+            background-color: navy;
+            color: white;
+        }
+  
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+
+    }
+    /* Set width on the form input elements since they're 100% wide by default */
+    .titletext {
+        font-family: Tahoma;
+        font-size: 25px;
+    }
+
+    .divtags {
+        padding: 5px;
+        border: solid 1px #0dcaf0;
+        border-radius: 15px;
+        text-align: center;
+        overflow: hidden;
+        background-color: lightblue;
+        max-height:36px;
+        margin:5px;
+    }
+
+    .btn btn-danger pull-right {
+    }
+
+    .marquee {
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        background-color: #0dcaf0;
+        font-size: large;
+        color: black;
+    }
+
+        .marquee a {
+            font-family: Tahoma;
+            color: black;
+            text-align: left;
+            text-decoration: none;
+        }
+
+            .marquee a:hover {
+                color: navy;
+            }
+
+        .marquee i {
+            font-size: 18px;
+        }
+    .marqueespinner {
+        width: 10%;
+        height: 100%;
+        float: left;
+        padding:9px;
+        text-align:center;
+    }
+
+    .marqueenews {
+        width: 90%;
+        float: right;
+        padding:9px;
+    }
+    /* hislide */
+    .bodyslidetitle {
+        color: yellow;
+        background-color: navy;
+    }
+
+        .bodyslidetitle h5 {
+            text-align: center;
+            color: yellow;
+            font-family: Tahoma;
+            padding: 0px;
+        }
+
+            .bodyslidetitle h5 a {
+                color: yellow;
+            }
+    /* hislide */
+    .container {
+        position: absolute;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 0px;
+    }
+
+        .container h1, h2, h3, h5, h4, h6 {
+            margin: 0 auto;
+            background: rgb(1 0 102);
+            color: yellow;
+            text-align: center;
+            border-bottom: solid 3px yellow;
+            height: 50px;
+            padding: 10px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+    .imgicon {
+        vertical-align: middle;
+        background-color: yellow;
+        border-radius: 5px;
+    }
+
+
+    .mainheader {
+        width: 100%;
+        height: 130px;
+        display: flex;
+        background-color: #010066;
+        direction: rtl;
+    }
+    .mainheaderlogo {
+        background-image: url(/Images/ImageThem/LeftLogo.png);
+        margin: 0px auto;
+        width: 400px;
+        height: 130px;
+    }
+
+    .partheaderleft {
+        background-image: url(/Images/ImageThem/LeftLogo.png);
+        width: 10%;
+        height: 100%;
+        margin: 0px auto;
+        float: left;
+        min-width: 130px;
+        max-width: 130px;
+    }
+
+    .partheadercenter {
+        width: 80%;
+        height: 100%;
+        margin: 50px auto;
+        color: yellow;
+        font-family: Bookman Old Style;
+        font-size: x-large;
+        text-align: center;
+        justify-content: center;
+        text-shadow: 5px 10px 10px red;
+    }
+
+    .partheaderright {
+        background-image: url(/Images/ImageThem/RightLogo.png);
+        width: 10%;
+        height: 100%;
+        margin: 0px auto;
+        float: right;
+        min-width: 130px;
+        max-width: 130px;
+    }
+    .websitetitle {
+        background-image: url(/Images/ImageThem/menu.jpg );
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .websitetitletext {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        color: yellow;
+        font-family: Rudaw;
+        font-size: x-large;
+        text-align: center;
+        justify-content: center;
+        text-shadow: 5px 10px 10px red;
+    }
+    #menu {
+        background-image: url(/Images/ImageThem/menu.jpg );
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    #menuright {
+        width: 0px;
+        height: 50px;
+        float: right;
+        text-align: right;
+    }
+
+    .btn {
+        padding: 4px 12px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+        .btn a {
+            color: black !important;
+        }
+
+    .btnmember {
+        font-family: Tahoma;
+        text-align: center;
+        float: right;
+        width: 140px;
+        height: 25px;
+        box-shadow: 1px 1px 5px 5px yellow;
+        color: yellow;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+        .btnmember a {
+            color: yellow;
+        }
+
+        .btnmember:hover {
+            box-shadow: 1px 1px 10px 10px yellow;
+        }
+
+    #menuleft {
+        width: 100%;
+        height: 50px;
+        float: left;
+        padding:5px;
+    }
+
+    #imgsearch {
+        width: 35px;
+        height: 35px;
+        margin-top: 1px;
+        margin-left: 15px;
+    }
+
+        #imgsearch:hover {
+            background-color: green;
+            border-radius: 30px;
+        }
+
+    #searchtxt {
+        border-radius: 5px;
+        text-align: center;
+        font-family: Tahoma;
+        width:70%;
+        font-size:1.25rem;
+    }
+
+    .imgsocial {
+        width: 40px;
+        height: 40px;
+        margin-top: 2px;
+        margin-right: 0px;
+    }
+
+        .imgsocial:hover {
+            background-color: chartreuse;
+            width: 45px;
+            height: 45px;
+            border-radius: 40px;
+        }
+
+
+
+    .downloadbutton {
+        text-align: center;
+        width: 160px;
+        padding: 5px 5px 5px 5px;
+        /*border-color: yellow;*/
+        /*border-style: solid;
+    border-width: 1px;*/
+        box-shadow: 1px 1px 2px 2px navy;
+        background-color: navy;
+        color: white;
+        border-radius: 10px;
+        float: left;
+    }
+
+    .downloadbutton-register {
+        box-shadow: yellow 1px 1px 10px 5px inset;
+        text-align: center;
+        width: 90px;
+        height: 90px;
+        padding-top: 0px;
+        border-color: yellow;
+        border-style: solid;
+        border-width: 1px;
+        background-color: navy;
+        color: yellow;
+        border-radius: 100px;
+        float: right;
+        font-family: Tahoma;
+        margin-top: 50px;
+        margin-left: 5px;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+
+        .downloadbutton-register:hover {
+            background-color: green;
+            color: yellow;
+        }
+
+    .downloadbutton-allsubjects {
+        box-shadow: yellow 1px 1px 10px 5px inset;
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        padding-top: 24px;
+        border-color: yellow;
+        border-style: solid;
+        border-width: 1px;
+        background-color: navy;
+        color: yellow;
+        border-radius: 100px;
+        float: right;
+        font-family: Bookman Old Style;
+        margin-top: 50px;
+        margin-left: 5px;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+
+        .downloadbutton-allsubjects:hover {
+            background-color: green;
+            color: yellow;
+        }
+
+    .downloadbutton-member {
+        box-shadow: yellow 1px 1px 10px 5px inset;
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        padding-top: 24px;
+        border-color: yellow;
+        border-style: solid;
+        border-width: 1px;
+        background-color: navy;
+        color: yellow;
+        border-radius: 100px;
+        float: right;
+        font-family: Tahoma;
+        margin-top: 50px;
+        margin-left: 5px;
+        position: fixed;
+        bottom: 70px;
+        left: 0px;
+        z-index: 1;
+    }
+
+        .downloadbutton-member a {
+            color: yellow;
+        }
+
+        .downloadbutton-member:hover {
+            background-color: green;
+            color: yellow;
+        }
+
+    #container {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        background-color: silver;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+        font-family: Tahoma;
+        direction: ltr;
+    }
+
+    #right {
+        width: 19%;
+        float: left;
+        margin-top: 5px;
+    }
+
+    .blockinformation {
+        border: solid 1px navy;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+
+    .member {
+        text-align: right;
+        color: yellow;
+    }
+
+    .right-bala {
+        margin: 0 auto;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        color: black;
+        font-size: medium;
+        border-radius: 10px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        background-color: #0dcaf0;
+    }
+
+    .right-vasat {
+        text-align: right;
+        width: 100%;
+    }
+
+        .right-vasat ul {
+            margin: 0px;
+            padding: 0px;
+            text-align: right;
+        }
+
+            .right-vasat ul li a {
+                color: #0d6efd;
+                text-decoration: none;
+            }
+
+            .right-vasat ul li:hover {
+                background-color: navy;
+                color: white;
+            }
+
+            .right-vasat ul li a:hover {
+                color: white;
+            }
+
+    .right-payin {
+        margin-right: 5px;
+        width: 150px;
+        height: 10px;
+    }
+
+
+
+
+
+
+    .blockinformationadmin {
+        box-shadow: navy 1px 1px 10px 10px inset;
+        border-radius: 10px;
+        width: 160px;
+        float: right;
+        margin-right: 5px;
+    }
+
+    .right-balaadmin {
+        margin: 5px 5px;
+        padding-top: 5px;
+        width: 150px;
+        height: 30px;
+        border-radius: 20px;
+        text-align: center;
+        color: yellow;
+        font-size: medium;
+        box-shadow: navy 1px 1px 10px 10px inset;
+    }
+
+    .right-vasatadmin {
+        margin-right: 5px;
+        text-align: right;
+        width: 150px;
+    }
+
+        .right-vasatadmin ul {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+            .right-vasatadmin ul li a {
+                color: black;
+            }
+
+                .right-vasatadmin ul li a:hover {
+                    color: crimson;
+                    font-size: 14px;
+                }
+
+    .right-payinadmin {
+        margin-right: 5px;
+        width: 150px;
+        height: 10px;
+    }
+
+    #left {
+        position:relative;
+        margin:0 auto;
+        float: right;
+        width: 100%;
+        margin:0 auto;
+        font-weight: normal;
+        padding:10px;
+    }
+
+    .containerindex {
+        float: right;
+        width: 100%;
+        height: 30px;
+        font-size: 20px;
+        color: yellow;
+        border-radius: 6px;
+        border-bottom-left-radius: 0px;
+        background-color: navy;
+    }
+
+    .newscontainer {
+        float: right;
+        width: 100%;
+        margin-right: 5px;
+        margin-top: 10px;
+    }
+
+    .leftmiddle {
+        float: left;
+        width: 65%;
+    }
+
+    .leftleft {
+        float: left;
+        width: 34%;
+        margin-left: 1%;
+    }
+
+    .sectionscontainer {
+        float: left;
+        width: 100%;
+        margin-right: 5px;
+        margin-top: 10px;
+    }
+
+    .divtitleindex {
+        box-shadow: navy 1px 1px 5px 5px inset;
+        border-radius: 5px;
+        color: yellow;
+        background-color: navy;
+    }
+
+    .left-bala {
+        margin-top: 25px;
+        background-color: navy;
+        width: 800px;
+        height: 30px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-top-color: darkblue;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+        text-align: center;
+        color: burlywood;
+    }
+
+    .left-bala-subcats {
+        margin: 10px auto 0;
+        background-color: navy;
+        width: 100%;
+        height: 30px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-top-color: darkblue;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+        text-align: center;
+        color: burlywood;
+    }
+
+    .left-vasat {
+        text-align: center;
+        width: 800px;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+    }
+
+    .left-vasat-subcats {
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        height: 100px;
+        overflow: auto;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+    }
+
+        .left-vasat-subcats p {
+            margin-bottom: 0px;
+        }
+
+    .left-button {
+        padding-left: 10px;
+        padding-top: 10px;
+        text-align: left;
+        width: 800px;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+    }
+
+    .left-payin {
+        width: 800px;
+        height: 20px;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-bottom-color: darkblue;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    .left-payin-subcats {
+        margin: 0 auto;
+        width: 100%;
+        height: 20px;
+        border-right-color: darkblue;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-left-color: darkblue;
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-bottom-color: darkblue;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    .viewlearn {
+        float: right;
+        width: 100%;
+        border-bottom-color: #31d2f2;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        color: black;
+        padding: 10px;
+    }
+
+    .viewelection {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    .viewsubcat {
+        float: left;
+        width: 24%;
+        color: black;
+        border-radius: 10px;
+        margin-right: 5px;
+    }
+
+    #viewlearnhomeright {
+        float: right;
+        width: 100%;
+        color: black;
+        border: 5px solid #0dcaf0;
+        min-height:300px;
+        padding:5px;
+    }
+
+    .viewlearnhomerightiner {
+        float: right;
+        width: 100%;
+        color: black;
+        border: solid 1px #0dcaf0;
+    }
+
+
+    .slideshowsection {
+        width: 80%;
+        height: 500px;
+        float: left;
+    }
+
+
+
+
+    #viewlearnhomerightnew {
+        float: right;
+        width: 360px;
+        height: 400px;
+        color: black;
+        padding: 5px;
+        font-size: larger;
+    }
+
+    .viewlearnhomerightinernew {
+        float: right;
+        width: 800px;
+        height: 360px;
+        color: navy;
+        padding: 5px;
+    }
+
+    .viewlearn-lefthomenew {
+        text-align: center;
+        font-size: 12px;
+        float: right;
+        width: 800px;
+        padding: 5px 0px 5px 5px;
+        border-radius: 20px;
+    }
+
+    .learnlefthomenew {
+        float: left;
+        width: 775px;
+        height: 280px;
+        margin-top: 5px;
+        margin-left: 5px;
+        box-shadow: 1px 1px 4px 4px navy;
+        border-radius: 10px;
+        background-image: url(img/bgindexmain.jpg);
+        text-align: center;
+    }
+
+        .learnlefthomenew:hover {
+            box-shadow: 1px 1px 6px 6px navy;
+        }
+
+    .divlinetitlenew {
+        margin-top: 4px;
+        text-align: center;
+        font-size: 15px;
+        padding: 5px;
+        background-color: chartreuse;
+        border-radius: 50%;
+        box-shadow: 0px 0px 20px 15px yellow;
+    }
+
+    .imglearnhomenew {
+        width: 500px;
+        height: 280px;
+        border-radius: 5px;
+        font-size: 10px;
+        word-wrap: break-word;
+    }
+
+    .viewcontainerindextitleright {
+        float: right;
+        width: 100%;
+        background-color: navy;
+        border-radius: 5px;
+    }
+
+        .viewcontainerindextitleright a {
+            color: burlywood;
+            text-decoration:none;
+        }
+
+    .viewcontainerindextitleleft {
+        float: left;
+        width: 100%;
+    }
+
+    #viewlearnhomeleft {
+        width: 100%;
+        height: 400px;
+        float: right;
+        color: black;
+        font-size: larger;
+        overflow: scroll;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+
+    .viewlearnhomeleftiner {
+        float: right;
+        width: 90%;
+        color: black;
+        margin-top: 30px;
+        padding: 5px;
+        border-bottom-color: darkblue;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+    }
+
+    .viewlearn-right {
+        float: right;
+        width: 100px;
+        padding: 5px 5px 5px 0px;
+    }
+
+    .viewlearn-left {
+        text-align: center;
+        float: right;
+        width: 100%;
+        padding: 5px 0px 5px 5px;
+        border-radius: 5px;
+    }
+
+    .viewlearn-lefthome {
+        text-align: center;
+        font-size: 12px;
+        float: right;
+        width: 100%;
+        padding: 5px;
+    }
+
+        .viewlearn-lefthome:hover {
+            background-color: darkblue;
+            color: yellow;
+        }
+
+            .viewlearn-lefthome:hover a {
+                color: yellow;
+            }
+
+            .viewlearn-lefthome:hover img {
+                background-color: white;
+                border-radius: 8px;
+            }
+
+    .viewlearnwrite-left {
+        text-align: center;
+        float: right;
+        width: 70%;
+        padding: 5px 0px 5px 5px;
+        border-radius: 20px;
+    }
+
+    .viewlearn-button {
+        float: right;
+        text-align: left;
+        width: 800px;
+        padding: 5px 0px 5px 20px;
+    }
+
+    .viewlearn-buttonhome {
+        float: right;
+        text-align: left;
+        width: 100%;
+        padding: 5px 0px 5px 10px;
+    }
+
+    .learnleftimgs {
+        float: right;
+        width: 152px;
+        height: 152px;
+        margin-top: 5px;
+        margin-right: 5px;
+        box-shadow: 1px 1px 4px 4px navy;
+        border-radius: 10px;
+    }
+
+        .learnleftimgs:hover {
+            box-shadow: 1px 1px 6px 6px navy;
+        }
+
+    .learnleft {
+        float: left;
+        width: 100%;
+        height: 100%;
+        margin-top: 5px;
+        margin-left: 5px;
+        border-radius: 10px;
+    }
+
+    .learnlefttext {
+        width: 40%;
+        height: 100%;
+    }
+
+
+    .learnlefthome {
+        float: left;
+        width: 72px;
+        height: 72px;
+        margin-top: 5px;
+        margin-left: 5px;
+        box-shadow: 1px 1px 4px 4px navy;
+        border-radius: 10px;
+    }
+
+        .learnlefthome:hover {
+            box-shadow: 1px 1px 6px 6px navy;
+        }
+
+
+
+    .learnwriteleft {
+        float: left;
+        width: 152px;
+        height: 152px;
+        margin-top: 5px;
+        margin-left: 5px;
+        box-shadow: 1px 1px 4px 4px navy;
+        border-radius: 10px;
+    }
+
+        .learnwriteleft:hover {
+            box-shadow: 1px 1px 6px 6px navy;
+        }
+
+    .imglearnwrite {
+        width: 150px;
+        height: 150px;
+        border-radius: 5px;
+    }
+
+    .imglearn {
+        width: 100%;
+        height: 550px;
+        min-height: 550px;
+        border-radius: 2px;
+    }
+
+        .imglearn:hover {
+            box-shadow: 1px 1px 6px 6px #0dcaf0;
+        }
+
+    .imglearncategory {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+    }
+
+    .ViewPostMain {
+        margin-top: 10px;
+        width: 100%;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        padding: 5px;
+        float: right;
+    }
+
+    .ViewPostMainCategory {
+        margin-top: 10px;
+        width: 33%;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        padding: 5px;
+        float: left;
+        height: 310px;
+        overflow: hidden;
+        margin-right: 1px;
+        margin-left: 1px;
+    }
+
+    .viewlearnpic {
+        position: relative;
+        text-align: center;
+        color: black;
+        height: 100%;
+        width: 100%;
+        min-height: 300px;
+    }
+
+
+    /* Bottom left text */
+    .bottom-left {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+    }
+
+    /* Top left text */
+    .top-left {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        font-size: 18px;
+        color: #0dcaf0;
+        background-color: rgb(8 0 0 / 80%);
+        width: 100%;
+        height: 30px;
+        text-align: left;
+    }
+
+       
+    /* Top right text */
+    .top-right {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: 18px;
+        background-color: rgb(8 0 0 / 80%);
+        color: #0dcaf0;
+        width: 100%;
+    }
+
+      
+    /* Top rightcategory text */
+    .top-rightcategory {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: 20px;
+        background-color: rgb(8 0 0 / 80%);
+        color: #0dcaf0;
+        width: 100%;
+    }
+
+      
+    /* Bottom right text */
+    .bottom-right {
+        position: absolute;
+        bottom: 30px;
+        right: 0px;
+        background-color: rgb(8 0 0 / 80%);
+        color: #0dcaf0;
+        width: 100%;
+        height: 90px;
+        overflow: hidden;
+    }
+
+        .bottom-right:hover {
+            color: yellow;
+        }
+    /* Bottom rightcategory text */
+    .bottom-rightcategory {
+        position: absolute;
+        bottom: 30px;
+        right: 0px;
+        background-color: rgb(8 0 0 / 80%);
+        color: #0dcaf0;
+        width: 100%;
+        height: 90px;
+        overflow: hidden;
+        font-size: 14px;
+    }
+
+        .bottom-rightcategory:hover a{
+            color: yellow;
+        }
+
+        .bottom-rightcategory a {
+            text-decoration: none;
+        }
+
+    /* Centered text */
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(8 0 0 / 71%);
+        color: #0dcaf0;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+        .centered:hover {
+            background-color: rgb(132, 71, 10, 0.50);
+        }
+
+        .centered a {
+            text-decoration: none;
+            color: yellow;
+        }
+
+    .imglearnhome {
+        width: 70px;
+        height: 70px;
+        border-radius: 5px;
+        font-size: 10px;
+        word-wrap: break-word;
+    }
+
+    .videodisplay {
+        width: 100%;
+        height: 100%;
+        min-height:300px;
+    }
+
+    .downloadbuttonreport {
+        text-align: center;
+        width: 160px;
+        padding: 5px 5px 5px 5px;
+        box-shadow: 1px 1px 2px 2px navy;
+        background-color: navy;
+        color: white;
+        border-radius: 10px;
+        float: left;
+    }
+
+        .downloadbuttonreport:hover {
+            background-color: green;
+            color: black;
+        }
+
+        .downloadbuttonreport a {
+            color: white;
+        }
+
+            .downloadbuttonreport a:hover {
+                color: black;
+            }
+
+    .downloadbuttonreport {
+        text-align: center;
+        width: 160px;
+        padding: 5px 5px 5px 5px;
+        box-shadow: 5px 5px 5px 10px yellow;
+        background-color: navy;
+        color: white;
+        border-radius: 10px;
+        float: right;
+        margin-right: 5px;
+    }
+
+        .downloadbuttonreport:hover {
+            background-color: green;
+            color: black;
+        }
+
+        .downloadbuttonreport a {
+            color: white;
+        }
+
+            .downloadbuttonreport a:hover {
+                color: black;
+            }
+
+    .downloadbutton-teacher {
+        text-align: center;
+        width: 100px;
+        padding: 5px 5px 5px 5px;
+        box-shadow: 1px 1px 2px 2px navy;
+        background-color: navy;
+        color: yellow;
+        border-radius: 10px;
+        float: left;
+    }
+
+        .downloadbutton-teacher:hover {
+            background-color: green;
+            color: black;
+        }
+
+        .downloadbutton-teacher a {
+            color: white;
+        }
+
+            .downloadbutton-teacher a:hover {
+                color: black;
+            }
+
+
+    .downloadbutton-subcats {
+        text-align: center;
+        width: 80px;
+        padding: 5px 5px 5px 5px;
+        box-shadow: 1px 1px 2px 2px navy;
+        background-color: navy;
+        color: yellow;
+        border-radius: 5px;
+        float: left;
+        margin-left: 10px;
+    }
+
+        .downloadbutton-subcats:hover {
+            background-color: #0dcaf0;
+            color: black;
+        }
+
+        .downloadbutton-subcats a {
+            color: white;
+            text-decoration: none;
+        }
+
+            .downloadbutton-subcats a:hover {
+                color: black;
+            }
+
+    .downloadbuttonhome {
+        text-align: center;
+        width: 70px;
+        padding: 5px 5px 5px 5px;
+        box-shadow: 1px 1px 2px 2px navy;
+        background-color: navy;
+        color: white;
+        border-radius: 5px;
+        float: left;
+    }
+
+        .downloadbuttonhome:hover {
+            background-color: green;
+            color: yellow;
+        }
+
+    .submitbutton {
+        text-align: center;
+        border-color: yellow;
+        border-style: solid;
+        border-width: 1px;
+        background-color: navy;
+        color: yellow;
+        border-radius: 10px;
+        float: right;
+        font-family: Tahoma;
+        font-size:1.25rem;
+        margin-left: 5px;
+    }
+
+        .submitbutton:hover {
+            background-color: green;
+            color: yellow;
+        }
+
+    .divline {
+        margin-top: 4px;
+        text-align: left;
+        font-size: 15px;
+        overflow: hidden;
+    }
+
+    .divlinesubcat {
+        text-align: left;
+        font-size: 15px;
+        overflow: hidden;
+        border-right: solid 1px navy;
+        border-left: solid 1px navy;
+        width: 100%;
+        padding: 5px;
+        background-color: #0dcaf0;
+    }
+
+    .imagesection {
+        width: 100%;
+        height: 400px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        overflow: hidden;
+    }
+
+    .divview {
+        margin-top: 4px;
+        text-align: left;
+        width: 100%;
+        height: 20px;
+        float: right;
+        padding-left: 10px;
+    }
+
+
+
+    .divtitle {
+        margin-top: 2px;
+        border-color: navy;
+        border-style: solid;
+        border-width: 1px;
+        background-color: navy;
+        color: yellow;
+        border-radius: 5px;
+    }
+
+    .divtitlecomment {
+        margin-top: 20px;
+        width: 100%;
+        text-align: left;
+        float: right;
+        background-color: #0dcaf0;
+        color: black;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        overflow-wrap: anywhere;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    .divtitleanswer {
+        width: 720px;
+        text-align: right;
+        float: left;
+        background-color: darkcyan;
+        color: yellow;
+        border-radius: 30px;
+        overflow-wrap: anywhere;
+    }
+
+    .divtextcomment {
+        float: left;
+        width: 100%;
+        text-align: left;
+        background-color: darkcyan;
+        color: white;
+        overflow-wrap: anywhere;
+        padding: 5px;
+    }
+
+    .divanswercomment {
+        float: left;
+        width: 100%;
+        text-align: left;
+        background-color: darkcyan;
+        color: white;
+        padding: 5px;
+        overflow-wrap: anywhere;
+    }
+
+        .divanswercomment span {
+            float: left;
+            color: black;
+        }
+
+    .viewchangepassword {
+        color: black;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .viewcomment {
+        padding: 10px;
+        float: left;
+        width: 100%;
+        border-color: #31d2f2;
+        border-style: solid;
+        border-width: 1px;
+        color: black;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .insertcomment {
+        width: 70px;
+        margin-right: 20px;
+    }
+
+    .viewnumber {
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        float: right;
+        width: 400px;
+        color: black;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .viewcontact {
+        padding-top: 20px;
+        padding-right: 20px;
+        float: right;
+        width: 800px;
+        border-top-color: darkblue;
+        border-top-style: solid;
+        border-top-width: 2px;
+        color: black;
+    }
+
+    #footer {
+        margin: 0px auto;
+        width: 100%;
+        height: 80px;
+        box-shadow: 1px 1px 10px 5px navy;
+        background-color: navy;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        text-align: center;
+        color: yellow;
+        font-family: IranNastaliq;
+        font-size: 25px;
+        float: left;
+    }
+
+        #footer ul {
+            margin-right: 40px;
+        }
+
+            #footer ul li {
+                display: inline-block;
+            }
+
+
+    .footercategories {
+        width: 100%;
+        margin: 50px auto;
+        float: left;
+        box-shadow: 0px -25px 30px 30px navy;
+        background: navy;
+        margin-top: 60px;
+    }
+
+    .footercategoriessection {
+        width: 32%;
+        margin-left:1%;
+        float: left;
+    }
+
+    .loginfram {
+        border-color: darkblue;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .teacherleft {
+        float: left;
+        width: 192px;
+        height: 202px;
+        margin-top: 5px;
+        margin-left: 5px;
+        border-color: navy;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px;
+    }
+
+        .teacherleft:hover {
+            box-shadow: 1px 1px 6px 6px navy;
+        }
+
+    .imgteacher {
+        width: 190px;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    #viewtopics {
+        float: right;
+        width: 100%;
+        color: black;
+        font-size: larger;
+        /*border: 2px solid navy;*/
+    }
+
+    #viewtopicsall {
+        margin-right: 10px;
+        width: 90%;
+        height: 200px;
+        overflow: scroll;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+
+    .viewtopiciner {
+        text-align: center;
+        font-size: 12px;
+        float: right;
+        width: 90%;
+        padding: 5px 0px 5px 5px;
+    }
+
+    .divlinetitle {
+        margin-top: 4px;
+        text-align: left;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        font-weight:bold;
+    }
+
+        .divlinetitle a {
+            text-decoration: none;
+        }
+
+        .divlinetitle:hover {
+            color: white;
+        }
+
+        .divlinetitle a:hover {
+            color: white;
+        }
+
+        .divlinetitle i {
+            font-size: 14px;
+        }
+
+    #viewanswer {
+        text-align: left;
+        width: 100%;
+        float: left;
+        border: solid 1px #0dcaf0;
+        border-radius: 5px;
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    .viewanswerstyle {
+        border-top-color: navy;
+        border-top-style: solid;
+        border-top-width: 3px;
+        background-color: aqua;
+        border-radius: 5px;
+        margin-top: 20px;
+        text-align: right;
+        width: 90%;
+        float: right;
+    }
+
+    .divlineanswer {
+        margin-top: 10px;
+        text-align: right;
+        font-size: small;
+    }
+
+    .divlineanswertext {
+        margin-top: 10px;
+        text-align: right;
+        font-size: small;
+    }
+
+    .viewanswerform {
+        padding-top: 20px;
+        padding-right: 20px;
+        float: right;
+        width: 800px;
+        border-top-color: darkblue;
+        border-top-style: solid;
+        border-top-width: 2px;
+        color: black;
+        margin-top: 20px;
+    }
+
+    .divtopictitle {
+        border-bottom-color: cornflowerblue;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        margin-top: 4px;
+        text-align: right;
+        font-size: small;
+    }
+
+    #viewchat {
+        width: 980px;
+        float: right;
+        height: 280px;
+        border: 2px solid navy;
+        margin-top: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        overflow-y: scroll;
+        overflow: scroll;
+        overflow-x: hidden;
+        text-align: right;
+    }
+
+    .viewchatinsert {
+        width: 100%;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .viewchatinsertmember {
+        width: 100%;
+        text-align: center;
+        float: right;
+    }
+
+    .viewchatbuttondiv {
+        width: 290px;
+        text-align: center;
+        float: left;
+    }
+
+    #appear_image_div {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 10;
+        opacity: 0.9;
+        background: #002447;
+    }
+
+    #appear_image {
+        display: block;
+        width: 800px;
+        height: 500px;
+        margin: 30px auto;
+        z-index: 11;
+        opacity: 1;
+        border-radius: 10px;
+    }
+
+        #appear_image:hover {
+            box-shadow: 1px 1px 20px 10px yellow;
+        }
+
+    #close_image {
+        position: fixed;
+        z-index: 12;
+        top: 70px;
+        right: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+        #close_image:hover {
+            box-shadow: 1px 1px 20px 10px yellow;
+        }
+
+    .error {
+        display: block;
+        color: yellow !important;
+    }
+
+    .registerdiv {
+        width: 330px;
+        padding: 10px;
+        float: right;
+    }
+}

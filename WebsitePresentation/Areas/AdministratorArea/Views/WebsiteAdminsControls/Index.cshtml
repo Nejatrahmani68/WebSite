@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Model.WebsiteAdminsControl>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+    var imgaddress = "";
+}
+
+<h5>کۆنتڕۆڵی کاتی کارابوونی ئەدمینەکان<a asp-action="Create" class="fa fa-plus"></a></h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.Label("وێنە")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TellphoneNmber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            imgaddress = @"/Images/ImageAdmin/" + item.PictureAddress;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <img src="@imgaddress" style="width:30px;height:30px;border-radius:5px;">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TellphoneNmber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"class="fa fa-edit"> </a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-book"> </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-trash"> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

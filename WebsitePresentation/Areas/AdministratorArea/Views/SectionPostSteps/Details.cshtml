@@ -1,0 +1,108 @@
+﻿@model Model.SectionPostStep
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+        <h4>دیتن-پۆست</h4>
+<div>
+
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SectionPostType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SectionPostType!.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SectionThirdStep)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SectionThirdStep!.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WriterName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WriterName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FullDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ViewsNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ViewsNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Timable)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Timable)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TagsName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TagsName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model?.Id">گۆڕین</a> |
+            <a class="btn btn-info" asp-action="Index" asp-route-idTemp="@Model?.Id_SectionThirdStep">گەڕانەوە بۆ لیست</a>
+        </div>
+    </div>
+</div>
+

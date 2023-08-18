@@ -1,0 +1,41 @@
+﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "Role Manager";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+}
+<h5>بەرێوبەری ڕۆڵ</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ئایدی</th>
+            <th>ڕۆڵ</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.Id</td>
+                <td>@role.Name</td>
+                <td>
+                    <a asp-action="Delete" asp-route-Name="@role.Name"> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="AddRole" asp-controller="RoleManager">
+            <div class="input-group">
+                <label class="control-label">ناو </label>
+                <input name="roleName" class="form-control w-25" required = "required" oninvalid = "this.setCustomValidity('تکایە فۆرمەکە پر کەوە')" oninput = "setCustomValidity('')" }>
+                <span class="input-group-btn">
+                    <button class="btn btn-info">زیادکردنی ڕۆڵی نوێ</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+

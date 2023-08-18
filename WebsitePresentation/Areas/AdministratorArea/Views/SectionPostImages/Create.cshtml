@@ -1,0 +1,86 @@
+﻿@model Model.SectionPostImage
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/AdministratorArea/Views/Shared/_Layout.cshtml";
+}
+
+        <h4>زیادکردن-وێنە بۆ پۆست</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Id_SectionPostStep" class="control-label"></label>
+                    <select asp-for="Id_SectionPostStep" class="form-control" asp-items="ViewBag.Id_SectionPostStep" disabled></select>
+                </div>
+            </div>
+        </div>
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data" asp-controller="SectionPostImages" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Timable" /> @Html.DisplayNameFor(model => model.Timable)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="TagsName" class="control-label"></label>
+                        <input asp-for="TagsName" class="form-control" />
+                        <span asp-validation-for="TagsName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">وێنەکان هەڵبژێرە</label>
+                        <input type="file" name="files" multiple />
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="idTemp" name="idTemp" value="@ViewBag.idTemp" />
+            <select asp-for="Id_SectionPostStep" class="form-control" asp-items="ViewBag.Id_SectionPostStep" hidden></select>
+
+            <div class="form-group">
+                <input type="submit" value="ناردن" class="btn btn-primary" />
+                <a class="btn btn-info" asp-action="Index" asp-controller="SectionPostImages" asp-route-idTemp="@ViewBag.idTemp">گەڕانەوە بۆ لیست</a>
+            </div>
+        </form>
+    </div>
+</div>
+
